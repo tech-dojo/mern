@@ -11,7 +11,7 @@ module.exports.list = function(req, res) {
 };
 
 module.exports.create = function(req, res) {
-  console.log(req.body);
+//  console.log(req.body);
   var article = new Article(req.body);
   article.user = req.user;
   article.save(function(err, data) {

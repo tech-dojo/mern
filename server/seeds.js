@@ -32,7 +32,7 @@ var initial = [{
 ]
 //console.log(initial);
 initial.forEach(function(article) {
-  console.log(article);
+//  console.log(article);
     var articles = new Article(article);
   //  console.log(articles);
     articles.save(function(err,data){

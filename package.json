@@ -54,6 +54,7 @@
     "react-router-bootstrap": "^0.19.3",
     "react-slick": "^0.9.3",
     "react-tools": "^0.13.3",
+    "reactcss": "^0.4.2",
     "vinyl-source-stream": "^1.1.0"
   }
 }

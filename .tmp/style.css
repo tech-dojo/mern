@@ -1,0 +1,59 @@
+html {
+    position: relative;
+    min-height: 100%;
+        background-color: rgba(240, 240, 240, 0.30);
+}
+
+/*Home*/
+.promo-carousel .carousel-control{
+	color:rgba(255, 255, 255, 0.42);
+}
+
+.promo img{
+	width:100%;
+}
+.promo-carousel{
+	margin-bottom: 20px;
+}
+/*bootstrap carousel override*/
+.promo-carousel .carousel-inner>.item>img{
+	width: 100%;
+	max-height: 425px;
+}
+
+/*Footer*/
+.footer {
+ 	  background-color: #322727;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 4000;
+    color: #9d9d9d;
+    padding:15px 2px;
+}
+.footer a{
+	color:#F1F1F1;
+}
+.list-social{
+	list-style: none outside none;
+    overflow: hidden;
+    margin: 0;
+    padding: 5px 0;
+}
+
+.list-social li{
+	display: inline;
+	padding:2px 7px;
+}
+.list-social .fa{
+	color:#F1F1F1;
+}
+.list-social .fa-inverse{
+	color: #424246;
+}
+.hidden{
+	display:none;
+}
+.shown{
+	display:block;
+}

@@ -14,9 +14,10 @@ module.exports = function (db){
 var app = new express();
 
 app.set('port', (process.env.PORT || 3000));
+
 app.use('/static', express.static(path.join(__dirname, '/../.tmp'), { maxAge: 86400000 }));
 
-
+require('./routes/routeHelper.js')(app);
 app.use(cors())
 .use(parser.urlencoded({ extended: true}))
 .use(parser.json());
@@ -43,6 +44,7 @@ require('./routes/article.server.routes.js')(app);
 require('./routes/users.server.routes.js')(app);
 //require('./routes/order.server.routes.js')(app);
 app.use(function(req, res, next) {
+	console.log(req.url);
     if(req.url.match(/.+\/static/)){
         var url = req.url.match(/\/static.*/);
         res.redirect(url[0]);
