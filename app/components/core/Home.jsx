@@ -21,7 +21,7 @@ class Home extends React.Component {
   render(){
 
     return (
-      <div>Hello Home</div>
+      <h1>Hello Home</h1>
 
       )
     }
