@@ -24,10 +24,10 @@ function fetchArticleList(){
         });
   }
     function fetchArticle(id){
-        get(`article/api/article/${id}`)
+        get(`api/article/${id}`)
         .then((data)=>{
-            article = data[0];
-               console.log('Fetch Article' + article);
+            article = data;
+               console.log('Fetch Article ' + article);
             triggerListeners();
         });
     };
@@ -67,13 +67,13 @@ function fetchArticleList(){
 
   function getArticle(){
     	    articleDeleted = 'false';
-          console.log (article);
+          console.log ('Hello Get Article Method'+article);
     		  return article;
 	};
 
-  // function articleDeletionStatus(){
-	// 	return articleDeleted;
-	// };
+  function articleDeletionStatus(){
+		return articleDeleted;
+	};
 
 	function onChange(listener){
 		changeListeners.push(listener);
@@ -93,8 +93,8 @@ function fetchArticleList(){
     getArticleList: getArticleList,
     getArticle: getArticle,
     deleteArticle: deleteArticle,
-    fetchArticleList: fetchArticleList
-    //articleDeletionStatus: articleDeletionStatus
+    fetchArticleList: fetchArticleList,
+    articleDeletionStatus: articleDeletionStatus
 	}
 }
 

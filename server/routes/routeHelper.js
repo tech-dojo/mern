@@ -23,10 +23,19 @@ module.exports = function(app){
             {
                 path: '/articles',
                 component: require('./../../app/components/articles/ListArticles')
-            }
-
-
-            ]
+            },
+            {
+                path: '/articles/:id',
+                component: require('./../../app/components/articles/ViewArticle')
+            },
+            {
+                 path: '/signin',
+                 component: require('./../../app/components/users/Signin')
+             },
+             {
+                 path: '/signout',
+                 component: require('./../../app/components/users/SignOut')
+             }]
     };
 
     app.use((req, res, next) =>{

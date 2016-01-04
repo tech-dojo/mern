@@ -5,7 +5,11 @@ import {Router, Route, IndexRoute} from 'react-router';
 import Template from './core/Template.jsx';
 import Home from './core/Home.jsx';
 import About from './core/About.jsx';
-import ListArticles from './articles/ListArticles.jsx'
+import ViewArticle from './articles/ViewArticle.jsx';
+import ListArticles from './articles/ListArticles.jsx';
+import Signin from './users/Signin.jsx';
+import SignOut from './users/SignOut.jsx'
+
 var history;
 if (typeof(window) !== 'undefined') {
   history = createBrowserHistory();
@@ -21,7 +25,9 @@ export default(props) => {
         <IndexRoute component={Home}/>
         <Route path="/about" component={About}/>
         <Route path="/articles" component={ListArticles}/>
-
+        <Route path="/articles/:id" component={ViewArticle}/>
+          <Route path="/signin" component={Signin}/>
+          <Route path="signout" component={SignOut}/>
       </Route>
     </Router>
 

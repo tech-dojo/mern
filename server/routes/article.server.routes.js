@@ -8,7 +8,7 @@ module.exports = function(app){
 	.get(articles.list)
 	.post(users.requiresLogin, articles.create);
 
-	app.route('/article/api/article/:id')
+	app.route('/articles/api/article/:id')
 	.get(articles.read)
 	.delete(users.requiresLogin, articles.delete)
 

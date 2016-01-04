@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router';
 import ArticleStore from './../../stores/ArticleStore.jsx';
@@ -13,10 +12,9 @@ class ArticleList extends React.Component {
   constructor(props, context){
     super(props, context);
     this.props = props;
-    this.history = props.history;
     ArticleStore.fetchArticleList();
     this.state = {};
-    this.state.articles = context.data;
+    this.state.articles = [];
     this._onChange = this._onChange.bind( this );
   }
 
@@ -32,19 +30,37 @@ class ArticleList extends React.Component {
   }
 
   render(){
-console.log(getArticleList());
+    var articles = this.state.articles;
+    console.log(getArticleList());
     return (
-    <div><h1>All Articles</h1></div>
+    <div>
+      <Grid>
+          <Row className="productList">
+            {articles.map((article) => {
+              return(
+                <Link
+                  key={article._id}
+                  to={`/articles/${article._id}`}>
+                  <Col md={3} lg={3} sm={4} xs={6} className="products">
+                    <Panel header={article.title}>
+                      {article.content}
+
+                    </Panel>
+                  </Col>
+                </Link>
+              )})}
+            </Row>
+          </Grid>
+    </div>
       )
     }
-
   }
-
-  ArticleList.contextTypes = {
-    data: React.PropTypes.oneOfType([
-      React.PropTypes.object,
-      React.PropTypes.array
-    ]).isRequired
-  };
+  //
+  // ArticleList.contextTypes = {
+  //   data: React.PropTypes.oneOfType([
+  //     React.PropTypes.object,
+  //     React.PropTypes.array
+  //   ]).isRequired
+  // };
 
   export default ArticleList;
