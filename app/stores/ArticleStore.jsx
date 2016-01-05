@@ -1,6 +1,8 @@
 "use strict";
 let dispatcher = require("./../dispatchers/dispatcher.js");
 let {get,post,del,put} = require("./RestAPI_Helper.js");
+import auth from './../services/Authentication';
+
 
 function ArticleStore(){
 
@@ -33,11 +35,18 @@ function fetchArticleList(){
     };
 
 	function addArticle(article, history){
+		console.log(article);
 		post("/api/articles",article)
 		.then((g)=>{
 			article._id = g._id;
 			console.log('Article Added' + article);
 			history.pushState(null,'/articles/'+ g._id);
+		})
+		.catch((err)=>{
+			if(err.status == 401){
+				authCheck(history);
+			}
+			//productList.splice(i,1);
 		})
 	}
 
@@ -83,6 +92,10 @@ function fetchArticleList(){
         var index = changeListeners.findIndex(i => i === listener);
 		changeListeners.splice(index, 1);
 	}
+	function authCheck(history){
+	auth.logout();
+	history.pushState(null, '/signin', {session:false});
+}
 
 	return {
 		onChange:onChange,

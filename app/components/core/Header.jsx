@@ -2,20 +2,35 @@ import React from 'react';
 import { Link } from 'react-router';
 import { Nav, Navbar, NavItem, NavDropdown,MenuItem } from 'react-bootstrap';
 import {LinkContainer, IndexLinkContainer} from 'react-router-bootstrap';
+import auth from './../../services/Authentication';
 
 class Header extends React.Component {
   constructor(props, context){
     super(props, context);
     this.state= {};
-    this.state.expand = false;
+this.state.loggedIn = auth.loggedIn();
+  //  this.state.expand = false;
+    //this.history = props.history;
     this.navClick = this.navClick.bind(this);
     this.collapse = this.collapse.bind(this);
+     this.updateAuth = this.updateAuth.bind(this);
   }
   navClick(){
     this.setState({expand:false});
   }
   collapse(expanded){
     this.setState({expand: expanded})
+  }
+
+  updateAuth(loggedIn) {
+    this.setState({loggedIn: loggedIn});
+    if(loggedIn){
+      console.log(this.props.history);
+      this.props.history.pushState(null,'/');
+  }
+}
+  componentWillMount() {
+    auth.onChange = this.updateAuth;
   }
 
   render(){
@@ -33,19 +48,30 @@ class Header extends React.Component {
             <IndexLinkContainer to="/">
               <NavItem eventKey={1}>Home</NavItem>
             </IndexLinkContainer>
-            <LinkContainer to="/articles">
-              <NavItem eventKey={2}>Articles</NavItem>
-            </LinkContainer>
-            <NavDropdown eventKey={4} title="Articles" id="nav-dropdown">
-              <LinkContainer to="/articles">
-                <MenuItem eventKey="4.1">Show all articles</MenuItem>
-              </LinkContainer>
 
-        <MenuItem eventKey="4.2">Another action</MenuItem>
-        <MenuItem eventKey="4.3">Something else here</MenuItem>
-        <MenuItem divider />
-        <MenuItem eventKey="4.4">Separated link</MenuItem>
+            <NavDropdown eventKey={2} title="Articles" id="nav-dropdown">
+                {this.state.loggedIn &&(
+                <LinkContainer to="/articles/create">
+                <MenuItem eventKey="2.1">Create Article</MenuItem>
+              </LinkContainer>
+            )}
+                <LinkContainer to="/articles">
+          <MenuItem eventKey="2.2">Show All Articles</MenuItem>
+      </LinkContainer>
       </NavDropdown>
+      {!this.state.loggedIn ? (
+              <LinkContainer to="/signin">
+                <MenuItem>
+                    Sign In
+                </MenuItem>
+              </LinkContainer>
+            ):(
+              <LinkContainer to="/signout">
+                <MenuItem>
+                  Sign Out
+                </MenuItem>
+              </LinkContainer>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

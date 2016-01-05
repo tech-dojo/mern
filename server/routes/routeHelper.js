@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RoutingContext } from 'react-router';
@@ -20,6 +19,10 @@ module.exports = function(app){
                 component: require('./../../app/components/core/About')
             },
 
+            {
+                path: '/articles/create',
+                component: require('./../../app/components/articles/CreateArticle')
+            },
             {
                 path: '/articles',
                 component: require('./../../app/components/articles/ListArticles')

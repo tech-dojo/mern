@@ -5,7 +5,7 @@ import Footer from './Footer.jsx';
 class Template extends React.Component {
     constructor(props, context){
         super(props, context);
-        this.history = context.history;
+      //  this.history = contex.history;
 
     }
     componentWillReceiveProps(nextProps){
@@ -24,14 +24,14 @@ class Template extends React.Component {
 
 		return (
             <div className="page-bottom mainBody">
-          <Header />
+          <Header history = {this.props.history}/>
           { this.props.children }
           <Footer />
 			 </div>
 		)
 	}
 }
-Template.contextTypes = {
-    history: React.PropTypes.object
-};
+// Template.contextTypes = {
+//     history: React.PropTypes.object
+// };
 export default Template;
