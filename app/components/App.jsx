@@ -8,6 +8,7 @@ import About from './core/About.jsx';
 import CreateArticle from './articles/CreateArticle.jsx';
 import ViewArticle from './articles/ViewArticle.jsx';
 import ListArticles from './articles/ListArticles.jsx';
+import EditArticle from './articles/EditArticle.jsx';
 import Signin from './users/Signin.jsx';
 import SignOut from './users/SignOut.jsx'
 
@@ -31,6 +32,7 @@ export default(props) => {
         <Route path="/articles/create" component={CreateArticle}/>
         <Route path="/articles" component={ListArticles}/>
         <Route path="/articles/:id" component={ViewArticle}/>
+        <Route path="/articles/edit/:id" component={EditArticle}/>
           <Route path="/signin" component={Signin}/>
           <Route path="signout" component={SignOut}/>
       </Route>

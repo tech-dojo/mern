@@ -31,7 +31,7 @@ module.exports.read = function(req, res) {
 
 exports.delete = function(req, res) {
 	var article = req.article;
-
+console.log(article);
 	article.remove(function(err) {
 		if (err) {
 			return res.status(400).send();

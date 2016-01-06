@@ -40,7 +40,7 @@ class ArticleList extends React.Component {
               return(
                 <Link
                   key={article._id}
-                  to={`/articles/${article._id}`}>
+                  to={`/articles/${article._id}`}ß>
                   <Col md={3} lg={3} sm={4} xs={6} className="products">
                     <Panel header={article.title}>
                       {article.content}

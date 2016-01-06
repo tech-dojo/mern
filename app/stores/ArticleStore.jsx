@@ -26,10 +26,12 @@ function fetchArticleList(){
         });
   }
     function fetchArticle(id){
-        get(`api/article/${id}`)
+			console.log('hello ' + id);
+        get(`api/articles/${id}`)
         .then((data)=>{
             article = data;
-               console.log('Fetch Article ' + article);
+						console.log("Inside fetch");
+              console.log(article);
             triggerListeners();
         });
     };
@@ -52,7 +54,7 @@ function fetchArticleList(){
 
 	function editArticle(article,id,history){
 
-   	put(`article/api/article/${id}`,article)
+   	put(`api/articles/${id}`,article)
 		.then((data)=>{
 		            article = data;
 		            triggerListeners();
@@ -62,11 +64,12 @@ function fetchArticleList(){
 
   function deleteArticle(id, history){
 
-		del(`article/api/article/${id}`)
+		del(`api/articles/${id}`)
 		.then((g)=>{
 			console.log(g);
 			articleDeleted = 'true';
 			triggerListeners();
+			history.pushState(null,'/articles');
 		})
   }
 
@@ -76,7 +79,8 @@ function fetchArticleList(){
 
   function getArticle(){
     	    articleDeleted = 'false';
-          console.log ('Hello Get Article Method'+article);
+					console.log("Hello Get Article Method");
+          console.log (article);
     		  return article;
 	};
 
