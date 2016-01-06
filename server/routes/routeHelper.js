@@ -32,6 +32,10 @@ module.exports = function(app){
                 component: require('./../../app/components/articles/ViewArticle')
             },
             {
+                 path: '/signup',
+                 component: require('./../../app/components/users/Signup')
+             },
+            {
                  path: '/signin',
                  component: require('./../../app/components/users/Signin')
              },

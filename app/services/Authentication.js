@@ -2,6 +2,18 @@ let $ = require('jquery');
 let {get, post, del, put} = require("./../stores/RestAPI_Helper.js");
 
 module.exports = {
+  //var userInfo = {};
+
+  signup(userInfo){
+    post('/auth/signup', userInfo)
+      .then((data) => {
+        console.log('Hello Execite Signin 2');
+      })
+      .catch((err) => {
+        console.log('Print Error: '+err);
+      });
+
+  },
   login(email, pass, cb) {
       console.log('Hello Execite Signin');
       cb = arguments[arguments.length - 1];
