@@ -9,6 +9,7 @@ function ArticleStore(){
 	let articleList = {},
 		changeListeners = [],
         article = {},
+				error = '',
         articleDeleted = 'false';
 
 	function triggerListeners(){
@@ -46,6 +47,7 @@ function fetchArticleList(){
 		})
 		.catch((err)=>{
 			if(err.status == 401){
+				error = err.message;
 				authCheck(history);
 			}
 			//productList.splice(i,1);
@@ -60,6 +62,13 @@ function fetchArticleList(){
 		            triggerListeners();
 								history.pushState(null,'/articles/'+data._id);
 		        })
+						.catch((err)=>{
+			if(err.status == 401){
+				error = err.message;
+				authCheck(history);
+			}
+			//productList.splice(i,1);
+		})
 	}
 
   function deleteArticle(id, history){
@@ -70,6 +79,12 @@ function fetchArticleList(){
 			articleDeleted = 'true';
 			triggerListeners();
 			history.pushState(null,'/articles');
+		})
+		.catch((err)=>{
+			if(err.status == 401){
+				error = err.message;
+				authCheck(history);
+			}
 		})
   }
 
@@ -101,10 +116,15 @@ function fetchArticleList(){
 	history.pushState(null, '/signin', {session:false});
 }
 
+function getError(){
+return error;
+};
+
 	return {
 		onChange:onChange,
     removeChangeListener: removeChangeListener,
     fetchArticle: fetchArticle,
+		getError: getError,
     addArticle: addArticle,
     editArticle: editArticle,
     getArticleList: getArticleList,
