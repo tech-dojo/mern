@@ -59,6 +59,7 @@ this.state.loggedIn = auth.loggedIn();
           <MenuItem eventKey="2.2">Show All Articles</MenuItem>
       </LinkContainer>
       </NavDropdown>
+
       {!this.state.loggedIn ? (
               <LinkContainer to="/signin">
                 <MenuItem>
@@ -72,6 +73,15 @@ this.state.loggedIn = auth.loggedIn();
                 </MenuItem>
               </LinkContainer>
             )}
+            {!this.state.loggedIn &&
+               <LinkContainer to="/signup">
+                 <MenuItem>
+                     Sign Up
+                 </MenuItem>
+               </LinkContainer>
+             }
+
+
           </Nav>
         </Navbar.Collapse>
       </Navbar>

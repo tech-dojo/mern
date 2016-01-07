@@ -8,12 +8,20 @@ module.exports = {
     post('/auth/signup', userInfo)
       .then((data) => {
         console.log('Hello Execite Signin 2');
+
+        this.login(data.email,userInfo.password,(loggedIn) => {  //userInfo.password because backend send ssh key
+  				if (!loggedIn)
+  				return this.setState({ error: "Login Failed" })
+
+  			});
+
       })
       .catch((err) => {
-        console.log('Print Error: '+err);
+        console.log(err.responseText.message);
+  				return this.setState({ error: err.responseText.message})
       });
-
   },
+
   login(email, pass, cb) {
       console.log('Hello Execite Signin');
       cb = arguments[arguments.length - 1];
