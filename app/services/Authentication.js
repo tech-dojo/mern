@@ -1,5 +1,6 @@
 let $ = require('jquery');
 let {get, post, del, put} = require("./../stores/RestAPI_Helper.js");
+let userID = '';
 
 module.exports = {
   //var userInfo = {};
@@ -18,7 +19,7 @@ module.exports = {
       })
       .catch((err) => {
         console.log(err.responseText.message);
-  				return this.setState({ error: err.responseText.message})
+  				//return this.setState({ error: err.responseText.message})
       });
   },
 
@@ -35,6 +36,8 @@ module.exports = {
         console.log('Hello Execite Signin 1');
       post('/auth/signin', {email: email, password: pass})
         .then((data) => {
+          console.log (data);
+          this.setUserID(data._id);
           console.log('Hello Execite Signin 2');
           localStorage.token = Math.random().toString(36).substring(7);
           if (cb) cb(true)
@@ -62,6 +65,16 @@ module.exports = {
         }).catch((err) => {
           console.log(err);
         });
+    },
+
+    setUserID(id){
+
+      userID = id;
+    },
+
+    getUserID(){
+console.log('running id');
+      return userID;
     },
 
     loggedIn() {

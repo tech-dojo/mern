@@ -10,7 +10,8 @@ import ViewArticle from './articles/ViewArticle.jsx';
 import ListArticles from './articles/ListArticles.jsx';
 import Signup from './users/Signup.jsx';
 import Signin from './users/Signin.jsx';
-import SignOut from './users/SignOut.jsx'
+import SignOut from './users/SignOut.jsx';
+import EditUserProfile from './users/EditUserProfile.jsx'
 
 var history;
 //let history = createBrowserHistory();
@@ -35,6 +36,8 @@ export default(props) => {
         <Route path="/signup" component={Signup}/>
           <Route path="/signin" component={Signin}/>
           <Route path="/signout" component={SignOut}/>
+          <Route path="/users/edit/:id" component={EditUserProfile}/>
+
       </Route>
     </Router>
 

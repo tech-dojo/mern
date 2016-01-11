@@ -13,7 +13,7 @@ function ArticleStore(){
 
 	function triggerListeners(){
 		changeListeners.forEach(function(listener){
-			listener(articleList);
+			listener();
 		})
 	};
 //console.log('Hello Article Store');

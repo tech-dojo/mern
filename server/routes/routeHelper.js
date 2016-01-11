@@ -42,6 +42,10 @@ module.exports = function(app){
              {
                  path: '/signout',
                  component: require('./../../app/components/users/SignOut')
+             },
+             {
+               path: '/users/edit/:id',
+              component: require('./../../app/components/users/EditUserProfile')
              }]
     };
 

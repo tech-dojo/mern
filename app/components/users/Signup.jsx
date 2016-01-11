@@ -53,7 +53,7 @@ class Signup extends React.Component {
 
   handleInputUserName(e){
     this.validUserName= e.target.value!=="" ? true : false;
-    this.state.userInfo.userName = e.target.value;
+    this.state.userInfo.username = e.target.value;
     this.setState({userInfo: this.state.userInfo});
     this.setState({error:''});
   }
@@ -73,13 +73,7 @@ class Signup extends React.Component {
 
   formSubmit(e) {
     e.preventDefault();
-    // var userInfo = {
-    //   firstName : this.state.firstName,
-    //   lastName : this.state.lastName,
-    //   userName : this.state.userName,
-    //   email : this.state.email,
-    //   password : this.state.password
-    // }
+
     if(!this.validFirstName){
           this.setState({error : 'Please Input the First Name'});
         }
@@ -96,15 +90,12 @@ class Signup extends React.Component {
                 this.setState({error : 'Password Should Be Longer than 6 Charecters'});
             }
     else{
+      console.log('asdsadsad');
+      console.log(this.state.userInfo);
       var newUser = this.state.userInfo;
-       //ProductStore.addProduct(newProduct, this.history);
       auth.signup(newUser);
     }
   }
-
-
-
-
 
   render() {
     return(
