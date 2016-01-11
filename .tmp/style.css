@@ -57,3 +57,8 @@ html {
 .shown{
 	display:block;
 }
+
+.editBtnCSS{
+margin-right: 5px;
+
+}

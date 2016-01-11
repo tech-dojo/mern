@@ -42,20 +42,24 @@ class ViewArticle extends React.Component {
           console.log ('Get Article ViewArticle' + getArticle());
 
   		return (
-        <div>
-
+        <Grid>
+          <Row>
+        <Col md={12} lg={12} sm={12} xs={12}>
+          <h1>{article.title}</h1>
+          <hr></hr>
+          </Col>
+          <Col md={8} lg={8} sm={8} xs={8}>
+          <h3>{article.content}</h3>
+        </Col>
+        <Col md={4} lg={4} sm={4} xs={4}>
           {this.state.loggedIn && <div className="pull-right">
-            <LinkContainer to={`/articles/edit/${article._id}`}><Button  bsStyle="primary">Edit</Button></LinkContainer>
+            <LinkContainer className="editBtnCSS" to={`/articles/edit/${article._id}`}><Button  bsStyle="primary">Edit</Button></LinkContainer>
             <Button onClick={this.deleteArticle} bsStyle="danger">Delete</Button>
           </div>
           }
-        <div>
-          <h1>{article.title}</h1>
-          <hr></hr>
-          <h3>{article.content}</h3>
-        </div>
-
-       </div>
+      </Col>
+         </Row>
+      </Grid>
       )
     }
 }

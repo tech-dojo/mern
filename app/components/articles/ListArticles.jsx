@@ -36,12 +36,14 @@ class ArticleList extends React.Component {
     <div>
       <Grid>
           <Row className="productList">
+            <h1>Articles</h1>
+            <hr></hr>
             {articles.map((article) => {
               return(
                 <Link
                   key={article._id}
-                  to={`/articles/${article._id}`}ß>
-                  <Col md={3} lg={3} sm={4} xs={6} className="products">
+                  to={`/articles/${article._id}`}>
+                  <Col md={12} lg={12} sm={12} xs={12} className="products">
                     <Panel header={article.title}>
                       {article.content}
 
