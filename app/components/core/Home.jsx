@@ -8,16 +8,7 @@ class Home extends React.Component {
   constructor(props, context){
     super(props, context);
     this.state = {};
-    this._onChange = this._onChange.bind( this );
   }
-  componentWillMount() {
-  console.log('Home Executed');
-  }
-  componentWillUnmount() {
-  }
-  _onChange() {
-  }
-
   render(){
 
     return (
@@ -25,7 +16,6 @@ class Home extends React.Component {
 
       )
     }
-
   }
   Home.contextTypes = {
     data: React.PropTypes.oneOfType([

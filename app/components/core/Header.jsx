@@ -3,17 +3,21 @@ import { Link } from 'react-router';
 import { Nav, Navbar, NavItem, NavDropdown,MenuItem } from 'react-bootstrap';
 import {LinkContainer, IndexLinkContainer} from 'react-router-bootstrap';
 import auth from './../../services/Authentication';
+import UserStore from './../../stores/UserStore.jsx';
 
 class Header extends React.Component {
   constructor(props, context){
     super(props, context);
     this.state= {};
-this.state.loggedIn = auth.loggedIn();
-  //  this.state.expand = false;
-    //this.history = props.history;
+    this.state.loggedIn = auth.loggedIn();
+    this.state.userID = '';
+    this.state.username = '';
+    this.state.userID = auth.getUserId();
+    this.state.username = auth.getUserName();
+
     this.navClick = this.navClick.bind(this);
     this.collapse = this.collapse.bind(this);
-     this.updateAuth = this.updateAuth.bind(this);
+    this.updateAuth = this.updateAuth.bind(this);
   }
   navClick(){
     this.setState({expand:false});
@@ -24,11 +28,13 @@ this.state.loggedIn = auth.loggedIn();
 
   updateAuth(loggedIn) {
     this.setState({loggedIn: loggedIn});
+    this.state.userID = auth.getUserId();
+    this.state.username = auth.getUserName();
     if(loggedIn){
       console.log(this.props.history);
       this.props.history.pushState(null,'/');
+    }
   }
-}
   componentWillMount() {
     auth.onChange = this.updateAuth;
   }
@@ -49,29 +55,56 @@ this.state.loggedIn = auth.loggedIn();
               <NavItem eventKey={1}>Home</NavItem>
             </IndexLinkContainer>
 
-            <NavDropdown eventKey={2} title="Articles" id="nav-dropdown">
-                {this.state.loggedIn &&(
+            <NavDropdown
+              eventKey={2}
+              title="Articles"
+              id="nav-dropdown">
+              {this.state.loggedIn &&(
                 <LinkContainer to="/articles/create">
-                <MenuItem eventKey="2.1">Create Article</MenuItem>
+                  <MenuItem eventKey="2.1">
+                    Create Article
+                  </MenuItem>
+                </LinkContainer>
+              )}
+              <LinkContainer to="/articles">
+                <MenuItem eventKey="2.2">
+                  Show All Articles
+                </MenuItem>
               </LinkContainer>
-            )}
-                <LinkContainer to="/articles">
-          <MenuItem eventKey="2.2">Show All Articles</MenuItem>
-      </LinkContainer>
-      </NavDropdown>
-      {!this.state.loggedIn ? (
+            </NavDropdown>
+
+            {!this.state.loggedIn ? (
               <LinkContainer to="/signin">
                 <MenuItem>
-                    Sign In
+                  Sign In
                 </MenuItem>
               </LinkContainer>
             ):(
-              <LinkContainer to="/signout">
+              <NavDropdown
+                eventKey={3}
+                title={this.state.username}
+                id="nav-dropdown">
+
+                <LinkContainer to={`/users/edit/${this.state.userID}`}>
+                  <MenuItem eventKey="3.1">
+                    Edit Profile
+                  </MenuItem>
+                </LinkContainer>
+
+                <LinkContainer to="/signout">
+                  <MenuItem eventKey="3.2">
+                    Sign Out
+                  </MenuItem>
+                </LinkContainer>
+              </NavDropdown>
+            )}
+            {!this.state.loggedIn &&
+              <LinkContainer to="/signup">
                 <MenuItem>
-                  Sign Out
+                  Sign Up
                 </MenuItem>
               </LinkContainer>
-            )}
+            }
           </Nav>
         </Navbar.Collapse>
       </Navbar>

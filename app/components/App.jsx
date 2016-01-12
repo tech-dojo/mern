@@ -9,16 +9,16 @@ import CreateArticle from './articles/CreateArticle.jsx';
 import ViewArticle from './articles/ViewArticle.jsx';
 import ListArticles from './articles/ListArticles.jsx';
 import EditArticle from './articles/EditArticle.jsx';
-import Signin from './users/Signin.jsx';
 import auth from './../services/Authentication';
+import Signup from './users/Signup.jsx';
+import Signin from './users/Signin.jsx';
 import SignOut from './users/SignOut.jsx';
+import EditUserProfile from './users/EditUserProfile.jsx'
 
 var history;
-//let history = createBrowserHistory();
-console.log(history);
 if (typeof(window) !== 'undefined') {
  history = createBrowserHistory();
-  console.log(history);
+
 } else {
   //history = createMemoryHistory(); //This kind of history is needed for server-side rendering.
 }
@@ -39,8 +39,10 @@ export default(props) => {
         <Route path="/articles" component={ListArticles}/>
         <Route path="/articles/:id" component={ViewArticle}/>
         <Route path="/articles/edit/:id" component={EditArticle} onEnter={requireAuth}/>
+        <Route path="/signup" component={Signup}/>
           <Route path="/signin" component={Signin}/>
           <Route path="/signout" component={SignOut}/>
+          <Route path="/users/edit/:id" component={EditUserProfile} onEnter={requireAuth}/>
       </Route>
     </Router>
 

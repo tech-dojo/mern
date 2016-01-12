@@ -5,12 +5,9 @@ import {LinkContainer} from 'react-router-bootstrap';
 import auth from './../../services/Authentication';
 import ArticleStore from './../../stores/ArticleStore.jsx';
 
-
 function getError() {
     return {error: ArticleStore.getError()}
 }
-
-
 
 class Signin extends React.Component {
 	constructor(props, context){
@@ -100,7 +97,6 @@ return re.test(email);
 			})
 	}
 }
-
 
 	render(){
 			return (

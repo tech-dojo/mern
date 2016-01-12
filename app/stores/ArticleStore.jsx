@@ -1,130 +1,109 @@
 "use strict";
 let dispatcher = require("./../dispatchers/dispatcher.js");
-let {get,post,del,put} = require("./RestAPI_Helper.js");
+let {get, post, del, put} = require("./RestAPI_Helper.js");
 import auth from './../services/Authentication';
 
+function ArticleStore() {
 
-function ArticleStore(){
+  let articleList = {},
+    changeListeners = [],
+    article = {},
+    error = '',
+    articleDeleted = 'false';
 
-	let articleList = {},
-		changeListeners = [],
-        article = {},
-				error = '',
-        articleDeleted = 'false';
-
-	function triggerListeners(){
-		changeListeners.forEach(function(listener){
-			listener(articleList);
-		})
-	};
-//console.log('Hello Article Store');
-function fetchArticleList(){
-  get("/api/articles")
-        .then((data)=>{
-            articleList = data;
-            //console.log(articleList);
-            triggerListeners();
-        });
+  function triggerListeners() {
+    changeListeners.forEach(function(listener) {
+      listener();
+    })
+  };
+  function fetchArticleList() {
+    get("/api/articles").then((data) => {
+      articleList = data;
+      triggerListeners();
+    });
   }
-    function fetchArticle(id){
-			console.log('hello ' + id);
-        get(`api/articles/${id}`)
-        .then((data)=>{
-            article = data;
-						console.log("Inside fetch");
-              console.log(article);
-            triggerListeners();
-        });
-    };
+  function fetchArticle(id) {
+    get(`api/articles/${id}`).then((data) => {
+      article = data;
+      triggerListeners();
+    });
+  };
 
-	function addArticle(article, history){
-		console.log(article);
-		post("/api/articles",article)
-		.then((g)=>{
-			article._id = g._id;
-			console.log('Article Added' + article);
-			history.pushState(null,'/articles/'+ g._id);
-		})
-		.catch((err)=>{
-			if(err.status == 401){
-				error = err.message;
-				authCheck(history);
-			}
-			//productList.splice(i,1);
-		})
-	}
-
-	function editArticle(article,id,history){
-
-   	put(`api/articles/${id}`,article)
-		.then((data)=>{
-		            article = data;
-		            triggerListeners();
-								history.pushState(null,'/articles/'+data._id);
-		        })
-						.catch((err)=>{
-			if(err.status == 401){
-				error = err.message;
-				authCheck(history);
-			}
-			//productList.splice(i,1);
-		})
-	}
-
-  function deleteArticle(id, history){
-
-		del(`api/articles/${id}`)
-		.then((g)=>{
-			console.log(g);
-			articleDeleted = 'true';
-			triggerListeners();
-			history.pushState(null,'/articles');
-		})
-		.catch((err)=>{
-			if(err.status == 401){
-				error = err.message;
-				authCheck(history);
-			}
-		})
+  function addArticle(article, history) {
+    post("/api/articles", article).then((g) => {
+      article._id = g._id;
+      history.pushState(null, '/articles/' + g._id);
+    }).catch((err) => {
+      if (err.status == 401) {
+        error = err.message;
+        authCheck(history);
+      }
+    })
   }
 
-	function getArticleList(){
-		return articleList;
-	};
+  function editArticle(article, id, history) {
 
-  function getArticle(){
-    	    articleDeleted = 'false';
-					console.log("Hello Get Article Method");
-          console.log (article);
-    		  return article;
-	};
+    put(`api/articles/${id}`, article).then((data) => {
+      article = data;
+      triggerListeners();
+      history.pushState(null, '/articles/' + data._id);
+    }).catch((err) => {
+      if (err.status == 401) {
+        error = err.message;
+        authCheck(history);
+      }
+    })
+  }
 
-  function articleDeletionStatus(){
-		return articleDeleted;
-	};
+  function deleteArticle(id, history) {
 
-	function onChange(listener){
-		changeListeners.push(listener);
-	}
+    del(`api/articles/${id}`).then((g) => {
+      articleDeleted = 'true';
+      triggerListeners();
+      history.pushState(null, '/articles');
+    }).catch((err) => {
+      if (err.status == 401) {
+        error = err.message;
+        authCheck(history);
+      }
+    })
+  }
 
-  function removeChangeListener(listener){
-        var index = changeListeners.findIndex(i => i === listener);
-		changeListeners.splice(index, 1);
-	}
-	function authCheck(history){
-	auth.logout();
-	history.pushState(null, '/signin', {session:false});
-}
+  function getArticleList() {
+    return articleList;
+  };
 
-function getError(){
-return error;
-};
+  function getArticle() {
+    articleDeleted = 'false';
+    return article;
+  };
 
-	return {
-		onChange:onChange,
+  function articleDeletionStatus() {
+    return articleDeleted;
+  };
+
+  function onChange(listener) {
+    changeListeners.push(listener);
+  }
+
+  function removeChangeListener(listener) {
+    var index = changeListeners.findIndex(i => i === listener);
+    changeListeners.splice(index, 1);
+  }
+  function authCheck(history) {
+    auth.logout();
+    history.pushState(null, '/signin', {session: false});
+  }
+
+  function getError() {
+    return error;
+  };
+
+  return {
+    onChange: onChange,
     removeChangeListener: removeChangeListener,
     fetchArticle: fetchArticle,
-		getError: getError,
+    getError: getError,
     addArticle: addArticle,
     editArticle: editArticle,
     getArticleList: getArticleList,
@@ -132,7 +111,7 @@ return error;
     deleteArticle: deleteArticle,
     fetchArticleList: fetchArticleList,
     articleDeletionStatus: articleDeletionStatus
-	}
+  }
 }
 
 module.exports = new ArticleStore();

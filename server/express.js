@@ -44,7 +44,6 @@ require('./routes/article.server.routes.js')(app);
 require('./routes/users.server.routes.js')(app);
 //require('./routes/order.server.routes.js')(app);
 app.use(function(req, res, next) {
-	console.log(req.url);
     if(req.url.match(/.+\/static/)){
         var url = req.url.match(/\/static.*/);
         res.redirect(url[0]);

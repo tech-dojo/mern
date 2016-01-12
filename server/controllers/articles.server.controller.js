@@ -11,9 +11,7 @@ module.exports.list = function(req, res) {
 };
 
 module.exports.create = function(req, res) {
-  console.log(req.body);
   var article = new Article(req.body);
-  console.log(article);
   article.user = req.user;
   article.save(function(err, data) {
     if (err) {
@@ -31,7 +29,6 @@ module.exports.read = function(req, res) {
 
 exports.delete = function(req, res) {
 	var article = req.article;
-console.log(article);
 	article.remove(function(err) {
 		if (err) {
 			return res.status(400).send();
@@ -57,7 +54,6 @@ module.exports.update = function(req, res) {
 };
 
 exports.articleByID = function(req, res, next, id) {
-  console.log (id);
 	Article.findById(id).populate('user', 'email').exec(function(err, article) {
 		if (err) return next(err);
 		if (!article) return next(new Error('Failed to load article ' + id));
