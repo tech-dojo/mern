@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import {Grid, Row, Col, Panel, Pagination,Button, Well, Label, Input, ButtonInput} from 'react-bootstrap';
+import {Grid, Row, Col, Panel, Pagination,Button, Well, Label, Input, ButtonInput, MenuItem} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 import auth from './../../services/Authentication';
 import ArticleStore from './../../stores/ArticleStore.jsx';
@@ -100,10 +100,14 @@ return re.test(email);
 
 	render(){
 			return (
+        <Grid>
+          <Row >
 
-					<div>
-						<h4>Sign In</h4>
-							<form>
+						<h2>Sign In</h2>
+            <hr/><Col md={3}/>
+            <Col md={6}>
+            <Well>
+							<form className = "commonWidth">
 								<Input
 									placeholder="Enter Email"
 									onKeyDown={this.handleKeyDown}
@@ -122,12 +126,18 @@ return re.test(email);
 									type="password"
 									/>
 								<br/>
-
-								<Button  bsStyle="success"  onClick={this._formSubmit}>Submit</Button>
+                <div className="commonCenter">
+								<Button bsStyle="success"  onClick={this._formSubmit}>Sign in</Button>
+                  &nbsp; or&nbsp;
+                  <LinkContainer to="/signup"><a>Sign up</a></LinkContainer>
 								<p>{this.state.error}</p>
+                </div>
 							</form>
+            </Well>
+            </Col>
+          </Row>
+        </Grid>
 
-					</div>
 			)
 	}
 }

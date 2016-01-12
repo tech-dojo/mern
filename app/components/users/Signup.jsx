@@ -97,10 +97,14 @@ class Signup extends React.Component {
 
   render() {
     return(
-      <div>
-        <h3>
-          Sign Up Using Email
-        </h3>
+      <Grid>
+        <Row>
+          <h2>
+            Sign up Using Email
+          </h2>
+          <hr/>
+          <Col md={12}>
+
 
         <form onSubmit={this.formSubmit}>
           <Input
@@ -133,13 +137,15 @@ class Signup extends React.Component {
             label="Password"
             type="password" />
           <br/>
-          <button>
+          <Button bsStyle="primary">
             Sign up
-          </button> &nbsp; or&nbsp;
-          <LinkContainer to="/signin"><MenuItem>Sign In</MenuItem></LinkContainer>
+          </Button> &nbsp; or&nbsp;
+          <LinkContainer to="/signin"><a>Sign In</a></LinkContainer>
           <p>{this.state.error}</p>
         </form>
-      </div>
+      </Col>
+    </Row>
+  </Grid>
     )
   }
 }

@@ -62,3 +62,11 @@ html {
 margin-right: 5px;
 
 }
+
+.commonCenter {
+  text-align: center;
+}
+.commonWidth{
+  max-width: 75%;
+  margin-left: 4.5em;
+}

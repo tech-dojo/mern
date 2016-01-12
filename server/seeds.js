@@ -6,9 +6,9 @@ mongoose.connection.db.dropDatabase();
 var user = {
     email: 'abc@def.com',
     password: '12345678',
-    firstName: 'hello',
-    lastName: 'boy',
-    username: 'girl',
+    firstName: 'TD',
+    lastName: 'BD',
+    username: 'TD-BD',
     provider: 'local'
 };
 user = new User(user);

@@ -12,8 +12,18 @@ class Home extends React.Component {
   render(){
 
     return (
-      <h1>Hello Home</h1>
-
+      <Grid>
+        <Row>
+          <h1>
+            Welcome to React Framework
+          </h1>
+          <hr/>
+          <Col md={3}></Col>
+          <Col md={6}>
+        <img className="commonCenter" src="static/images/logo1.png"/>
+        </Col>
+      </Row>
+    </Grid>
       )
     }
   }
