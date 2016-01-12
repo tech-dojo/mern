@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import {Grid, Row, Col, Panel, Pagination,Button, Well, Label, Input, ButtonInput} from 'react-bootstrap';
+import {Grid, Row, Col, Panel, Pagination,Button, Well, Label, Input, ButtonInput, MenuItem} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 import auth from './../../services/Authentication';
 
@@ -135,12 +135,11 @@ class Signup extends React.Component {
             label="Password"
             type="password" />
           <br/>
-
           <button>
             Sign up
           </button> &nbsp; or&nbsp;
-
-<p>{this.state.error}</p>
+          <LinkContainer to="/signin"><MenuItem>Sign In</MenuItem></LinkContainer>
+          <p>{this.state.error}</p>
         </form>
       </div>
     )

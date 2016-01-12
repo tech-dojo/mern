@@ -11,11 +11,12 @@ class Header extends React.Component {
     this.state= {};
 this.state.loggedIn = auth.loggedIn();
 this.state.userID = '';
-this.state= getUserID();
+this.state.username = '';
+this.state.userID = auth.getUserId();
+this.state.username = auth.getUserName();
+
   //  this.state.expand = false;
     //this.history = props.history;
-
-    console.log(this.state.userID);
     this.navClick = this.navClick.bind(this);
     this.collapse = this.collapse.bind(this);
      this.updateAuth = this.updateAuth.bind(this);
@@ -29,6 +30,8 @@ this.state= getUserID();
 
   updateAuth(loggedIn) {
     this.setState({loggedIn: loggedIn});
+    this.state.userID = auth.getUserId();
+    this.state.username = auth.getUserName();
     if(loggedIn){
       console.log(this.props.history);
       this.props.history.pushState(null,'/');
@@ -72,9 +75,9 @@ this.state= getUserID();
                 </MenuItem>
               </LinkContainer>
             ):(
-              <NavDropdown eventKey={3} title="Display User" id="nav-dropdown">
+              <NavDropdown eventKey={3} title={this.state.username} id="nav-dropdown">
 
-                  <LinkContainer to="/articles/create">
+                  <LinkContainer to={`/users/edit/${this.state.userID}`}>
                   <MenuItem eventKey="3.1">Edit Profile</MenuItem>
                 </LinkContainer>
 

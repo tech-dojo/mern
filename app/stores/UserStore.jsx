@@ -22,9 +22,11 @@ function fetchUser(id){
 }
 
 function editUser(user,id){
-
+console.log("outside data ");
+console.log(user);
   put(`/users/${id}`,user)
   .then((data)=>{
+    console.log("inside edit");
     console.log (data);
               user = data;
               profileUpdateMsg = 'Profile Updated Successfully';

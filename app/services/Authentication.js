@@ -1,6 +1,5 @@
 let $ = require('jquery');
 let {get, post, del, put} = require("./../stores/RestAPI_Helper.js");
-let userID = '';
 
 module.exports = {
   //var userInfo = {};
@@ -37,8 +36,9 @@ module.exports = {
       post('/auth/signin', {email: email, password: pass})
         .then((data) => {
           console.log (data);
-          this.setUserID(data._id);
           console.log('Hello Execite Signin 2');
+          localStorage.userId = data._id;
+          localStorage.username = data.username;
           localStorage.token = Math.random().toString(36).substring(7);
           if (cb) cb(true)
           console.log('Hello Execite Signin 3');
@@ -55,26 +55,27 @@ module.exports = {
       return (typeof window !== "undefined") ? localStorage.token : undefined;
     },
 
+    getUserId(){
+
+      return (typeof window !== "undefined") ? localStorage.userId : undefined;
+    },
+
+    getUserName(){
+      return (typeof window !== "undefined") ? localStorage.username : undefined;
+    },
+
     logout(cb) {
       get('/auth/signout')
         .then((g) => {
           console.log("Local Storage Delete");
           delete localStorage.token
+          delete localStorage.userId
+          delete localStorage.username
           if (cb) cb()
           this.onChange(false)
         }).catch((err) => {
           console.log(err);
         });
-    },
-
-    setUserID(id){
-
-      userID = id;
-    },
-
-    getUserID(){
-console.log('running id');
-      return userID;
     },
 
     loggedIn() {
