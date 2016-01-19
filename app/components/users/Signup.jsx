@@ -137,7 +137,7 @@ class Signup extends React.Component {
             label="Password"
             type="password" />
           <br/>
-          <Button bsStyle="primary">
+          <Button type="submit" bsStyle="primary">
             Sign up
           </Button> &nbsp; or&nbsp;
           <LinkContainer to="/signin"><a>Sign In</a></LinkContainer>
