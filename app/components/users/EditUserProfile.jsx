@@ -71,7 +71,6 @@ class EditUserProfile extends React.Component {
 
   formSubmit(e) {
     e.preventDefault();
-console.log("edit enter");
     if(!this.validFirstName){
           this.setState({error : 'Please Input the First Name'});
         }
