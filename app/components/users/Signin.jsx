@@ -76,7 +76,7 @@ return re.test(email);
 		e.preventDefault();
 
 		if(!this.validPasswordInput){
-			this.setState({error : 'please make sure password is more than 6 letters'});
+			this.setState({error : 'Please Make Sure Password is More than Six Letters'});
 	}
 		else if(!this.validEmailStatus){
 			 if(this.state.email){
@@ -85,14 +85,14 @@ return re.test(email);
 				 }
 				 else{
 
-						 this.setState({error : 'please input the required fields'});
+						 this.setState({error : 'Please Input the Required Fields'});
 				 }
 	}
 		else{
 			this.setState({error : 'Signing in ...'});
 			auth.login(this.state.email, this.state.password, this.history, (loggedIn) => {
 				if (!loggedIn)
-				return this.setState({ error: "Login Failed" })
+				return this.setState({ error: 'Login Failed'})
 
 			})
 	}
@@ -130,14 +130,14 @@ return re.test(email);
 								<Button bsStyle="success"  onClick={this._formSubmit}>Sign in</Button>
                   &nbsp; or&nbsp;
                   <LinkContainer to="/signup"><a>Sign up</a></LinkContainer>
-								<p>{this.state.error}</p>
+
+								<p className = "validationMsg">{this.state.error}</p>
                 </div>
 							</form>
             </Well>
             </Col>
           </Row>
         </Grid>
-
 			)
 	}
 }

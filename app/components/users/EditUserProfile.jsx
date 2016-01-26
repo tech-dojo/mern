@@ -71,7 +71,7 @@ class EditUserProfile extends React.Component {
 
   formSubmit(e) {
     e.preventDefault();
-
+console.log("edit enter");
     if(!this.validFirstName){
           this.setState({error : 'Please Input the First Name'});
         }
@@ -143,11 +143,11 @@ class EditUserProfile extends React.Component {
             onChange={this.handleInputEditUserName}
             label="User Name"
             type ="text"/>
-          <Button bsStyle="primary">
+          <Button bsStyle="primary" type="submit">
               Save Profile
             </Button>
-            <p>{this.state.error}</p>
-            <p>{this.state.profileUpdateMsg}</p>
+            <p className = "validationMsg">{this.state.error}</p>
+            <p className = "validationMsg">{this.state.profileUpdateMsg}</p>
           </form>
         </Col>
       </Row>

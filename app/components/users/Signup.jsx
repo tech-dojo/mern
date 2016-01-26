@@ -139,7 +139,7 @@ class Signup extends React.Component {
             Sign up
           </Button> &nbsp; or&nbsp;
           <LinkContainer to="/signin"><a>Sign In</a></LinkContainer>
-          <p>{this.state.error}</p>
+          <p className = "validationMsg">{this.state.error}</p>
         </form>
       </Col>
     </Row>

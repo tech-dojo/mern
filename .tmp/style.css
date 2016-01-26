@@ -65,3 +65,11 @@ margin-right: 5px;
   max-width: 75%;
   margin-left: 4.5em;
 }
+
+.validationMsg {
+    color: #FF0000;
+    margin-top: 3%;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+  }

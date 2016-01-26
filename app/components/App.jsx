@@ -4,7 +4,6 @@ import createMemoryHistory from 'history/lib/createMemoryHistory';
 import {Router, Route, IndexRoute} from 'react-router';
 import Template from './core/Template.jsx';
 import Home from './core/Home.jsx';
-//import About from './core/About.jsx';
 import CreateArticle from './articles/CreateArticle.jsx';
 import ViewArticle from './articles/ViewArticle.jsx';
 import ListArticles from './articles/ListArticles.jsx';
@@ -39,9 +38,9 @@ export default(props) => {
         <Route path="/articles/:id" component={ViewArticle}/>
         <Route path="/articles/edit/:id" component={EditArticle} onEnter={requireAuth}/>
         <Route path="/signup" component={Signup}/>
-          <Route path="/signin" component={Signin}/>
-          <Route path="/signout" component={SignOut}/>
-          <Route path="/users/edit/:id" component={EditUserProfile} onEnter={requireAuth}/>
+        <Route path="/signin" component={Signin}/>
+        <Route path="/signout" component={SignOut}/>
+        <Route path="/users/edit/:id" component={EditUserProfile} onEnter={requireAuth}/>
       </Route>
     </Router>
   );
