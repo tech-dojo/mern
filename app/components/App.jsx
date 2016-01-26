@@ -4,7 +4,7 @@ import createMemoryHistory from 'history/lib/createMemoryHistory';
 import {Router, Route, IndexRoute} from 'react-router';
 import Template from './core/Template.jsx';
 import Home from './core/Home.jsx';
-import About from './core/About.jsx';
+//import About from './core/About.jsx';
 import CreateArticle from './articles/CreateArticle.jsx';
 import ViewArticle from './articles/ViewArticle.jsx';
 import ListArticles from './articles/ListArticles.jsx';
@@ -20,21 +20,20 @@ if (typeof(window) !== 'undefined') {
  history = createBrowserHistory();
 
 } else {
-  //history = createMemoryHistory(); //This kind of history is needed for server-side rendering.
+
 }
 
 function requireAuth(nextState, replaceState) {
   if (!auth.loggedIn())
     replaceState({ nextPathname: nextState.location.pathname }, '/signin')
 }
-console.log('Inside App.Jsx');
 export default(props) => {
   return (
 
     <Router history={history}>
       <Route path="/" component={Template}>
         <IndexRoute component={Home}/>
-        <Route path="/about" component={About}/>
+
         <Route path="/articles/create" component={CreateArticle} onEnter={requireAuth}/>
         <Route path="/articles" component={ListArticles}/>
         <Route path="/articles/:id" component={ViewArticle}/>
@@ -45,6 +44,5 @@ export default(props) => {
           <Route path="/users/edit/:id" component={EditUserProfile} onEnter={requireAuth}/>
       </Route>
     </Router>
-
   );
 }

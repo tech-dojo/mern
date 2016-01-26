@@ -10,7 +10,7 @@ class SignOut extends React.Component {
   componentDidMount() {
     auth.logout();
   }
-  
+
   render(){
     return (
       <div className="container marginTop">
@@ -22,9 +22,7 @@ class SignOut extends React.Component {
           </p>
 
         </div>
-
       <br/>
-
     </div>
   )
 }

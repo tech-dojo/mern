@@ -5,20 +5,15 @@ html {
 }
 
 /*Home*/
-.promo-carousel .carousel-control{
-	color:rgba(255, 255, 255, 0.42);
+
+.mainImg{
+  padding-top: 5%;
 }
 
-.promo img{
-	width:100%;
-}
-.promo-carousel{
-	margin-bottom: 20px;
-}
-/*bootstrap carousel override*/
-.promo-carousel .carousel-inner>.item>img{
-	width: 100%;
-	max-height: 425px;
+.tagLine{
+    margin-left: 7%;
+    margin-top: 3%;
+    color: #777;
 }
 
 /*Footer*/

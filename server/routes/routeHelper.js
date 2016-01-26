@@ -13,11 +13,7 @@ module.exports = function(app) {
       component: require('./../../app/components/core/Home')
     },
     childRoutes: [
-
       {
-        path: '/about',
-        component: require('./../../app/components/core/About')
-      }, {
         path: '/articles/create',
         component: require('./../../app/components/articles/CreateArticle')
       }, {
@@ -60,7 +56,6 @@ module.exports = function(app) {
         res.redirect(302, redirectLocation.pathname + redirectLocation.search)
       } else if (renderProps) {
         // renderWithData(req,res, renderProps);
-        console.log("index.ejs loaded");
         var generated = renderToString(< RoutingContext {
           ...renderProps
         } />);

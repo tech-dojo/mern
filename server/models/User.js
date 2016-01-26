@@ -30,14 +30,13 @@ var UserSchema = new Schema({
         type: String,
         trim: true,
         default: ''
-            //validate: [validateLocalStrategyProperty, 'Please fill in your first name']
-    },
+      },
+
     lastName: {
         type: String,
         trim: true,
         default: ''
-            //validate: [validateLocalStrategyProperty, 'Please fill in your last name']
-    },
+      },
 
     displayName: {
         type: String,
@@ -47,14 +46,10 @@ var UserSchema = new Schema({
         type: String,
         trim: true,
         unique: 'Email already exists',
-
-        //validate: [validateLocalStrategyProperty, 'Please fill in your email'],
         match: [/.+\@.+\..+/, 'Please fill a valid email address']
     },
     username: {
         type: String,
-        //unique: true,
-        //required: 'Please fill in a username',
         trim: true
     },
     photo: {
@@ -143,7 +138,6 @@ UserSchema.methods.hashPassword = function(password) {
 UserSchema.methods.authenticate = function(password) {
     return this.password === this.hashPassword(password);
 };
-
 
 var User = mongoose.model('User', UserSchema);
 module.exports = User;

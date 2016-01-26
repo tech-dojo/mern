@@ -31,7 +31,6 @@ class Header extends React.Component {
     this.state.userID = auth.getUserId();
     this.state.username = auth.getUserName();
     if(loggedIn){
-      console.log(this.props.history);
       this.props.history.pushState(null,'/');
     }
   }

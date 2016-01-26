@@ -15,12 +15,13 @@ class Home extends React.Component {
       <Grid>
         <Row>
           <h1>
-            Welcome to React Framework
+            The React Framework
           </h1>
           <hr/>
           <Col md={3}></Col>
-          <Col md={6}>
-        <img className="commonCenter" src="static/images/logo1.png"/>
+          <Col md={9}>
+        <img className="commonCenter mainImg" src="static/images/logo1.png"/>
+        <h4 className = "tagLine">Open-Source Full-Stack Solution For Web Applications</h4>
         </Col>
       </Row>
     </Grid>

@@ -53,7 +53,6 @@ function getGlobbedFiles(globPatterns, removeRoot) {
 			output.push(globPatterns);
 		} else {
 			var files = glob(globPatterns, {sync: true});
-			console.log(files);
 				if (removeRoot) {
 					files = files.map(function(file) {
 						return file.replace(removeRoot, '');

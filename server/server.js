@@ -17,7 +17,6 @@ var app = require('./express.js')(db);
 require('./passport')();
 
 app.listen(app.get('port'), function(){
-  console.log('Node App is Running on port', app.get('port'));
 })
 
 module.exports = app;

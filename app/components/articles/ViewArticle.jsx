@@ -13,7 +13,6 @@ class ViewArticle extends React.Component {
   constructor(props, context){
     super(props, context);
     ArticleStore.fetchArticle(props.params.id);
-    ArticleStore.fetchArticleList();
     this.state = {};
     this.state.article = {};
     this.state.loggedIn = auth.loggedIn();
@@ -38,8 +37,7 @@ class ViewArticle extends React.Component {
   }
 
   render(){
-          var article = this.state.article;
-          console.log ('Get Article ViewArticle' + getArticle());
+      var article = this.state.article;
 
   		return (
         <Grid>

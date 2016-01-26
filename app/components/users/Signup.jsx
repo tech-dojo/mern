@@ -88,8 +88,6 @@ class Signup extends React.Component {
                 this.setState({error : 'Password Should Be Longer than 6 Charecters'});
             }
     else{
-      console.log('asdsadsad');
-      console.log(this.state.userInfo);
       var newUser = this.state.userInfo;
       auth.signup(newUser);
     }

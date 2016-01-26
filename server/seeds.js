@@ -18,7 +18,9 @@ var initial = [{
     title: "article 1",
     content: "content for article 1 ",
     user:user
-  }, {
+  },
+
+  {
     title: "article 2",
     content: "content for article 2 ",
     user:user
@@ -31,20 +33,15 @@ var initial = [{
     user:user
 
   }
-
 ]
-//console.log(initial);
+
 initial.forEach(function(article) {
-//  console.log(article);
     var articles = new Article(article);
-  //  console.log(articles);
     articles.save(function(err,data){
       if(err){
         throw err;
       }
       else{
-//console.log(data);
-
       }
     });
 });

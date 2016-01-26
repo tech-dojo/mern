@@ -18,10 +18,10 @@ class ArticleList extends React.Component {
     this._onChange = this._onChange.bind( this );
   }
 
-
   componentWillMount() {
     ArticleStore.onChange(this._onChange);
   }
+
   componentWillUnmount() {
     ArticleStore.removeChangeListener(this._onChange);
   }
@@ -31,7 +31,6 @@ class ArticleList extends React.Component {
 
   render(){
     var articles = this.state.articles;
-    console.log(getArticleList());
     return (
     <div>
       <Grid>
@@ -57,12 +56,4 @@ class ArticleList extends React.Component {
       )
     }
   }
-  //
-  // ArticleList.contextTypes = {
-  //   data: React.PropTypes.oneOfType([
-  //     React.PropTypes.object,
-  //     React.PropTypes.array
-  //   ]).isRequired
-  // };
-
-  export default ArticleList;
+ export default ArticleList;

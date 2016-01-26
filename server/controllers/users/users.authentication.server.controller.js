@@ -22,8 +22,7 @@ exports.signup = function(req, res) {
 
 	// Add missing user fields
 	user.provider = 'local';
-	//user.displayName = user.firstName + ' ' + user.lastName;
-	//user.displayName =user.fullName;
+
 	// Then save the user
 	user.save(function(err) {
 		if (err) {
@@ -50,13 +49,9 @@ exports.signup = function(req, res) {
  * Signin after passport authentication
  */
 exports.signin = function(req, res, next) {
-	console.log("sign in ");
-	console.log(req.body);
 
 	passport.authenticate('local', function(err, user, info) {
-	//	console.log(user);
 		if (err || !user) {
-			console.log(err);
 			res.status(400).send(info);
 		} else {
 			// Remove sensitive data before login
@@ -80,7 +75,6 @@ exports.signin = function(req, res, next) {
 exports.signout = function(req, res) {
 	req.logout(function(){
 		if(err){
-			console.log(err);
 		}
 	});
 	res.status(200).send({message:"signed out"});

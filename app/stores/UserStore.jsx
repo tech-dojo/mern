@@ -1,5 +1,4 @@
 "use strict";
-let dispatcher = require("./../dispatchers/dispatcher.js");
 let {get, post, del, put} = require("./RestAPI_Helper.js");
 
 function UserStore() {
@@ -39,7 +38,13 @@ function UserStore() {
     changeListeners.push(listener);
   }
 
-  return {fetchUser: fetchUser, editUser: editUser, getUser: getUser, getProfileUpdateMsg: getProfileUpdateMsg, onChange: onChange}
+  return {
+    fetchUser: fetchUser,
+    editUser: editUser,
+    getUser: getUser,
+    getProfileUpdateMsg: getProfileUpdateMsg,
+    onChange: onChange
+  }
 }
 
 module.exports = new UserStore();

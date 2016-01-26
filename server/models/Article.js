@@ -5,7 +5,6 @@ var ArticleSchema = {
   title: {
     type: String,
     default: '',
-  //  required: 'Please fill Article title',
     trim: true
   },
 

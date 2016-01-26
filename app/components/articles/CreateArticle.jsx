@@ -1,14 +1,6 @@
 import React from 'react';
 import ArticleStore from './../../stores/ArticleStore.jsx';
-import {
-  Grid,
-  Row,
-  Col,
-  Panel,
-  Button,
-  Input,
-  ButtonInput
-} from 'react-bootstrap'
+import {Grid, Row, Col, Panel, Button, Input, ButtonInput} from 'react-bootstrap'
 
 class CreateArticle extends React.Component {
   constructor(props) {
@@ -34,10 +26,6 @@ class CreateArticle extends React.Component {
   }
   _formSubmit(e) {
     e.preventDefault();
-  console.log("entered");
-  //  var newArticle = {
-  //   this.state.CreateArticle
-  //  };
     ArticleStore.addArticle(this.state.CreateArticle, this.history);
   }
 
@@ -50,6 +38,7 @@ class CreateArticle extends React.Component {
             <h2>
               <b>Create Article</b>
             </h2>
+            <hr></hr>
             <form onSubmit={this._formSubmit}>
               <Input type="text" label="Title" onChange={this.handleInputTitle} placeholder="Enter Article Title"/>
               <Input type="textarea" label="Article Content" onChange={this.handleInputContent} placeholder="Article Content: "/>

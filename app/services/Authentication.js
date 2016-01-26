@@ -2,13 +2,11 @@ let $ = require('jquery');
 let {get, post, del, put} = require("./../stores/RestAPI_Helper.js");
 
 module.exports = {
-  //var userInfo = {};
 
   signup(userInfo){
     post('/auth/signup', userInfo)
       .then((data) => {
 
-        //**userInfo.password because backend send ssh key
         this.login(data.email,userInfo.password,(loggedIn) => {
   				if (!loggedIn)
   				return this.setState({ error: "Login Failed" })
@@ -17,8 +15,7 @@ module.exports = {
 
       })
       .catch((err) => {
-  				//return this.setState({ error: err.responseText.message})
-      });
+          });
   },
 
   login(email, pass, cb) {
