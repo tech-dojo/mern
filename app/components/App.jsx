@@ -12,7 +12,8 @@ import auth from './../services/Authentication';
 import Signup from './users/Signup.jsx';
 import Signin from './users/Signin.jsx';
 import SignOut from './users/SignOut.jsx';
-import EditUserProfile from './users/EditUserProfile.jsx'
+import EditUserProfile from './users/EditUserProfile.jsx';
+import HelloWorld from './core/HelloWorld.jsx';
 
 var history;
 if (typeof(window) !== 'undefined') {
@@ -41,6 +42,7 @@ export default(props) => {
         <Route path="/signin" component={Signin}/>
         <Route path="/signout" component={SignOut}/>
         <Route path="/users/edit/:id" component={EditUserProfile} onEnter={requireAuth}/>
+              <Route path="/helloworld" component={HelloWorld}/>
       </Route>
     </Router>
   );
