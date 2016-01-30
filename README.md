@@ -17,7 +17,9 @@
 
 6. Run app with `gulp serve`
 
-### [Documentation](http://merndoc.tech-dojo.org)
+### Documentation
+[View documentation](http://merndoc.tech-dojo.org)
+[Improve documentation](https://github.com/tech-dojo/mern-doc)
 
 ### License
 

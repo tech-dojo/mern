@@ -26,9 +26,11 @@ class Home extends React.Component {
               <br/>
               <h3>version 0.0.1</h3>
               <br/>
-              <p><Button bsSize="large" bsStyle="primary">Documentation</Button> <Button bsSize="large" bsStyle="success">View on GitHub</Button></p>
+              <p>
+                <LinkContainer className="callToAction" to="http://merndoc.tech-dojo.org/doc.html" target="_blank"><Button bsSize="large" bsStyle="primary">Documentation</Button></LinkContainer>
+                <LinkContainer className="callToAction" to="https://github.com/tech-dojo/mern" target="_blank"><Button bsSize="large" bsStyle="success">View on GitHub</Button></LinkContainer></p>
               <br/>
-              <a>Improve Documentation</a> / <a>Contribute on GitHub</a>
+              <a href="https://github.com/tech-dojo/mern-doc" target="_blank">Improve Documentation</a> | <a href="https://github.com/tech-dojo/mern" target="_blank">Contribute on GitHub</a>
             </Jumbotron>
 
         </Col>
@@ -37,7 +39,7 @@ class Home extends React.Component {
         <Col md={6} mdPush={3} mdPull={3}>
           <hr/>
           <Well>
-            <h3 class="text-center header_color">Usage Instructions</h3>
+            <h3 className="text-center header_color">Usage Instructions</h3>
 
           <ol>
             <li>Clone the repository on GitHub</li>

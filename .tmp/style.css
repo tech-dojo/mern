@@ -24,6 +24,9 @@ html {
   max-height: 30px;
   margin-top: 20px;
 }
+.callToAction{
+  margin: 7px 4px;
+}
 /*Header*/
 .navbar-brand{
   padding: 5px 15px;
