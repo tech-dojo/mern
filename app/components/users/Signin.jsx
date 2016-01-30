@@ -101,9 +101,9 @@ return re.test(email);
 	render(){
 			return (
         <Grid>
-          <Row >
+          <Row>
 
-						<h2>Sign In</h2>
+						<h2 style={{textAlign: 'center'}}>Sign In</h2>
             <hr/><Col md={3}/>
             <Col md={6}>
             <Well>

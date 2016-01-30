@@ -32,7 +32,7 @@ class ArticleList extends React.Component {
   render(){
     var articles = this.state.articles;
     return (
-    <div>
+    <div className="marginBottom">
       <Grid>
           <Row className="productList">
             <h1>Articles</h1>

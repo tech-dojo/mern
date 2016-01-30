@@ -95,13 +95,15 @@ class Signup extends React.Component {
 
   render() {
     return(
-      <Grid>
+      <Grid className="marginBottom">
         <Row>
-          <h2>
-            Sign up Using Email
+          <h2 style={{textAlign: 'center'}}>
+            Sign Up
           </h2>
           <hr/>
-          <Col md={12}>
+          <Col md={3}/>
+          <Col md={6}>
+            <Well>
 
 
         <form onSubmit={this.formSubmit}>
@@ -135,12 +137,13 @@ class Signup extends React.Component {
             label="Password"
             type="password" />
           <br/>
-          <Button type="submit" bsStyle="primary">
+          <Button type="submit" bsStyle="success">
             Sign up
           </Button> &nbsp; or&nbsp;
           <LinkContainer to="/signin"><a>Sign In</a></LinkContainer>
           <p className = "validationMsg">{this.state.error}</p>
         </form>
+      </Well>
       </Col>
     </Row>
   </Grid>

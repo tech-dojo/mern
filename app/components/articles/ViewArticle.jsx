@@ -40,7 +40,7 @@ class ViewArticle extends React.Component {
       var article = this.state.article;
 
   		return (
-        <Grid>
+        <Grid className="marginBottom">
           <Row>
         <Col md={12} lg={12} sm={12} xs={12}>
           <h1>{article.title}</h1>

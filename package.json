@@ -1,13 +1,13 @@
 {
-  "name": "reactframework",
-  "version": "1.0.0",
+  "name": "MERN",
+  "version": "0.0.1",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js"
   },
   "author": "TechDojo",
-  "license": "ISC",
+  "license": "MIT",
   "engines": {
     "node": "5.1.0",
     "npm": "3.3.12"

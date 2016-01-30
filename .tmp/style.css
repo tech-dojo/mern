@@ -1,24 +1,47 @@
 html {
     position: relative;
     min-height: 100%;
-        background-color: rgba(240, 240, 240, 0.30);
 }
 
 /*Home*/
-
-.mainImg{
-  padding-top: 5%;
+.marginBottom{
+  margin-bottom: 80px;
 }
-
-.tagLine{
-    margin-left: 7%;
-    margin-top: 3%;
-    color: #777;
+.header_color{
+  color:#626262;
 }
-
+.text-center{
+  text-align: center;
+}
+.mainContent{
+  text-align: center;
+}
+.compImg{
+  max-height: 50px;
+  padding: 0 20px;
+}
+.expressLogo{
+  max-height: 30px;
+  margin-top: 20px;
+}
+/*Header*/
+.navbar-brand{
+  padding: 5px 15px;
+}
+.navbar-brand img{
+  height: 40px;
+  display: inline-block;
+}
+.navbar-brand span{
+  display: inline-block;
+  vertical-align: sub;
+  padding-left: 12px;
+  color: #AAAAAA;
+      font-size: 0.9em;
+}
 /*Footer*/
 .footer {
- 	  background-color: #322727;
+ 	  background-color: #222;
     position: absolute;
     width: 100%;
     bottom: 0;
@@ -33,7 +56,6 @@ html {
 	list-style: none outside none;
     overflow: hidden;
     margin: 0;
-    padding: 5px 0;
 }
 
 .list-social li{

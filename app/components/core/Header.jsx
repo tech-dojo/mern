@@ -46,6 +46,9 @@ class Header extends React.Component {
         expanded={this.state.expand}
         onToggle={this.collapse}>
         <Navbar.Header>
+          <Navbar.Brand>
+            <Link to="/"><img className="brand_logo" src="static/images/mern.png"/>  A React framework</Link>
+          </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>

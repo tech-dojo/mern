@@ -32,7 +32,7 @@ class CreateArticle extends React.Component {
   render() {
 
     return (
-      <Grid>
+      <Grid className="marginBottom">
         <Row>
           <Col md={12}>
             <h2>

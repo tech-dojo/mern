@@ -70,7 +70,7 @@ class EditUserProfile extends React.Component {
   }
 
   formSubmit(e) {
-    e.preventDefault();             
+    e.preventDefault();
     if(!this.validFirstName){
           this.setState({error : 'Please Input the First Name'});
         }
@@ -106,7 +106,7 @@ class EditUserProfile extends React.Component {
   render(){
     var editUser = this.state.EditUserInfo;
     return(
-      <Grid>
+      <Grid className="marginBottom">
         <Row>
           <h2>
             Edit Your User Profile

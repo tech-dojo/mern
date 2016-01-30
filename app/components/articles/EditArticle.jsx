@@ -53,7 +53,7 @@ class EditArticle extends React.Component {
 
 var article = this.state.EditArticle;
     return (
-      <Grid>
+      <Grid className="marginBottom">
         <Row>
           <Col md={12}>
             <h2>
