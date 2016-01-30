@@ -1,6 +1,6 @@
-# [MERN (a React framework)] (http://mern.tech-dojo.org)
+# [MERN (a React framework)](http://mern.tech-dojo.org)
 
-![logo](/images/mern.gif?raw=true)
+![logo](app/images/mern.gif?raw=true)
 #### version 0.0.1
 
 ### Usage Instructions
