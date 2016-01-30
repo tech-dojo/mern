@@ -19,6 +19,7 @@
 
 ### Documentation
 [View documentation](http://merndoc.tech-dojo.org)
+
 [Improve documentation](https://github.com/tech-dojo/mern-doc)
 
 ### License
