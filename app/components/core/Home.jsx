@@ -23,8 +23,8 @@ class Home extends React.Component {
                 <img className="compImg" src="static/images/react.png"/>
                 <img className="compImg" src="static/images/node.png"/>
               </div>
-              <br/>
-              <h3>version 0.0.1</h3>
+              <h3 className="description">React Framework for Fullstack JavaScript Web Applications</h3>
+              <h4>version 0.0.1</h4>
               <br/>
               <p>
                 <LinkContainer className="callToAction" to="http://merndoc.tech-dojo.org/doc.html" target="_blank"><Button bsSize="large" bsStyle="primary">Documentation</Button></LinkContainer>

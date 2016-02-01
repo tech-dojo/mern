@@ -4,6 +4,12 @@ html {
 }
 
 /*Home*/
+.description{
+  font-weight: 200;
+  color: #7D7D7D;
+  margin-bottom: 25px;
+}
+
 .marginBottom{
   margin-bottom: 80px;
 }
