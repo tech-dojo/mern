@@ -1,6 +1,9 @@
 # [MERN (a React framework)](http://mern.tech-dojo.org)
 
 ![logo](app/images/mern.gif?raw=true)
+
+*React Framework for Fullstack JavaScript Web Applications*
+
 #### version 0.0.1
 
 ### Usage Instructions
