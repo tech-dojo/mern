@@ -30,7 +30,6 @@ module.exports = function() {
 						message: 'Unknown user or invalid password'
 					});
 				}
-
 				return done(null, user);
 			});
 		}

@@ -4,9 +4,14 @@ var errorHandler = require('./errors.server.controller');
 var _ = require('lodash');
 
 module.exports.list = function(req, res) {
-  Article.find(function(error, data) {
-    if (error) {} else {
-      res.send(data);
+  Article.find(function(err, data) {
+    if (err) {
+      return res.status(400).send({
+
+  				message: errorHandler.getErrorMessage(err)
+  			});
+    } else {
+      res.status(200).send(data);
     }
   });
 };
@@ -16,7 +21,6 @@ module.exports.create = function(req, res) {
   article.user = req.user;
   article.save(function(err, data) {
     if (err) {
-        console.log(err);
       return res.status(400).send({
 
   				message: errorHandler.getErrorMessage(err)
