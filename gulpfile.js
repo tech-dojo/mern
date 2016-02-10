@@ -64,9 +64,11 @@ gulp.task('serve', ['live-server','bundle','temp','observe-all'], function() {
 });
 
 gulp.task('test', function () {
-    return gulp.src('./server/tests/product.server.routes.test.js')
+    return gulp.src('./server/tests/*.js')
         .pipe(mocha({reporter: 'nyan'}))
         .once('error', function (err) {
+					console.log('Hello Gulp File');
+					console.log(err);
             process.exit(1);
         })
         .once('end', function () {

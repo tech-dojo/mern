@@ -40,8 +40,8 @@ class CreateArticle extends React.Component {
             </h2>
             <hr></hr>
             <form onSubmit={this._formSubmit}>
-              <Input type="text" label="Title" onChange={this.handleInputTitle} placeholder="Enter Article Title"/>
-              <Input type="textarea" label="Article Content" onChange={this.handleInputContent} placeholder="Article Content: "/>
+              <Input type="text" label="Title" required onChange={this.handleInputTitle} placeholder="Enter Article Title"/>
+              <Input type="textarea" label="Article Content" required onChange={this.handleInputContent} placeholder="Article Content: "/>
               <ButtonInput type="submit" value="Submit Button" bsStyle="primary"/>
             </form>
           </Col>

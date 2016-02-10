@@ -50,14 +50,23 @@ describe('Article Model Unit Tests:', function() {
 			});
 		});
 
-		// it('should be able to show an error when try to save without title', function(done) {
-		// 	article.title = '';
-    //
-		// 	return article.save(function(err) {
-		// 		should.exist(err);
-		// 		done();
-		// 	});
-		// });
+		it('should be able to show an error when try to save without title', function(done) {
+			article.title = '';
+
+			return article.save(function(err) {
+				should.exist(err);
+				done();
+			});
+		});
+
+		it('should be able to show an error when try to save without content', function(done) {
+			article.content = '';
+
+			return article.save(function(err) {
+				should.exist(err);
+				done();
+			});
+		});
 	});
 
 	afterEach(function(done) {

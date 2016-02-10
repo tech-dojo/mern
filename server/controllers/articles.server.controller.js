@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Article = require('./../models/Article.js');
+var errorHandler = require('./errors.server.controller');
 var _ = require('lodash');
 
 module.exports.list = function(req, res) {
@@ -15,7 +16,11 @@ module.exports.create = function(req, res) {
   article.user = req.user;
   article.save(function(err, data) {
     if (err) {
-      res.status(501).send();
+        console.log(err);
+      return res.status(400).send({
+
+  				message: errorHandler.getErrorMessage(err)
+  			});
     } else {
       res.status(200).send(data);
     }

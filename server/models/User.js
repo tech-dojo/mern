@@ -29,13 +29,15 @@ var UserSchema = new Schema({
     firstName: {
         type: String,
         trim: true,
-        default: ''
+        default: '',
+        required: 'First Name required'
       },
 
     lastName: {
         type: String,
         trim: true,
-        default: ''
+        default: '',
+        required: 'Last Name required'
       },
 
     displayName: {
@@ -46,11 +48,13 @@ var UserSchema = new Schema({
         type: String,
         trim: true,
         unique: 'Email already exists',
-        match: [/.+\@.+\..+/, 'Please fill a valid email address']
+        match: [/.+\@.+\..+/, 'Please fill a valid email address'],
+        required: 'Email required'
     },
     username: {
         type: String,
-        trim: true
+        trim: true,
+        required: 'User Name required'
     },
     photo: {
         type: String,
@@ -75,7 +79,8 @@ var UserSchema = new Schema({
     password: {
         type: String,
         default: '',
-        validate: [validateLocalStrategyPassword, 'Password should be longer']
+        validate: [validateLocalStrategyPassword, 'Password should be longer'],
+        required: 'Password required'
     },
     salt: {
         type: String

@@ -42,7 +42,7 @@
     "history": "1.17.x",
     "jquery": "^2.1.4",
     "lodash": "^3.10.1",
-    "mongoose": "^4.0.3",
+    "mongoose": "4.0.3",
     "node-jsx": "^0.13.3",
     "nodemailer": "^1.10.0",
     "passport": "^0.3.2",
