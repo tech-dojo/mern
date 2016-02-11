@@ -20,6 +20,8 @@
 
 6. Run app with `gulp serve`
 
+7. Run tests with `gulp test` 
+
 ### Documentation
 [View documentation](http://merndoc.tech-dojo.org)
 
