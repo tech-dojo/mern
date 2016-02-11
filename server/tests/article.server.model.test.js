@@ -5,10 +5,8 @@
  */
 var should = require('should'),
 	mongoose = require('mongoose'),
-	//User = mongoose.model('User'),
   User = require('./../models/User.js'),
 	Article = require('./../models/Article.js');
-//  var app = require('./../express.js')(db);
 mongoose.connect ('mongodb://localhost/reactdb-test');
 /**
  * Globals
@@ -20,12 +18,9 @@ var user, article;
  */
 describe('Article Model Unit Tests:', function() {
 	beforeEach(function(done) {
-
-    console.log('hello Article');
 		user = new User({
 			firstName: 'TD',
 			lastName: 'BD',
-			//displayName: 'Full Name',
 			email: 'abc@def.com',
 			username: 'username',
 			password: 'password'
@@ -61,7 +56,6 @@ describe('Article Model Unit Tests:', function() {
 
 		it('should be able to show an error when try to save without content', function(done) {
 			article.content = '';
-
 			return article.save(function(err) {
 				should.exist(err);
 				done();
