@@ -2,7 +2,7 @@
 
 var should = require('should'),
   request = require('supertest'),
-  app = require('./../testserver.js'),
+  app = require('./../server.js'),
   mongoose = require('mongoose'),
   User = require('./../models/User.js'),
   Article = require('./../models/Article.js'),

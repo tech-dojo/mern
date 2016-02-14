@@ -3,6 +3,7 @@ var cors = require('cors');
 var parser = require('body-parser');
 var passport = require('passport');
 var session = require('express-session');
+var config = require('./config/config.js');
 var cookieParser = require('cookie-parser');
 var mongoStore = require('connect-mongo')({
 		session: session
@@ -24,12 +25,11 @@ app.use(cors())
 
 // CookieParser should be above session
 	app.use(cookieParser());
-
 	// Express MongoDB session storage
 	app.use(session({
 		saveUninitialized: true,
 		resave: true,
-		secret: 'reactdb',
+		secret: config.sessionSecret,
 		store: new mongoStore({
 			mongooseConnection: db.connection
 			// collection: 'sessions'

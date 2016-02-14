@@ -1,10 +1,10 @@
 'use strict';
 require("babel/register");
-
+var config = require('./config/config.js');
 var mongoose = require ('mongoose');
 var express = require ('express');
 
-var uri = process.env.MONGOLAB_URI || 'mongodb://localhost/reactdb';
+var uri = process.env.MONGOLAB_URI || config.db.uri;
 var db = mongoose.connect(uri,function(){
 	require('./seeds.js');
 });

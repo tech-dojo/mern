@@ -8,6 +8,21 @@ var babelify = require ( 'babelify');
 var mocha = require('gulp-mocha');
 
 
+
+gulp.task('env:test', function () {
+  process.env.NODE_ENV = 'test';
+});
+
+// Set NODE_ENV to 'development'
+gulp.task('env:dev', function () {
+  process.env.NODE_ENV = 'development';
+});
+
+// Set NODE_ENV to 'production'
+gulp.task('env:prod', function () {
+  process.env.NODE_ENV = 'production';
+});
+
 gulp.task('live-server',function(){
 	var server = new LiveServer('server/server.js');
 	server.start();
@@ -56,14 +71,15 @@ gulp.watch('app/*.*',['temp']);
 });
 
 
-gulp.task('serve', ['live-server','bundle','temp','observe-all'], function() {
+gulp.task('serve', ['env:dev','live-server','bundle','temp','observe-all'], function() {
 	browserSync.init(null, {
 		proxy: "http://localhost:3000",
 		port: 9001
 	});
+
 });
 
-gulp.task('test', function () {
+gulp.task('test',['env:test'], function () {
     return gulp.src('./server/tests/*.js')
         .pipe(mocha({reporter: 'nyan'}))
         .once('error', function (err) {
