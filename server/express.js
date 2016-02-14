@@ -11,6 +11,7 @@ var mongoStore = require('connect-mongo')({
 
 var path = require('path');
 
+
 module.exports = function (db){
 var app = new express();
 
