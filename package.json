@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha './server/tests/componentTest/*.test.js' --compilers js:babel-core/register",
     "start": "node server/server.js"
   },
   "author": "TechDojo",
@@ -16,9 +16,12 @@
     "babelify": "^6.1.1",
     "browser-sync": "^2.7.2",
     "browserify": "^10.2.1",
+    "expect": "^1.14.0",
     "gulp": "^3.8.11",
     "gulp-live-server": "0.0.14",
     "gulp-mocha": "^2.2.0",
+    "mocha": "^2.4.5",
+    "react-addons-test-utils": "^0.14.7",
     "reactify": "^1.1.1",
     "should": "^7.1.1",
     "supertest": "^1.1.0"
@@ -56,5 +59,10 @@
     "react-tools": "^0.13.3",
     "reactcss": "^0.4.2",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "babel":{
+    "presets": [
+      "es2015"
+    ]
   }
 }
