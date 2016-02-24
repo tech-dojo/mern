@@ -12,6 +12,8 @@ class Form extends React.Component {
     this.handleInputTitle = this.handleInputTitle.bind(this);
     this.handleInputContent = this.handleInputContent.bind(this);
     this._formSubmit = this._formSubmit.bind(this);
+    console.log(this.state.Article);
+
   }
   handleInputTitle(e) {
     this.state.Article.title = e.target.value;

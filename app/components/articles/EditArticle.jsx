@@ -15,6 +15,8 @@ class EditArticle extends React.Component {
     ArticleStore.fetchArticle(props.params.id);
     this.state=getArticle();
     this._formSubmit = this._formSubmit.bind(this);
+    console.log(this.state);
+
   }
   _formSubmit(value) {
     ArticleStore.editArticle(value, value._id,this.history);
