@@ -31,11 +31,15 @@ function UserStore() {
     return user;
   }
   function getProfileUpdateMsg() {
-
     return profileUpdateMsg;
   }
   function onChange(listener) {
     changeListeners.push(listener);
+  }
+
+  function removeChangeListener(listener) {
+    var index = changeListeners.findIndex(i => i === listener);
+    changeListeners.splice(index, 1);
   }
 
   return {
@@ -43,7 +47,8 @@ function UserStore() {
     editUser: editUser,
     getUser: getUser,
     getProfileUpdateMsg: getProfileUpdateMsg,
-    onChange: onChange
+    onChange: onChange,
+    removeChangeListener: removeChangeListener
   }
 }
 
