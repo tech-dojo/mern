@@ -18,10 +18,10 @@ class Home extends React.Component {
             <Jumbotron className="mainContent">
               <img className="mainImg" src="static/images/mern.gif"/>
               <div>
-                <img className="compImg" src="static/images/mongodb.png"/>
-                <img className="compImg expressLogo" src="static/images/express.png"/>
-                <img className="compImg" src="static/images/react.png"/>
-                <img className="compImg" src="static/images/node.png"/>
+                <a href="https://www.mongodb.org/" target="_blank"><img className="compImg" src="static/images/mongodb.png"/></a>
+                <a href="http://expressjs.com/" target="_blank"><img className="compImg expressLogo" src="static/images/express.png"/></a>
+                <a href="https://facebook.github.io/react/" target="_blank"><img className="compImg" src="static/images/react.png"/></a>
+                <a href="https://nodejs.org/en/" target="_blank"><img className="compImg" src="static/images/node.png"/></a>
               </div>
               <h3 className="description">React Framework for Fullstack JavaScript Web Applications</h3>
               <h4>version 0.0.1</h4>
