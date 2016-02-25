@@ -33,6 +33,7 @@
     "babel-loader": "^6.0.1",
     "babel-preset-es2015": "^6.1.2",
     "babel-preset-react": "^6.1.2",
+    "babel-preset-stage-2": "^6.5.0",
     "body-parser": "^1.12.4",
     "connect-mongo": "^1.0.2",
     "cookie-parser": "^1.4.0",
@@ -59,5 +60,10 @@
     "react-tools": "^0.13.3",
     "reactcss": "^0.4.2",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015","react"
+    ]
   }
 }

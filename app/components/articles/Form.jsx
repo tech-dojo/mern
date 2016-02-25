@@ -30,13 +30,14 @@ class Form extends React.Component {
     this.props.formSubmit(this.state.Article);
   }
   render() {
+    var Article = this.state.Article;
       return (
         <Grid >
           <Row>
             <Col md={12}>
               <form onSubmit={this._formSubmit}>
-                <Input type="text" value={this.state.Article.title} label="Title" required onChange={this.handleInputTitle} placeholder="Enter Article Title"/>
-                <Input type="textarea" value={this.state.Article.content} label="Article Content" required onChange={this.handleInputContent} placeholder="Article Content: "/>
+                <Input type="text" value={Article.title} label="Title" required onChange={this.handleInputTitle} placeholder="Enter Article Title"/>
+                <Input type="textarea" value={Article.content} label="Article Content" required onChange={this.handleInputContent} placeholder="Article Content: "/>
                 <ButtonInput type="submit" value="Submit Button" bsStyle="primary"/>
               </form>
             </Col>
