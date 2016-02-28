@@ -29,7 +29,7 @@ class CreateArticle extends React.Component {
           </Col>
         </Row>
       </Grid>
-    )
+    );
   }
 }
 

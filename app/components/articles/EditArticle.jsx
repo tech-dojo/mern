@@ -4,7 +4,7 @@ import {Grid, Row, Col} from 'react-bootstrap';
 import Form from './Form.jsx';
 
 function getArticle() {
-    return {EditArticle: ArticleStore.getArticle()}
+  return { EditArticle: ArticleStore.getArticle() };
 }
 
 class EditArticle extends React.Component {
@@ -13,13 +13,12 @@ class EditArticle extends React.Component {
     this.state = {};
     this.history = props.history;
     ArticleStore.fetchArticle(props.params.id);
-    this.state=getArticle();
+    this.state = getArticle();
     this._formSubmit = this._formSubmit.bind(this);
-    console.log(this.state);
-
   }
+
   _formSubmit(value) {
-    ArticleStore.editArticle(value, value._id,this.history);
+    ArticleStore.editArticle(value, value._id, this.history);
   }
 
   render() {
@@ -35,7 +34,7 @@ class EditArticle extends React.Component {
           </Col>
         </Row>
       </Grid>
-    )
+    );
   }
 }
 
