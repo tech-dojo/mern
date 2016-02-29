@@ -3,13 +3,13 @@ import React from 'react';
 import {Jumbotron, Grid, Row, Col, Button, Well} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 
-
 class Home extends React.Component {
-  constructor(props, context){
+  constructor(props, context) {
     super(props, context);
     this.state = {};
   }
-  render(){
+
+  render() {
 
     return (
       <Grid className="marginBottom">
@@ -18,19 +18,31 @@ class Home extends React.Component {
             <Jumbotron className="mainContent">
               <img className="mainImg" src="static/images/mern.gif"/>
               <div>
-                <a href="https://www.mongodb.org/" target="_blank"><img className="compImg" src="static/images/mongodb.png"/></a>
-                <a href="http://expressjs.com/" target="_blank"><img className="compImg expressLogo" src="static/images/express.png"/></a>
-                <a href="https://facebook.github.io/react/" target="_blank"><img className="compImg" src="static/images/react.png"/></a>
-                <a href="https://nodejs.org/en/" target="_blank"><img className="compImg" src="static/images/node.png"/></a>
+                <a href="https://www.mongodb.org/" target="_blank">
+                  <img className="compImg" src="static/images/mongodb.png"/></a>
+                <a href="http://expressjs.com/" target="_blank">
+                  <img className="compImg expressLogo" src="static/images/express.png"/></a>
+                <a href="https://facebook.github.io/react/" target="_blank">
+                  <img className="compImg" src="static/images/react.png"/></a>
+                <a href="https://nodejs.org/en/" target="_blank">
+                  <img className="compImg" src="static/images/node.png"/></a>
               </div>
-              <h3 className="description">React Framework for Fullstack JavaScript Web Applications</h3>
+              <h3 className="description">
+                React Framework for Fullstack JavaScript Web Applications</h3>
               <h4>version 0.0.1</h4>
               <br/>
               <p>
-                <LinkContainer className="callToAction" to="http://merndoc.tech-dojo.org/doc.html" target="_blank"><Button bsSize="large" bsStyle="primary">Documentation</Button></LinkContainer>
-                <LinkContainer className="callToAction" to="https://github.com/tech-dojo/mern" target="_blank"><Button bsSize="large" bsStyle="success">View on GitHub</Button></LinkContainer></p>
+                <LinkContainer className="callToAction" to="http://merndoc.tech-dojo.org/doc.html"
+                   target="_blank"><Button bsSize="large" bsStyle="primary">Documentation</Button>
+                   </LinkContainer>
+                <LinkContainer className="callToAction" to="https://github.com/tech-dojo/mern"
+                   target="_blank"><Button bsSize="large" bsStyle="success">View on GitHub</Button>
+                   </LinkContainer></p>
               <br/>
-              <a href="https://github.com/tech-dojo/mern-doc" target="_blank">Improve Documentation</a> | <a href="https://github.com/tech-dojo/mern" target="_blank">Contribute on GitHub</a>
+              <a href="https://github.com/tech-dojo/mern-doc" target="_blank">
+                Improve Documentation</a> |
+                 <a href="https://github.com/tech-dojo/mern" target="_blank">
+                   Contribute on GitHub</a>
             </Jumbotron>
 
         </Col>
@@ -54,7 +66,8 @@ class Home extends React.Component {
         </Col>
       </Row>
     </Grid>
-      )
-    }
+  );
   }
-  export default Home;
+  }
+
+export default Home;

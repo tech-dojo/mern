@@ -3,7 +3,7 @@ import { Link  } from 'react-router';
 import auth from './../../services/Authentication';
 
 class SignOut extends React.Component {
-  constructor(props, context){
+  constructor(props, context) {
     super(props, context);
   }
 
@@ -11,7 +11,7 @@ class SignOut extends React.Component {
     auth.logout();
   }
 
-  render(){
+  render() {
     return (
       <div className="container marginTop">
 
@@ -24,8 +24,8 @@ class SignOut extends React.Component {
         </div>
       <br/>
     </div>
-  )
-}
+  );
+  }
 }
 
 export default SignOut;

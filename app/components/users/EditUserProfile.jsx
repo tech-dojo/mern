@@ -1,13 +1,13 @@
 import React from 'react';
 import UserStore from './../../stores/UserStore.jsx';
-import { Grid, Row, Col, Panel, Button, Input, ButtonInput} from 'react-bootstrap'
+import { Grid, Row, Col, Panel, Button, Input, ButtonInput} from 'react-bootstrap';
 
-function getUser(){
-  return {EditUserInfo: UserStore.getUser()};
+function getUser() {
+  return { EditUserInfo: UserStore.getUser() };
 }
 
-function profileUpdateMsg(){
-  return {profileUpdateMsg: UserStore.getProfileUpdateMsg()};
+function profileUpdateMsg() {
+  return { profileUpdateMsg: UserStore.getProfileUpdateMsg() };
 }
 
 class EditUserProfile extends React.Component {
@@ -20,11 +20,11 @@ class EditUserProfile extends React.Component {
     this.state.EditUserInfo.password = '';
     this.state.profileUpdMsg = '';
     this.state = getUser();
-    this.validFirstName= true;
-    this.validLastName= true;
-    this.validEmail= true;
-    this.validUserName= true;
-    this.validPassword=true;
+    this.validFirstName = true;
+    this.validLastName = true;
+    this.validEmail = true;
+    this.validUserName = true;
+    this.validPassword = true;
     this.history = props.history;
     this.handleInputEditFirstName = this.handleInputEditFirstName.bind(this);
     this.handleInputEditLastName = this.handleInputEditLastName.bind(this);
@@ -33,7 +33,7 @@ class EditUserProfile extends React.Component {
     this.handleInputPassword = this.handleInputPassword.bind(this);
     this.formSubmit = this.formSubmit.bind(this);
     this._onChange = this._onChange.bind(this);
-    this.onProfileUpdate= this.onProfileUpdate.bind(this);
+    this.onProfileUpdate = this.onProfileUpdate.bind(this);
   }
 
   validateEmail(email) {
@@ -41,7 +41,7 @@ class EditUserProfile extends React.Component {
     return re.test(email);
   }
 
-  handleInputEditFirstName(e){
+  handleInputEditFirstName(e) {
     this.validFirstName= e.target.value!=="" ? true : false;
     this.state.EditUserInfo.firstName = e.target.value;
     this.setState({EditUserInfo: this.state.EditUserInfo});

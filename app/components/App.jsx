@@ -16,17 +16,17 @@ import EditUserProfile from './users/EditUserProfile.jsx';
 import HelloWorld from './core/HelloWorld.jsx';
 
 var history;
-if (typeof(window) !== 'undefined') {
- history = createBrowserHistory();
-
+if (typeof (window) !== 'undefined') {
+  history = createBrowserHistory();
 } else {
 
 }
 
 function requireAuth(nextState, replaceState) {
   if (!auth.loggedIn())
-    replaceState({ nextPathname: nextState.location.pathname }, '/signin')
+    replaceState({ nextPathname: nextState.location.pathname }, '/signin');
 }
+
 export default(props) => {
   return (
 
@@ -46,4 +46,4 @@ export default(props) => {
       </Route>
     </Router>
   );
-}
+};

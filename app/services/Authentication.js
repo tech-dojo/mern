@@ -1,73 +1,75 @@
 let $ = require('jquery');
-let {get, post, del, put} = require("./../stores/RestAPI_Helper.js");
+let { get, post, del, put } = require('./../stores/RestAPI_Helper.js');
 
 module.exports = {
 
-  signup(userInfo){
+  signup(userInfo) {
     post('/auth/signup', userInfo)
       .then((data) => {
 
-        this.login(data.email,userInfo.password,(loggedIn) => {
-  				if (!loggedIn)
-  				return this.setState({ error: "Login Failed" })
-
-  			});
+        this.login(data.email, userInfo.password, (loggedIn) => {
+          if (!loggedIn)
+          return this.setState({ error: 'Login Failed' });
+        });
 
       })
       .catch((err) => {
-          });
+      });
   },
 
   login(email, pass, cb) {
       cb = arguments[arguments.length - 1];
-      var token = (typeof window !== "undefined") ? localStorage.token : undefined;
+      var token = (typeof window !== 'undefined') ? localStorage.token : undefined;
       if (token) {
-        if (cb) cb(true)
-        this.onChange(true)
-        return
+        if (cb) cb(true);
+        this.onChange(true);
+        return;
       }
-      post('/auth/signin', {email: email, password: pass})
+
+      post('/auth/signin', { email: email, password: pass })
         .then((data) => {
           localStorage.userId = data._id;
           localStorage.username = data.username;
           localStorage.token = Math.random().toString(36).substring(7);
-          if (cb) cb(true)
-          this.onChange(true)
+          if (cb) cb(true);
+          this.onChange(true);
         })
         .catch((err) => {
-          if (cb) cb(false)
-          this.onChange(false)
+          if (cb) cb(false);
+          this.onChange(false);
         });
     },
 
-    getToken() {
-      return (typeof window !== "undefined") ? localStorage.token : undefined;
+  getToken() {
+      return (typeof window !== 'undefined') ? localStorage.token : undefined;
     },
 
-    getUserId(){
+  getUserId() {
 
-      return (typeof window !== "undefined") ? localStorage.userId : undefined;
+    return (typeof window !== 'undefined') ? localStorage.userId : undefined;
+  },
+
+  getUserName() {
+      return (typeof window !== 'undefined') ? localStorage.username : undefined;
     },
 
-    getUserName(){
-      return (typeof window !== "undefined") ? localStorage.username : undefined;
-    },
-
-    logout(cb) {
+  logout(cb) {
       get('/auth/signout')
         .then((g) => {
-          delete localStorage.token
-          delete localStorage.userId
-          delete localStorage.username
-          if (cb) cb()
-          this.onChange(false)
+          delete localStorage.token;
+          delete localStorage.userId;
+          delete localStorage.username;
+          if (cb) cb();
+          this.onChange(false);
         }).catch((err) => {
         });
     },
 
-    loggedIn() {
-      return !!((typeof window !== "undefined") ? localStorage.token : undefined)
+  loggedIn() {
+      return !!((typeof window !== 'undefined') ? localStorage.token : undefined);
     },
 
-    onChange() {}
-}
+  onChange() {
+
+  }
+};

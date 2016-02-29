@@ -3,7 +3,6 @@ import expect from 'expect';
 import auth from './../../../app/services/Authentication';
 import ArticleStore from './../../../app/stores/ArticleStore.jsx';
 import Mongoose from 'mongoose';
-Mongoose.connect('mongodb://localhost/reactdb-test');
 
 function addArticle() {
   ArticleStore.addArticle(value, this.history);

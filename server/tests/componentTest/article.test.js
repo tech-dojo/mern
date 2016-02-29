@@ -4,31 +4,67 @@ import {Grid, Row, Col, Input, Panel, ButtonInput} from 'react-bootstrap';
 import TestUtils from 'react-addons-test-utils';
 import expectJSX from 'expect-jsx';
 expect.extend(expectJSX);
-import CreateArticle from './../../../app/components/articles/CreateArticle.jsx';
 import Form from './../../../app/components/articles/Form.jsx';
 import ListArticlesChild from './../../../app/components/articles/ListArticlesChild.jsx';
 import ViewArticleChild from './../../../app/components/articles/ViewArticleChild.jsx';
 
 describe('CreateArticle', () => {
 
+  function _formSubmit()  {
+
+  }
+
+  it('_formSubmit should be passed from CreateArticle to Form', () => {
+    const renderer = TestUtils.createRenderer();
+    renderer.render(<Form formSubmit ={_formSubmit}/>);
+    const actual = renderer.getRenderOutput();
+    const expected = <form onSubmit={() => {}}>
+       <Input type="text" value={undefined} label="Title" required
+
+        onChange={() => {}} placeholder="Enter Article Title"/>
+      <Input type="textarea" value={undefined} label="Article Content"
+
+         required onChange={() => {}} placeholder="Article Content: "/>
+      <ButtonInput type="submit" value="Submit Button" bsStyle="primary"/>
+    </form>;
+
+    expect(actual).toIncludeJSX(expected);
+
+  });
+});
+
+describe('EditArticle', () => {
+
   const Article = { title:'Article Title', content:'Article Content' };
 
-  it('should create Article Title and Content', () => {
+  function _formSubmit()  {
+
+  }
+
+  it('_formSubmit and Article should be passed from EditArticle to Form', () => {
     const renderer = TestUtils.createRenderer();
-    renderer.render(<Form Article= {Article}/>);
+    renderer.render(<Form formSubmit ={_formSubmit} Article= {Article}/>);
     const actual = renderer.getRenderOutput();
-    const expected = 'Article Title';
+    const expected = <form onSubmit={() => {}}>
+       <Input type="text" value="Article Title" label="Title" required
+
+        onChange={() => {}} placeholder="Enter Article Title"/>
+      <Input type="textarea" value="Article Content" label="Article Content"
+
+         required onChange={() => {}} placeholder="Article Content: "/>
+      <ButtonInput type="submit" value="Submit Button" bsStyle="primary"/>
+    </form>;
+
     expect(actual).toIncludeJSX(expected);
-    console.log(actual);
   });
 });
 
 describe('ListArticlesChild', () => {
 
   const Articles = [{ title:'Article Title1', content:'Article Content1' },
-   { title:'Article Title2', content:'Article Content2' }];
+                       { title:'Article Title2', content:'Article Content2' }];
 
-  it('should have Article Array in list view', () => {
+  it('should have Article Array in ListArticlesChild view', () => {
     const renderer = TestUtils.createRenderer();
     renderer.render(<ListArticlesChild articles= {Articles}/>);
     const actual = renderer.getRenderOutput();
@@ -49,7 +85,7 @@ describe('ViewArticleChild', () => {
 
   const Article = { title:'Article Title', content:'Article Content' };
 
-  it('should have Article in viewArticle view', () => {
+  it('should have Article in ViewArticleChild view', () => {
     const renderer = TestUtils.createRenderer();
     renderer.render(<ViewArticleChild article= {Article}/>);
     const actual = renderer.getRenderOutput();
@@ -66,10 +102,3 @@ describe('ViewArticleChild', () => {
 
   });
 });
-
-// describe ('empty', () => {
-//
-//   it ('should work', () => {
-//     expect(true).toEqual(true);
-//   });
-// });

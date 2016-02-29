@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Nav, Navbar, NavItem, NavDropdown,MenuItem } from 'react-bootstrap';
+import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import {LinkContainer, IndexLinkContainer} from 'react-router-bootstrap';
 import auth from './../../services/Authentication';
 import UserStore from './../../stores/UserStore.jsx';
 
 class Header extends React.Component {
-  constructor(props, context){
+  constructor(props, context) {
     super(props, context);
-    this.state= {};
+    this.state = {};
     this.state.loggedIn = auth.loggedIn();
     this.state.userID = '';
     this.state.username = '';
@@ -19,26 +19,29 @@ class Header extends React.Component {
     this.collapse = this.collapse.bind(this);
     this.updateAuth = this.updateAuth.bind(this);
   }
-  navClick(){
-    this.setState({expand:false});
+
+  navClick() {
+    this.setState({ expand:false });
   }
-  collapse(expanded){
-    this.setState({expand: expanded})
+
+  collapse(expanded) {
+    this.setState({ expand: expanded });
   }
 
   updateAuth(loggedIn) {
-    this.setState({loggedIn: loggedIn});
+    this.setState({ loggedIn: loggedIn });
     this.state.userID = auth.getUserId();
     this.state.username = auth.getUserName();
-    if(loggedIn){
-      this.props.history.pushState(null,'/');
+    if (loggedIn) {
+      this.props.history.pushState(null, '/');
     }
   }
+
   componentWillMount() {
     auth.onChange = this.updateAuth;
   }
 
-  render(){
+  render() {
     return (
       <Navbar
         inverse
@@ -47,7 +50,8 @@ class Header extends React.Component {
         onToggle={this.collapse}>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to="/"><img className="brand_logo" src="static/images/mern.png"/>  A React framework</Link>
+            <Link to="/"><img className="brand_logo" src="static/images/mern.png"/>
+             A React framework</Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
@@ -61,7 +65,7 @@ class Header extends React.Component {
               eventKey={2}
               title="Articles"
               id="nav-dropdown">
-              {this.state.loggedIn &&(
+              {this.state.loggedIn && (
                 <LinkContainer to="/articles/create">
                   <MenuItem eventKey="2.1">
                     Create Article
@@ -81,7 +85,7 @@ class Header extends React.Component {
                   Sign In
                 </MenuItem>
               </LinkContainer>
-            ):(
+            ) : (
               <NavDropdown
                 eventKey={3}
                 title={this.state.username}
@@ -110,7 +114,7 @@ class Header extends React.Component {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-    )
+    );
   }
 }
 

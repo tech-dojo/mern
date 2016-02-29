@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha './server/tests/componentTest/*.test.js' --compilers js:babel-core/register",
+    "test:watch": "mocha './server/tests/componentTest/*.test.js' --compilers js:babel-core/register --watch --reporter min",
     "start": "node server/server.js"
   },
   "author": "TechDojo",
@@ -60,10 +61,5 @@
     "react-tools": "^0.13.3",
     "reactcss": "^0.4.2",
     "vinyl-source-stream": "^1.1.0"
-  },
-  "babel": {
-    "presets": [
-      "es2015","react"
-    ]
   }
 }

@@ -1,145 +1,141 @@
 import React from 'react';
-import { Link } from 'react-router';
-import {Grid, Row, Col, Panel, Pagination,Button, Well, Label, Input, ButtonInput, MenuItem} from 'react-bootstrap';
+import {Link} from 'react-router';
+import {
+  Grid,
+  Row,
+  Col,
+  Panel,
+  Pagination,
+  Button,
+  Well,
+  Label,
+  Input,
+  ButtonInput,
+  MenuItem
+} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 import auth from './../../services/Authentication';
 import ArticleStore from './../../stores/ArticleStore.jsx';
 
 function getError() {
-    return {error: ArticleStore.getError()}
+  return { error: ArticleStore.getError() };
 }
 
 class Signin extends React.Component {
-	constructor(props, context){
-		super(props, context);
-		this.state = {};
-		this.state.error = "";
-		this.state.email = "";
-		this.state.password = "";
-		this.history = props.history;
-		this.validEmailStatus = false;
-    this.validPasswordInput= false;
-		this.showSessionMsg = props.location.query? props.location.query.session:true;
-		this._handlePasswordChange = this._handlePasswordChange.bind(this);
-		this._handleEmailChange = this._handleEmailChange.bind(this);
-		this._formSubmit = this._formSubmit.bind(this);
-		this._onChange = this._onChange.bind( this );
-		this.handleKeyDown = this.handleKeyDown.bind(this);
+  constructor(props, context) {
+    super(props, context);
+    this.state = {};
+    this.state.error = '';
+    this.state.email = '';
+    this.state.password = '';
+    this.history = props.history;
+    this.validEmailStatus = false;
+    this.validPasswordInput = false;
+    this.showSessionMsg = props.location.query ?
+    props.location.query.session : true;
+    this._handlePasswordChange = this._handlePasswordChange.bind(this);
+    this._handleEmailChange = this._handleEmailChange.bind(this);
+    this._formSubmit = this._formSubmit.bind(this);
+    this._onChange = this._onChange.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
-	componentWillMount() {
-			ArticleStore.onChange(this._onChange);
-	}
+  componentWillMount() {
+    ArticleStore.onChange(this._onChange);
+  }
 
-	componentWillUnmount() {
-			ArticleStore.removeChangeListener( this._onChange );
-	}
+  componentWillUnmount() {
+    ArticleStore.removeChangeListener(this._onChange);
+  }
 
-	_onChange() {
-			this.setState(
-					getError()
-					);
-	}
+  _onChange() {
+    this.setState(getError());
+  }
 
-	handleKeyDown(e) {
+  handleKeyDown(e) {
 
-    if (e.keyCode === 13 ) {
-e.preventDefault();
+    if (e.keyCode === 13) {
+      e.preventDefault();
       this._formSubmit(e);
     }
-}
+  }
 
-validateEmail(email) {
-var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-return re.test(email);
-}
+  validateEmail(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
+  }
 
-	_handleEmailChange(e){
-	       	this.setState({error : ''});
-	        this.validEmailStatus= this.validateEmail(e.target.value)
-	        this.setState({email : e.target.value});
-	}
-	_handlePasswordChange(e){
-		this.setState({error : ''});
-		if(e.target.value.length < 6){
-       this.validPasswordInput= false;
+  _handleEmailChange(e) {
+    this.setState({ error: '' });
+    this.validEmailStatus = this.validateEmail(e.target.value);
+    this.setState({ email: e.target.value });
+  }
+  _handlePasswordChange(e) {
+    this.setState({ error: '' });
+    if (e.target.value.length < 6) {
+      this.validPasswordInput = false;
 
-		}
-		else {
-			this.validPasswordInput= true;
-		}
-		this.setState({password : e.target.value});
+    } else {
+      this.validPasswordInput = true;
+    }
 
-	}
+    this.setState({ password: e.target.value });
 
-	_formSubmit(e) {
-		e.preventDefault();
+  }
 
-		if(!this.validPasswordInput){
-			this.setState({error : 'Please Make Sure Password is More than Six Letters'});
-	}
-		else if(!this.validEmailStatus){
-			 if(this.state.email){
-						this.setState({error : 'Invalid Email Address'});
+  _formSubmit(e) {
+    e.preventDefault();
 
-				 }
-				 else{
+    if (!this.validPasswordInput) {
+      this.setState({ error: 'Please Make Sure Password is More than Six Letters' });
+    } else if (!this.validEmailStatus) {
+      if (this.state.email) {
+        this.setState({ error: 'Invalid Email Address' });
 
-						 this.setState({error : 'Please Input the Required Fields'});
-				 }
-	}
-		else{
-			this.setState({error : 'Signing in ...'});
-			auth.login(this.state.email, this.state.password, this.history, (loggedIn) => {
-				if (!loggedIn)
-				return this.setState({ error: 'Login Failed'})
+      } else {
+        this.setState({ error: 'Please Input the Required Fields' });
+      }
+    } else {
+      this.setState({ error: 'Signing in ...' });
+      auth.login(this.state.email, this.state.password, this.history, (loggedIn) => {
+        if (!loggedIn)
+          return this.setState({ error: 'Login Failed' });
+      });
+    }
+  }
 
-			})
-	}
-}
+  render() {
+    return (
+      <Grid>
+        <Row>
 
-	render(){
-			return (
-        <Grid>
-          <Row>
-
-						<h2 style={{textAlign: 'center'}}>Sign In</h2>
-            <hr/><Col md={3}/>
-            <Col md={6}>
+          <h2 style={{ textAlign: 'center' }}>Sign In</h2>
+          <hr/><Col md={3}/>
+          <Col md={6}>
             <Well>
-							<form className = "commonWidth">
-								<Input
-									placeholder="Enter Email"
-									onKeyDown={this.handleKeyDown}
-									label="Email"
-									onChange={this._handleEmailChange}
-									value={this.state.email}
-									type ="text"
-									/>
-								<br/>
-								<Input
-									placeholder="Enter Password"
-									onKeyDown={this.handleKeyDown}
-									label="Password"
-									onChange={this._handlePasswordChange}
-									value={this.state.password}
-									type="password"
-									/>
-								<br/>
+              <form className="commonWidth">
+                <Input placeholder="Enter Email" onKeyDown={this.handleKeyDown} label="Email"
+                   onChange={this._handleEmailChange} value={this.state.email} type="text"/>
+                <br/>
+                <Input placeholder="Enter Password" onKeyDown={this.handleKeyDown} label="Password"
+                onChange={this._handlePasswordChange} value={this.state.password} type="password"/>
+                <br/>
                 <div className="commonCenter">
-								<Button bsStyle="success"  onClick={this._formSubmit}>Sign in</Button>
+                  <Button bsStyle="success" onClick={this._formSubmit}>Sign in</Button>
                   &nbsp; or&nbsp;
-                  <LinkContainer to="/signup"><a>Sign up</a></LinkContainer>
+                  <LinkContainer to="/signup">
+                    <a>Sign up</a>
+                  </LinkContainer>
 
-								<p className = "validationMsg">{this.state.error}</p>
+                  <p className="validationMsg">{this.state.error}</p>
                 </div>
-							</form>
+              </form>
             </Well>
-            </Col>
-          </Row>
-        </Grid>
-			)
-	}
+          </Col>
+        </Row>
+      </Grid>
+    );
+  }
 }
 
 export default Signin;
