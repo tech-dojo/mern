@@ -6,6 +6,7 @@ import TestUtils from 'react-addons-test-utils';
 import expectJSX from 'expect-jsx';
 expect.extend(expectJSX);
 import SigninChild from './../../../app/components/users/SigninChild.jsx';
+import SignupChild from './../../../app/components/users/SignupChild.jsx';
 
 describe('SigninChild', () => {
 
@@ -57,6 +58,98 @@ describe('SigninChild', () => {
 
         <p className="validationMsg">I am an error</p>
       </div>
+    </form>;
+
+    expect(actual).toIncludeJSX(expected);
+
+  });
+});
+
+describe('SignupChild', () => {
+
+  function handleInputFirstName()  {
+
+  }
+
+  function handleInputLastName()  {
+
+  }
+
+  function handleInputEmail()  {
+
+  }
+
+  function handleInputUserName()  {
+
+  }
+
+  function handleInputPassword()  {
+
+  }
+
+  function formSubmit()  {
+
+  }
+
+  function _errorMessage()  {
+
+  }
+
+  const error = 'I am an error';
+
+  it('SignupChild is getting the necessary props', () => {
+    const renderer = TestUtils.createRenderer();
+    renderer.render(<SignupChild handleInputFirstName = {handleInputFirstName}
+      handleInputLastName = {handleInputLastName}
+      handleInputEmail = {handleInputEmail}
+      handleInputUserName = {handleInputUserName}
+      handleInputPassword = {handleInputPassword}
+      _errorMessage = {_errorMessage}
+      formSubmit = {formSubmit}
+      error = {error}/>);
+    const actual = renderer.getRenderOutput();
+    const expected = <form onSubmit={() => {}}>
+      <Input
+
+        placeholder="First Name"
+        onChange={() => {}}
+
+        label="First Name"
+        type ="text" />
+      <br/>
+      <Input
+        placeholder="Last Name"
+        onChange={() => {}}
+
+        label ="Last Name"
+        type ="text"/>
+      <br/>
+      <Input
+        placeholder="Enter Email"
+        onChange={() => {}}
+
+        label="Email"
+        type ="text"/>
+      <br/>
+      <Input
+        placeholder="User Name"
+        onChange={() => {}}
+
+        label="User Name"
+        type ="text"/>
+      <br/>
+      <Input
+        placeholder="Enter Password"
+        onChange={() => {}}
+
+        label="Password"
+        type="password" />
+      <br/>
+      <Button type="submit" bsStyle="success">
+        Sign up
+      </Button> &nbsp; or&nbsp;
+      <LinkContainer to="/signin"><a>Sign In</a></LinkContainer>
+      <p className = "validationMsg">I am an error</p>
     </form>;
 
     expect(actual).toIncludeJSX(expected);
