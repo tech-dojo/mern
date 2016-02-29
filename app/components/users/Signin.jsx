@@ -4,18 +4,14 @@ import {
   Grid,
   Row,
   Col,
-  Panel,
-  Pagination,
   Button,
   Well,
-  Label,
-  Input,
-  ButtonInput,
-  MenuItem
+  Input
 } from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 import auth from './../../services/Authentication';
 import ArticleStore from './../../stores/ArticleStore.jsx';
+import SigninChild from './SigninChild.jsx';
 
 function getError() {
   return { error: ArticleStore.getError() };
@@ -29,15 +25,13 @@ class Signin extends React.Component {
     this.state.email = '';
     this.state.password = '';
     this.history = props.history;
-    this.validEmailStatus = false;
-    this.validPasswordInput = false;
     this.showSessionMsg = props.location.query ?
     props.location.query.session : true;
     this._handlePasswordChange = this._handlePasswordChange.bind(this);
     this._handleEmailChange = this._handleEmailChange.bind(this);
     this._formSubmit = this._formSubmit.bind(this);
     this._onChange = this._onChange.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this._errorMessage = this._errorMessage.bind(this);
   }
 
   componentWillMount() {
@@ -52,88 +46,39 @@ class Signin extends React.Component {
     this.setState(getError());
   }
 
-  handleKeyDown(e) {
-
-    if (e.keyCode === 13) {
-      e.preventDefault();
-      this._formSubmit(e);
-    }
+  _errorMessage(err) {
+    this.setState({ error: err });
   }
 
-  validateEmail(email) {
-    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    return re.test(email);
-  }
-
-  _handleEmailChange(e) {
+  _handleEmailChange(emailChild) {
     this.setState({ error: '' });
-    this.validEmailStatus = this.validateEmail(e.target.value);
-    this.setState({ email: e.target.value });
+    this.setState({ email: emailChild });
   }
-  _handlePasswordChange(e) {
+
+  _handlePasswordChange(passwordChild) {
     this.setState({ error: '' });
-    if (e.target.value.length < 6) {
-      this.validPasswordInput = false;
-
-    } else {
-      this.validPasswordInput = true;
-    }
-
-    this.setState({ password: e.target.value });
+    this.setState({ password: passwordChild });
 
   }
 
-  _formSubmit(e) {
-    e.preventDefault();
-
-    if (!this.validPasswordInput) {
-      this.setState({ error: 'Please Make Sure Password is More than Six Letters' });
-    } else if (!this.validEmailStatus) {
-      if (this.state.email) {
-        this.setState({ error: 'Invalid Email Address' });
-
-      } else {
-        this.setState({ error: 'Please Input the Required Fields' });
-      }
-    } else {
+  _formSubmit(emailChild, passwordChild) {
       this.setState({ error: 'Signing in ...' });
-      auth.login(this.state.email, this.state.password, this.history, (loggedIn) => {
+      auth.login(emailChild, passwordChild, this.history, (loggedIn) => {
         if (!loggedIn)
           return this.setState({ error: 'Login Failed' });
       });
     }
-  }
 
   render() {
     return (
-      <Grid>
-        <Row>
-
-          <h2 style={{ textAlign: 'center' }}>Sign In</h2>
-          <hr/><Col md={3}/>
-          <Col md={6}>
-            <Well>
-              <form className="commonWidth">
-                <Input placeholder="Enter Email" onKeyDown={this.handleKeyDown} label="Email"
-                   onChange={this._handleEmailChange} value={this.state.email} type="text"/>
-                <br/>
-                <Input placeholder="Enter Password" onKeyDown={this.handleKeyDown} label="Password"
-                onChange={this._handlePasswordChange} value={this.state.password} type="password"/>
-                <br/>
-                <div className="commonCenter">
-                  <Button bsStyle="success" onClick={this._formSubmit}>Sign in</Button>
-                  &nbsp; or&nbsp;
-                  <LinkContainer to="/signup">
-                    <a>Sign up</a>
-                  </LinkContainer>
-
-                  <p className="validationMsg">{this.state.error}</p>
-                </div>
-              </form>
-            </Well>
-          </Col>
-        </Row>
-      </Grid>
+      <SigninChild _handleEmailChange = {this._handleEmailChange}
+        _handlePasswordChange = {this._handlePasswordChange}
+        _errorMessage = {this._errorMessage}
+        _formSubmit = {this._formSubmit}
+        email = {this.state.email}
+        password = {this.state.password}
+        error = {this.state.error}
+        />
     );
   }
 }
