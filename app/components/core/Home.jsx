@@ -40,8 +40,8 @@ class Home extends React.Component {
                    </LinkContainer></p>
               <br/>
               <a href="https://github.com/tech-dojo/mern-doc" target="_blank">
-                Improve Documentation</a> |
-                 <a href="https://github.com/tech-dojo/mern" target="_blank">
+                Improve Documentation</a> |&nbsp;
+                  <a href="https://github.com/tech-dojo/mern" target="_blank">
                    Contribute on GitHub</a>
             </Jumbotron>
 

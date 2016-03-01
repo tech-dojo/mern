@@ -18,6 +18,7 @@
     "browser-sync": "^2.7.2",
     "browserify": "^10.2.1",
     "expect": "^1.14.0",
+    "expect-jsx": "^2.3.0",
     "gulp": "^3.8.11",
     "gulp-live-server": "0.0.14",
     "gulp-mocha": "^2.2.0",

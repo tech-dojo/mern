@@ -7,6 +7,7 @@ import expectJSX from 'expect-jsx';
 expect.extend(expectJSX);
 import SigninChild from './../../../app/components/users/SigninChild.jsx';
 import SignupChild from './../../../app/components/users/SignupChild.jsx';
+import EditUserProfileChild from './../../../app/components/users/EditUserProfileChild.jsx';
 
 describe('SigninChild', () => {
 
@@ -151,6 +152,97 @@ describe('SignupChild', () => {
       <LinkContainer to="/signin"><a>Sign In</a></LinkContainer>
       <p className = "validationMsg">I am an error</p>
     </form>;
+
+    expect(actual).toIncludeJSX(expected);
+
+  });
+});
+
+describe('EditUserProfileChild', () => {
+
+  function handleInputEditFirstName()  {
+
+  }
+
+  function handleInputEditLastName()  {
+
+  }
+
+  function handleInputEditEmail()  {
+
+  }
+
+  function handleInputEditUserName()  {
+
+  }
+
+  function handleInputPassword()  {
+
+  }
+
+  function formSubmit()  {
+
+  }
+
+  function _errorMessage()  {
+
+  }
+
+  const error = 'I am an error';
+  const profileUpdateMsg = 'profile Updated';
+  const EditUserInfo = { firstName: 'test', lastName: 'end',
+     email: 'a@b.com', username: 'test end', password: '1234567890' };
+
+  it('EditUserProfileChild is getting the necessary props', () => {
+    const renderer = TestUtils.createRenderer();
+    renderer.render(<EditUserProfileChild handleInputEditFirstName = {handleInputEditFirstName}
+      handleInputEditLastName = {handleInputEditLastName}
+      handleInputEditEmail = {handleInputEditEmail}
+      handleInputEditUserName = {handleInputEditUserName}
+      handleInputPassword = {handleInputPassword}
+      _errorMessage = {_errorMessage}
+      formSubmit = {formSubmit}
+      error = {error}
+      profileUpdateMsg = {profileUpdateMsg}
+      EditUserInfo= {EditUserInfo}
+      />);
+    const actual = renderer.getRenderOutput();
+    const expected = <Grid className="marginBottom">
+      <Row>
+        <h2>
+          Edit Your User Profile
+        </h2>
+        <hr/>
+        <Col md={12}>
+
+          <form onSubmit={() => {}}>
+            <Input placeholder="First Name" value='test'
+
+              onChange={() => {}} label="First Name" type="text"/>
+            <br/>
+            <Input placeholder="Last Name" value='end'
+
+              onChange={() => {}} label="Last Name" type="text"/>
+            <br/>
+            <Input placeholder="Enter Email" value='a@b.com'
+
+              onChange={() => {}} label="Email" type="text"/>
+            <br/>
+            <Input placeholder="User Name" value='test end'
+
+              onChange={() => {}} label="User Name" type="text"/>
+            <Input placeholder="Password" value='1234567890'
+
+              onChange={() => {}} label="Password" type="text"/>
+            <Button bsStyle="primary" type="submit">
+              Save Profile
+            </Button>
+            <p className="validationMsg">I am an error</p>
+            <p className="validationMsg">profile Updated</p>
+          </form>
+        </Col>
+      </Row>
+    </Grid>;
 
     expect(actual).toIncludeJSX(expected);
 

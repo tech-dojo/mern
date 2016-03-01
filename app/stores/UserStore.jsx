@@ -1,8 +1,8 @@
-"use strict";
-let {get, post, del, put} = require("./RestAPI_Helper.js");
+'use strict';
+let { get, post, del, put } = require('./RestAPI_Helper.js');
 
 function UserStore() {
-  let user = {},
+   let user = {},
     profileUpdateMsg = '',
     changeListeners = [];
 

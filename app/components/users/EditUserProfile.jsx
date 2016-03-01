@@ -1,6 +1,13 @@
 import React from 'react';
 import UserStore from './../../stores/UserStore.jsx';
-import { Grid, Row, Col, Panel, Button, Input, ButtonInput} from 'react-bootstrap';
+import {
+  Grid,
+  Row,
+  Col,
+  Button,
+  Input
+} from 'react-bootstrap';
+import EditUserProfileChild from './EditUserProfileChild.jsx';
 
 function getUser() {
   return { EditUserInfo: UserStore.getUser() };
@@ -18,13 +25,8 @@ class EditUserProfile extends React.Component {
     this.state.error = '';
     this.state.EditUserInfo = {};
     this.state.EditUserInfo.password = '';
-    this.state.profileUpdMsg = '';
+    this.state.profileUpdateMsg = '';
     this.state = getUser();
-    this.validFirstName = true;
-    this.validLastName = true;
-    this.validEmail = true;
-    this.validUserName = true;
-    this.validPassword = true;
     this.history = props.history;
     this.handleInputEditFirstName = this.handleInputEditFirstName.bind(this);
     this.handleInputEditLastName = this.handleInputEditLastName.bind(this);
@@ -34,151 +36,74 @@ class EditUserProfile extends React.Component {
     this.formSubmit = this.formSubmit.bind(this);
     this._onChange = this._onChange.bind(this);
     this.onProfileUpdate = this.onProfileUpdate.bind(this);
+    this._errorMessage = this._errorMessage.bind(this);
   }
 
-  validateEmail(email) {
-    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    return re.test(email);
+  handleInputEditFirstName(editUserInfo) {
+    this.setState({ EditUserInfo: editUserInfo });
+    this.setState({ error: '' });
   }
 
-  handleInputEditFirstName(e) {
-    this.validFirstName= e.target.value!=="" ? true : false;
-    this.state.EditUserInfo.firstName = e.target.value;
-    this.setState({EditUserInfo: this.state.EditUserInfo});
-    this.setState({error:''});
+  handleInputEditLastName(editUserInfo) {
+    this.setState({ EditUserInfo: editUserInfo });
+    this.setState({ error: '' });
   }
 
-  handleInputEditLastName(e){
-    this.validLastName= e.target.value!=="" ? true : false;
-    this.state.EditUserInfo.lastName = e.target.value;
-    this.setState({EditUserInfo: this.state.EditUserInfo});
-    this.setState({error:''});
+  handleInputEditEmail(editUserInfo) {
+    this.setState({ EditUserInfo: editUserInfo });
+    this.setState({ error: '' });
   }
 
-  handleInputEditEmail(e){
-    this.validEmail= this.validateEmail(e.target.value)
-    this.state.EditUserInfo.email = e.target.value;
-    this.setState({EditUserInfo : this.state.EditUserInfo});
-    this.setState({error:''});
+  handleInputEditUserName(editUserInfo) {
+    this.setState({ EditUserInfo: editUserInfo });
+    this.setState({ error: '' });
   }
 
-  handleInputEditUserName(e){
-    this.validUserName= e.target.value!=="" ? true : false;
-    this.state.EditUserInfo.username = e.target.value;
-    this.setState({EditUserInfo: this.state.EditUserInfo});
-    this.setState({error:''});
+  handleInputPassword(editUserInfo) {
+    this.setState({ error: '' });
+    this.setState({ EditUserInfo: editUserInfo });
   }
 
-  handleInputPassword(e){
-    this.setState({error:''});
-    if(e.target.value.length < 7){
-console.log("Hello six Char");
-this.state.EditUserInfo.password = e.target.value;
-      this.validPassword= false;
-    }
-    else {
-      this.validPassword= true;
-      this.state.EditUserInfo.password = e.target.value;
-    }
-    this.setState({EditUserInfo: this.state.EditUserInfo});
-  //  this.setState({password : e.target.value});
+  _errorMessage(err) {
+    this.setState({ error: err });
   }
 
-
-  formSubmit(e) {
-    e.preventDefault();
-    if(!this.validFirstName){
-          this.setState({error : 'Please Input the First Name'});
-        }
-    else if(!this.validLastName){
-              this.setState({error : 'Please Input the Last Name'});
-            }
-            else if(!this.validEmail){
-                      this.setState({error : 'Please Input Correct Email Address'});
-                    }
-    else if(!this.validUserName){
-            this.setState({error : 'Please Input the User Name'});
-        }
-
-        else if(!this.validPassword){
-                this.setState({error : 'Password Should Be Longer than 6 Charecters'});
-            }
-
-    else{
-      UserStore.editUser(this.state.EditUserInfo, this.state.EditUserInfo._id);
-    }
+  formSubmit(editUserInfo) {
+    UserStore.editUser(editUserInfo, this.state.EditUserInfo._id);
   }
 
   componentWillMount() {
-      UserStore.onChange(this._onChange);
-      UserStore.onChange(this.onProfileUpdate);
+    UserStore.onChange(this._onChange);
+    UserStore.onChange(this.onProfileUpdate);
   }
 
-  onProfileUpdate(){
+  componentWillUnmount() {
+    UserStore.removeChangeListener(this._onChange);
+    UserStore.removeChangeListener(this.onProfileUpdate);
+  }
 
-     this.setState(profileUpdateMsg());
+  onProfileUpdate() {
+    this.setState(profileUpdateMsg());
   }
 
   _onChange() {
-     this.setState( getUser() );
- }
+    this.setState(getUser());
+  }
 
-  render(){
-    var editUser = this.state.EditUserInfo;
-    return(
-
-      <Grid className="marginBottom">
-        <Row>
-          <h2>
-            Edit Your User Profile
-          </h2>
-          <hr/>
-          <Col md={12}>
-
-        <form onSubmit={this.formSubmit}>
-          <Input
-            placeholder="First Name"
-            value={editUser.firstName}
-            onChange={this.handleInputEditFirstName}
-            label="First Name"
-            type ="text" />
-          <br/>
-          <Input
-            placeholder="Last Name"
-            value={editUser.lastName}
-            onChange={this.handleInputEditLastName}
-            label ="Last Name"
-            type ="text"/>
-          <br/>
-          <Input
-            placeholder="Enter Email"
-            value={editUser.email}
-            onChange={this.handleInputEditEmail}
-            label="Email"
-            type ="text"/>
-          <br/>
-          <Input
-            placeholder="User Name"
-            value={editUser.username}
-            onChange={this.handleInputEditUserName}
-            label="User Name"
-            type ="text"/>
-            <Input
-              placeholder="Password"
-              value={editUser.password}
-              onChange={this.handleInputPassword}
-              label="Password"
-              type ="text"/>
-          <Button bsStyle="primary" type="submit">
-              Save Profile
-            </Button>
-            <p className = "validationMsg">{this.state.error}</p>
-            <p className = "validationMsg">{this.state.profileUpdateMsg}</p>
-          </form>
-        </Col>
-      </Row>
-    </Grid>
-    )
+  render() {
+    return (
+<EditUserProfileChild handleInputEditFirstName = {this.handleInputEditFirstName}
+  handleInputEditLastName = {this.handleInputEditLastName}
+  handleInputEditEmail = {this.handleInputEditEmail}
+  handleInputEditUserName = {this.handleInputEditUserName}
+  handleInputPassword = {this.handleInputPassword}
+  _errorMessage = {this._errorMessage}
+  formSubmit = {this.formSubmit}
+  profileUpdateMsg = {this.state.profileUpdateMsg}
+  error = {this.state.error}
+  EditUserInfo= {this.state.EditUserInfo}
+  />
+);
   }
 }
 
