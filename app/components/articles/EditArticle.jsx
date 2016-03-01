@@ -14,7 +14,17 @@ class EditArticle extends React.Component {
     this.history = props.history;
     ArticleStore.fetchArticle(props.params.id);
     this.state = getArticle();
+    this.handleInputTitle = this.handleInputTitle.bind(this);
+    this.handleInputContent = this.handleInputContent.bind(this);
     this._formSubmit = this._formSubmit.bind(this);
+  }
+
+  handleInputTitle(article) {
+    this.setState({ Article: article });
+  }
+
+  handleInputContent(article) {
+    this.setState({ Article: article });
   }
 
   _formSubmit(value) {
@@ -30,7 +40,9 @@ class EditArticle extends React.Component {
               <b>Edit Article</b>
             </h2>
             <hr></hr>
-            <Form formSubmit={this._formSubmit}  Article={this.state.EditArticle}/>
+            <Form formSubmit={this._formSubmit}  Article={this.state.EditArticle}
+              handleInputTitle={this.handleInputTitle}
+             handleInputContent={this.handleInputContent} />
           </Col>
         </Row>
       </Grid>

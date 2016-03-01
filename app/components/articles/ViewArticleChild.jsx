@@ -11,7 +11,6 @@ class ViewArticleChild extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.props = props;
-    this.state = {};
     this.deleteArticle = this.deleteArticle.bind(this);
   }
 
