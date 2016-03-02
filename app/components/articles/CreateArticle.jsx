@@ -8,7 +8,6 @@ class CreateArticle extends React.Component {
     super(props);
     this.history = props.history;
     this.state = {};
-    this.state.error = '';
     this.state.Article = {};
     this.handleInputTitle = this.handleInputTitle.bind(this);
     this.handleInputContent = this.handleInputContent.bind(this);

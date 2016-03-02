@@ -62,5 +62,10 @@
     "react-tools": "^0.13.3",
     "reactcss": "^0.4.2",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015","react"
+    ]
   }
 }

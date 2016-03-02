@@ -5,31 +5,28 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.history = props.history;
-    this.state = {};
-    this.state.error = '';
-    this.state.Article = this.props.Article || {};
     this.handleInputTitle = this.handleInputTitle.bind(this);
     this.handleInputContent = this.handleInputContent.bind(this);
     this._formSubmit = this._formSubmit.bind(this);
   }
 
   handleInputTitle(e) {
-    this.state.Article.title = e.target.value;
-    this.setState({ Article: this.state.Article });
+    this.props.Article.title = e.target.value;
+    this.props.handleInputTitle(this.props.Article);
   }
 
   handleInputContent(e) {
-    this.state.Article.content = e.target.value;
-    this.setState({ Article: this.state.Article });
+    this.props.Article.content = e.target.value;
+    this.props.handleInputContent(this.props.Article);
   }
 
   _formSubmit(e) {
     e.preventDefault();
-    this.props.formSubmit(this.state.Article);
+    this.props.formSubmit(this.props.Article);
   }
 
   render() {
-    var Article = this.state.Article;
+    var Article = this.props.Article;
     return (
         <Grid >
           <Row>
