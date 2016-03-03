@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/services/Authentication.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">app/services/</a> Authentication.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">16.67% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>7/42</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">18.92% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>7/37</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+var $ = require('jquery');      // Line 1: let $ = require('jquery');
+&nbsp;
+var _require = require('./../stores/RestAPI_Helper.js');        // Line 2: let { get, post, del, put } = require('./../stores/RestAPI_Helper.js');
+&nbsp;
+var get = _require.get;                                 // Line 2: let { get, post, del, put } = require('./../stores/RestAPI_Helper.js');
+var post = _require.post;                               // Line 2: let { get, post, del, put } = require('./../stores/RestAPI_Helper.js');
+var del = _require.del;                                 // Line 2: let { get, post, del, put } = require('./../stores/RestAPI_Helper.js');
+var put = _require.put;                                 // Line 2: let { get, post, del, put } = require('./../stores/RestAPI_Helper.js');
+&nbsp;
+&nbsp;
+module.exports = {
+  signup: <span class="fstat-no" title="function not covered" >function signup(userInfo) {</span>       // Line 6:   signup(userInfo) {
+<span class="cstat-no" title="statement not covered" >    var _this = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    post('/auth/signup', userInfo).then(<span class="fstat-no" title="function not covered" >function (data) {</span>       // Line 7:     post('/auth/signup', userInfo)</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      _this.login(data.email, userInfo.password, <span class="fstat-no" title="function not covered" >function (loggedIn) {</span>      // Line 10:         this.login(data.email, userInfo.password, (loggedIn) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        if (!loggedIn) <span class="cstat-no" title="statement not covered" >return _this.setState({ error: 'Login Failed' }); </span></span>       // Line 11:           if (!loggedIn)
+      });                                                                       // Line 10:         this.login(data.email, userInfo.password, (loggedIn) =&gt; {
+    }).catch(<span class="fstat-no" title="function not covered" >function (err) {</span>});                                                // Line 7:     post('/auth/signup', userInfo)
+  },                                                                            // Line 4: module.exports = {
+  login: <span class="fstat-no" title="function not covered" >function login(email, pass, cb) {</span>                                      // Line 20:   login(email, pass, cb) {
+<span class="cstat-no" title="statement not covered" >    var _this2 = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    cb = arguments[arguments.length - 1]; </span>                      // Line 21:       cb = arguments[arguments.length - 1];
+<span class="cstat-no" title="statement not covered" >    var token = typeof window !== 'undefined' ? localStorage.token : undefined; </span>    // Line 22:       var token = (typeof window !== 'undefined') ? localStorage.token : undefined;
+<span class="cstat-no" title="statement not covered" >    if (token) {                                                                    // Line 23:       if (token) {</span>
+<span class="cstat-no" title="statement not covered" >      if (cb) <span class="cstat-no" title="statement not covered" >cb(true); </span></span>                                                            // Line 24:         if (cb) cb(true);
+<span class="cstat-no" title="statement not covered" >      this.onChange(true); </span>                                                         // Line 25:         this.onChange(true);
+<span class="cstat-no" title="statement not covered" >      return; </span>                                                                      // Line 26:         return;
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    post('/auth/signin', { email: email, password: pass }).then(<span class="fstat-no" title="function not covered" >function (data) {</span>       // Line 29:       post('/auth/signin', { email: email, password: pass })</span>
+<span class="cstat-no" title="statement not covered" >      localStorage.userId = data._id; </span>                                                  // Line 31:           localStorage.userId = data._id;
+<span class="cstat-no" title="statement not covered" >      localStorage.username = data.username; </span>                                           // Line 32:           localStorage.username = data.username;
+<span class="cstat-no" title="statement not covered" >      localStorage.token = Math.random().toString(36).substring(7); </span>                    // Line 33:           localStorage.token = Math.random().toString(36).substring(7);
+<span class="cstat-no" title="statement not covered" >      if (cb) <span class="cstat-no" title="statement not covered" >cb(true); </span></span>                                                                // Line 34:           if (cb) cb(true);
+<span class="cstat-no" title="statement not covered" >      _this2.onChange(true); </span>                                                           // Line 35:           this.onChange(true);
+    }).catch(<span class="fstat-no" title="function not covered" >function (err) {</span>                                                           // Line 37:         .catch((err) =&gt; {
+<span class="cstat-no" title="statement not covered" >      if (cb) <span class="cstat-no" title="statement not covered" >cb(false); </span></span>                                                               // Line 38:           if (cb) cb(false);
+<span class="cstat-no" title="statement not covered" >      _this2.onChange(false); </span>                                                          // Line 39:           this.onChange(false);
+    });                                                                                 // Line 29:       post('/auth/signin', { email: email, password: pass })
+  },                                                                                    // Line 4: module.exports = {
+  getToken: <span class="fstat-no" title="function not covered" >function getToken() {</span>                                                       // Line 43:   getToken() {
+<span class="cstat-no" title="statement not covered" >    return typeof window !== 'undefined' ? localStorage.token : undefined; </span>             // Line 44:       return (typeof window !== 'undefined') ? localStorage.token : undefined;
+  },                                                                                    // Line 4: module.exports = {
+  getUserId: <span class="fstat-no" title="function not covered" >function getUserId() {</span>                                                     // Line 47:   getUserId() {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return typeof window !== 'undefined' ? localStorage.userId : undefined; </span>    // Line 49:     return (typeof window !== 'undefined') ? localStorage.userId : undefined;
+  },                                                                            // Line 4: module.exports = {
+  getUserName: <span class="fstat-no" title="function not covered" >function getUserName() {</span>                                         // Line 52:   getUserName() {
+<span class="cstat-no" title="statement not covered" >    return typeof window !== 'undefined' ? localStorage.username : undefined; </span>      // Line 53:       return (typeof window !== 'undefined') ? localStorage.username : undefined;
+  },                                                                                // Line 4: module.exports = {
+  logout: <span class="fstat-no" title="function not covered" >function logout(cb) {</span>                                                     //   logout(cb) {
+<span class="cstat-no" title="statement not covered" >    var _this3 = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    get('/auth/signout').then(<span class="fstat-no" title="function not covered" >function (g) {</span>                        // Line 57:       get('/auth/signout')</span>
+<span class="cstat-no" title="statement not covered" >      delete localStorage.token; </span>                                   // Line 59:           delete localStorage.token;
+<span class="cstat-no" title="statement not covered" >      delete localStorage.userId; </span>                                  // Line 60:           delete localStorage.userId;
+<span class="cstat-no" title="statement not covered" >      delete localStorage.username; </span>                                // Line 61:           delete localStorage.username;
+<span class="cstat-no" title="statement not covered" >      if (cb) <span class="cstat-no" title="statement not covered" >cb(); </span></span>                                                // Line 62:           if (cb) cb();
+<span class="cstat-no" title="statement not covered" >      _this3.onChange(false); </span>                                      // Line 63:           this.onChange(false);
+    }).catch(<span class="fstat-no" title="function not covered" >function (err) {</span>});                                    // Line 57:       get('/auth/signout')
+  },                                                                // Line 4: module.exports = {
+  loggedIn: <span class="fstat-no" title="function not covered" >function loggedIn() {</span>                                   // Line 68:   loggedIn() {
+<span class="cstat-no" title="statement not covered" >    return !!(typeof window !== 'undefined' ? localStorage.token : undefined); </span>     // Line 69:       return !!((typeof window !== 'undefined') ? localStorage.token : undefined);
+  },                                                                                // Line 4: module.exports = {
+  onChange: <span class="fstat-no" title="function not covered" >function onChange() {</span>}                                                  // Line 72:   onChange() {
+};                                                                                  // Line 4: module.exports = {
+// SourceMap was distributed to comments by gulp-jsx-coverage</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 03 2016 16:05:42 GMT+0600 (BDT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

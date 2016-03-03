@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/components/users/EditUserProfile.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">app/components/users/</a> EditUserProfile.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">32.17% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>37/115</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">28.57% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>14/49</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">27.27% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">21.35% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>19/89</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+&nbsp;
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; <span class="missing-if-branch" title="else path not taken" >E</span>if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { <span class="missing-if-branch" title="else path not taken" >E</span>if (protoProps) defineProperties(Constructor.prototype, protoProps); <span class="missing-if-branch" title="if path not taken" >I</span>if (staticProps) <span class="cstat-no" title="statement not covered" >defineProperties(Constructor, staticProps); </span>return Constructor; }; }();
+&nbsp;
+var _react = require('react');
+&nbsp;
+var _react2 = _interopRequireDefault(_react);
+&nbsp;
+var _UserStore = require('./../../stores/UserStore.jsx');
+&nbsp;
+var _UserStore2 = _interopRequireDefault(_UserStore);
+&nbsp;
+var _reactBootstrap = require('react-bootstrap');
+&nbsp;
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? <span class="branch-0 cbranch-no" title="branch not covered" >obj </span>: { default: obj }; }
+&nbsp;
+<span class="fstat-no" title="function not covered" >function _classCallCheck(instance, Constructor) {</span> <span class="cstat-no" title="statement not covered" >if (!(instance instanceof Constructor)) { <span class="cstat-no" title="statement not covered" >throw new TypeError("Cannot call a class as a function"); </span>} </span>}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function _possibleConstructorReturn(self, call) {</span> <span class="cstat-no" title="statement not covered" >if (!self) { <span class="cstat-no" title="statement not covered" >throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); </span>} <span class="cstat-no" title="statement not covered" ></span>return call &amp;&amp; (typeof call === "object" || typeof call === "function") ? call : self; </span>}
+&nbsp;
+function _inherits(subClass, superClass) { <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof superClass !== "function" &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >superClass !== null)</span> { <span class="cstat-no" title="statement not covered" >throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); </span>} subClass.prototype = Object.create(superClass &amp;&amp; superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); <span class="missing-if-branch" title="else path not taken" >E</span>if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : <span class="branch-1 cbranch-no" title="branch not covered" >subClass.__proto__ = superClass;</span> }
+&nbsp;
+<span class="fstat-no" title="function not covered" >function getUser() {</span>
+<span class="cstat-no" title="statement not covered" >  return { EditUserInfo: _UserStore2.default.getUser() }; </span>      // Line 6:   return { EditUserInfo: UserStore.getUser() };
+}                                                               // Line 5: function getUser() {
+&nbsp;
+<span class="fstat-no" title="function not covered" >function profileUpdateMsg() {</span>
+<span class="cstat-no" title="statement not covered" >  return { profileUpdateMsg: _UserStore2.default.getProfileUpdateMsg() }; </span>      // Line 10:   return { profileUpdateMsg: UserStore.getProfileUpdateMsg() };
+}                                                                               // Line 9: function profileUpdateMsg() {
+&nbsp;
+var EditUserProfile = function (_React$Component) {                     // Line 13: class EditUserProfile extends React.Component {
+  _inherits(EditUserProfile, _React$Component);
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function EditUserProfile(props) {</span>                     // Line 14:   constructor(props) {
+<span class="cstat-no" title="statement not covered" >    _classCallCheck(this, EditUserProfile); </span>            // Line 13: class EditUserProfile extends React.Component {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(EditUserProfile).call(this, props)); </span>    // Line 15:     super(props);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    _this.state = {}; </span>                                                                                  // Line 16:     this.state = {};
+<span class="cstat-no" title="statement not covered" >    _UserStore2.default.fetchUser(props.params.id); </span>                                                    // Line 17:     UserStore.fetchUser(props.params.id);
+<span class="cstat-no" title="statement not covered" >    _this.state.error = ''; </span>                                                                            // Line 18:     this.state.error = '';
+<span class="cstat-no" title="statement not covered" >    _this.state.EditUserInfo = {}; </span>                                                                     // Line 19:     this.state.EditUserInfo = {};
+<span class="cstat-no" title="statement not covered" >    _this.state.EditUserInfo.password = ''; </span>                                                            // Line 20:     this.state.EditUserInfo.password = '';
+<span class="cstat-no" title="statement not covered" >    _this.state.profileUpdMsg = ''; </span>                                                                    // Line 21:     this.state.profileUpdMsg = '';
+<span class="cstat-no" title="statement not covered" >    _this.state = getUser(); </span>                                                                           // Line 22:     this.state = getUser();
+<span class="cstat-no" title="statement not covered" >    _this.validFirstName = true; </span>                                                                       // Line 23:     this.validFirstName = true;
+<span class="cstat-no" title="statement not covered" >    _this.validLastName = true; </span>                                                                        // Line 24:     this.validLastName = true;
+<span class="cstat-no" title="statement not covered" >    _this.validEmail = true; </span>                                                                           // Line 25:     this.validEmail = true;
+<span class="cstat-no" title="statement not covered" >    _this.validUserName = true; </span>                                                                        // Line 26:     this.validUserName = true;
+<span class="cstat-no" title="statement not covered" >    _this.validPassword = true; </span>                                                                        // Line 27:     this.validPassword = true;
+<span class="cstat-no" title="statement not covered" >    _this.history = props.history; </span>                                                                     // Line 28:     this.history = props.history;
+<span class="cstat-no" title="statement not covered" >    _this.handleInputEditFirstName = _this.handleInputEditFirstName.bind(_this); </span>                       // Line 29:     this.handleInputEditFirstName = this.handleInputEditFirstName.bind(this);
+<span class="cstat-no" title="statement not covered" >    _this.handleInputEditLastName = _this.handleInputEditLastName.bind(_this); </span>                         // Line 30:     this.handleInputEditLastName = this.handleInputEditLastName.bind(this);
+<span class="cstat-no" title="statement not covered" >    _this.handleInputEditEmail = _this.handleInputEditEmail.bind(_this); </span>                               // Line 31:     this.handleInputEditEmail = this.handleInputEditEmail.bind(this);
+<span class="cstat-no" title="statement not covered" >    _this.handleInputEditUserName = _this.handleInputEditUserName.bind(_this); </span>                         // Line 32:     this.handleInputEditUserName = this.handleInputEditUserName.bind(this);
+<span class="cstat-no" title="statement not covered" >    _this.handleInputPassword = _this.handleInputPassword.bind(_this); </span>                                 // Line 33:     this.handleInputPassword = this.handleInputPassword.bind(this);
+<span class="cstat-no" title="statement not covered" >    _this.formSubmit = _this.formSubmit.bind(_this); </span>                                                   // Line 34:     this.formSubmit = this.formSubmit.bind(this);
+<span class="cstat-no" title="statement not covered" >    _this._onChange = _this._onChange.bind(_this); </span>                                                     // Line 35:     this._onChange = this._onChange.bind(this);
+<span class="cstat-no" title="statement not covered" >    _this.onProfileUpdate = _this.onProfileUpdate.bind(_this); </span>                                         // Line 36:     this.onProfileUpdate = this.onProfileUpdate.bind(this);
+<span class="cstat-no" title="statement not covered" >    return _this;</span>
+  }
+&nbsp;
+  _createClass(EditUserProfile, [{                                              // Line 13: class EditUserProfile extends React.Component {
+    key: 'validateEmail',
+    value: <span class="fstat-no" title="function not covered" >function validateEmail(email) {</span>                              // Line 39:   validateEmail(email) {
+<span class="cstat-no" title="statement not covered" >      var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;<span class="cstat-no" title="statement not covered" >/</span>^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i; </span>      // Line 40:     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+<span class="cstat-no" title="statement not covered" >      return re.test(email); </span>                                                                                                                                                                   // Line 41:     return re.test(email);
+    }
+  }, {
+    key: 'handleInputEditFirstName',
+    value: <span class="fstat-no" title="function not covered" >function handleInputEditFirstName(e) {</span>                                                                                                                       // Line 44:   handleInputEditFirstName(e) {
+<span class="cstat-no" title="statement not covered" >      this.validFirstName = e.target.value !== "" ? true : false; </span>                                                                                                      // Line 45:     this.validFirstName= e.target.value!=="" ? true : false;
+<span class="cstat-no" title="statement not covered" >      this.state.EditUserInfo.firstName = e.target.value; </span>                                                                                                              // Line 46:     this.state.EditUserInfo.firstName = e.target.value;
+<span class="cstat-no" title="statement not covered" >      this.setState({ EditUserInfo: this.state.EditUserInfo }); </span>                                                                                                        // Line 47:     this.setState({EditUserInfo: this.state.EditUserInfo});
+<span class="cstat-no" title="statement not covered" >      this.setState({ error: '' }); </span>                                                                                                                                    // Line 48:     this.setState({error:''});
+    }
+  }, {
+    key: 'handleInputEditLastName',
+    value: <span class="fstat-no" title="function not covered" >function handleInputEditLastName(e) {</span>                                                                                                // Line 51:   handleInputEditLastName(e){
+<span class="cstat-no" title="statement not covered" >      this.validLastName = e.target.value !== "" ? true : false; </span>                                                                               // Line 52:     this.validLastName= e.target.value!=="" ? true : false;
+<span class="cstat-no" title="statement not covered" >      this.state.EditUserInfo.lastName = e.target.value; </span>                                                                                       // Line 53:     this.state.EditUserInfo.lastName = e.target.value;
+<span class="cstat-no" title="statement not covered" >      this.setState({ EditUserInfo: this.state.EditUserInfo }); </span>                                                                                // Line 54:     this.setState({EditUserInfo: this.state.EditUserInfo});
+<span class="cstat-no" title="statement not covered" >      this.setState({ error: '' }); </span>                                                                                                            // Line 55:     this.setState({error:''});
+    }
+  }, {
+    key: 'handleInputEditEmail',
+    value: <span class="fstat-no" title="function not covered" >function handleInputEditEmail(e) {</span>                                                                           // Line 58:   handleInputEditEmail(e){
+<span class="cstat-no" title="statement not covered" >      this.validEmail = this.validateEmail(e.target.value); </span>                                                            // Line 59:     this.validEmail= this.validateEmail(e.target.value)
+<span class="cstat-no" title="statement not covered" >      this.state.EditUserInfo.email = e.target.value; </span>                                                                  // Line 60:     this.state.EditUserInfo.email = e.target.value;
+<span class="cstat-no" title="statement not covered" >      this.setState({ EditUserInfo: this.state.EditUserInfo }); </span>                                                        // Line 61:     this.setState({EditUserInfo : this.state.EditUserInfo});
+<span class="cstat-no" title="statement not covered" >      this.setState({ error: '' }); </span>                                                                                    // Line 62:     this.setState({error:''});
+    }
+  }, {
+    key: 'handleInputEditUserName',
+    value: <span class="fstat-no" title="function not covered" >function handleInputEditUserName(e) {</span>                                                // Line 65:   handleInputEditUserName(e){
+<span class="cstat-no" title="statement not covered" >      this.validUserName = e.target.value !== "" ? true : false; </span>                               // Line 66:     this.validUserName= e.target.value!=="" ? true : false;
+<span class="cstat-no" title="statement not covered" >      this.state.EditUserInfo.username = e.target.value; </span>                                       // Line 67:     this.state.EditUserInfo.username = e.target.value;
+<span class="cstat-no" title="statement not covered" >      this.setState({ EditUserInfo: this.state.EditUserInfo }); </span>                                // Line 68:     this.setState({EditUserInfo: this.state.EditUserInfo});
+<span class="cstat-no" title="statement not covered" >      this.setState({ error: '' }); </span>                                                            // Line 69:     this.setState({error:''});
+    }
+  }, {
+    key: 'handleInputPassword',
+    value: <span class="fstat-no" title="function not covered" >function handleInputPassword(e) {</span>                            // Line 72:   handleInputPassword(e){
+<span class="cstat-no" title="statement not covered" >      this.setState({ error: '' }); </span>                                    // Line 73:     this.setState({error:''});
+<span class="cstat-no" title="statement not covered" >      if (e.target.value.length &lt; 7) {                                  // Line 74:     if(e.target.value.length &lt; 7){</span>
+<span class="cstat-no" title="statement not covered" >        console.log("Hello six Char"); </span>                                 // Line 75: console.log("Hello six Char");
+<span class="cstat-no" title="statement not covered" >        this.state.EditUserInfo.password = e.target.value; </span>             // Line 76: this.state.EditUserInfo.password = e.target.value;
+<span class="cstat-no" title="statement not covered" >        this.validPassword = false; </span>                                    // Line 77:       this.validPassword= false;
+      } else {                                                          // Line 79:     else {
+<span class="cstat-no" title="statement not covered" >        this.validPassword = true; </span>                                     // Line 80:       this.validPassword= true;
+<span class="cstat-no" title="statement not covered" >        this.state.EditUserInfo.password = e.target.value; </span>             // Line 81:       this.state.EditUserInfo.password = e.target.value;
+      }
+<span class="cstat-no" title="statement not covered" >      this.setState({ EditUserInfo: this.state.EditUserInfo }); </span>    // Line 83:     this.setState({EditUserInfo: this.state.EditUserInfo});
+      //  this.setState({password : e.target.value});
+    }                                                       // Line 72:   handleInputPassword(e){
+  }, {
+    key: 'formSubmit',
+    value: <span class="fstat-no" title="function not covered" >function formSubmit(e) {</span>         // Line 88:   formSubmit(e) {
+<span class="cstat-no" title="statement not covered" >      e.preventDefault(); </span>                  // Line 89:     e.preventDefault();
+<span class="cstat-no" title="statement not covered" >      if (!this.validFirstName) {           // Line 90:     if(!this.validFirstName){</span>
+<span class="cstat-no" title="statement not covered" >        this.setState({ error: 'Please Input the First Name' }); </span>       // Line 91:           this.setState({error : 'Please Input the First Name'});
+      } else <span class="cstat-no" title="statement not covered" >if (!this.validLastName) {                                 // Line 93:     else if(!this.validLastName){</span>
+<span class="cstat-no" title="statement not covered" >        this.setState({ error: 'Please Input the Last Name' }); </span>        // Line 94:               this.setState({error : 'Please Input the Last Name'});
+      } else <span class="cstat-no" title="statement not covered" >if (!this.validEmail) {                                    // Line 96:             else if(!this.validEmail){</span>
+<span class="cstat-no" title="statement not covered" >        this.setState({ error: 'Please Input Correct Email Address' }); </span>    // Line 97:                       this.setState({error : 'Please Input Correct Email Address'});
+      } else <span class="cstat-no" title="statement not covered" >if (!this.validUserName) {                                     // Line 99:     else if(!this.validUserName){</span>
+<span class="cstat-no" title="statement not covered" >        this.setState({ error: 'Please Input the User Name' }); </span>            // Line 100:             this.setState({error : 'Please Input the User Name'});
+      } else <span class="cstat-no" title="statement not covered" >if (!this.validPassword) {                                     // Line 103:         else if(!this.validPassword){</span>
+<span class="cstat-no" title="statement not covered" >        this.setState({ error: 'Password Should Be Longer than 6 Charecters' }); </span>       // Line 104:                 this.setState({error : 'Password Should Be Longer than 6 Charecters'});
+      } else {                                                                          // Line 107:     else{
+<span class="cstat-no" title="statement not covered" >        _UserStore2.default.editUser(this.state.EditUserInfo, this.state.EditUserInfo._id); </span>    // Line 108:       UserStore.editUser(this.state.EditUserInfo, this.state.EditUserInfo._id);
+      }
+    }
+  }, {
+    key: 'componentWillMount',
+    value: <span class="fstat-no" title="function not covered" >function componentWillMount() {</span>                      // Line 112:   componentWillMount() {
+<span class="cstat-no" title="statement not covered" >      _UserStore2.default.onChange(this._onChange); </span>            // Line 113:       UserStore.onChange(this._onChange);
+<span class="cstat-no" title="statement not covered" >      _UserStore2.default.onChange(this.onProfileUpdate); </span>      // Line 114:       UserStore.onChange(this.onProfileUpdate);
+    }
+  }, {
+    key: 'onProfileUpdate',
+    value: <span class="fstat-no" title="function not covered" >function onProfileUpdate() {</span>     // Line 117:   onProfileUpdate(){
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.setState(profileUpdateMsg()); </span>       // Line 119:      this.setState(profileUpdateMsg());
+    }
+  }, {
+    key: '_onChange',
+    value: <span class="fstat-no" title="function not covered" >function _onChange() {</span>       // Line 122:   _onChange() {
+<span class="cstat-no" title="statement not covered" >      this.setState(getUser()); </span>        // Line 123:      this.setState( getUser() );
+    }
+  }, {
+    key: 'render',
+    value: <span class="fstat-no" title="function not covered" >function render() {</span>      // Line 126:   render(){
+<span class="cstat-no" title="statement not covered" >      var editUser = this.state.EditUserInfo; </span>      // Line 127:     var editUser = this.state.EditUserInfo;
+<span class="cstat-no" title="statement not covered" >      return _react2.default.createElement(         // Line 128:     return(</span>
+        _reactBootstrap.Grid,
+        { className: 'marginBottom' },      // Line 130:       &lt;Grid className="marginBottom"&gt;
+        _react2.default.createElement(      // Line 131:         &lt;Row&gt;
+          _reactBootstrap.Row,
+          null,
+          _react2.default.createElement(        // Line 132:           &lt;h2&gt;
+            'h2',
+            null,
+            'Edit Your User Profile'
+          ),            // Line 131:         &lt;Row&gt;
+          _react2.default.createElement('hr', null),        // Line 131:         &lt;Row&gt;
+          _react2.default.createElement(                    // Line 136:           &lt;Col md={12}&gt;
+            _reactBootstrap.Col,
+            { md: 12 },                             // Line 136:           &lt;Col md={12}&gt;
+            _react2.default.createElement(          // Line 138:         &lt;form onSubmit={this.formSubmit}&gt;
+              'form',
+              { onSubmit: this.formSubmit },        // Line 138:         &lt;form onSubmit={this.formSubmit}&gt;
+              _react2.default.createElement(_reactBootstrap.Input, {        // Line 139:           &lt;Input
+                placeholder: 'First Name',                                  // Line 140:             placeholder="First Name"
+                value: editUser.firstName,                                  // Line 141:             value={editUser.firstName}
+                onChange: this.handleInputEditFirstName,                    // Line 142:             onChange={this.handleInputEditFirstName}
+                label: 'First Name',                                        // Line 143:             label="First Name"
+                type: 'text' }),                                            // Line 144:             type ="text" /&gt;
+              _react2.default.createElement('br', null),                    // Line 138:         &lt;form onSubmit={this.formSubmit}&gt;
+              _react2.default.createElement(_reactBootstrap.Input, {        // Line 146:           &lt;Input
+                placeholder: 'Last Name',                                   // Line 147:             placeholder="Last Name"
+                value: editUser.lastName,                                   // Line 148:             value={editUser.lastName}
+                onChange: this.handleInputEditLastName,                     // Line 149:             onChange={this.handleInputEditLastName}
+                label: 'Last Name',                                         // Line 150:             label ="Last Name"
+                type: 'text' }),                                            // Line 151:             type ="text"/&gt;
+              _react2.default.createElement('br', null),                    // Line 138:         &lt;form onSubmit={this.formSubmit}&gt;
+              _react2.default.createElement(_reactBootstrap.Input, {        // Line 153:           &lt;Input
+                placeholder: 'Enter Email',                                 // Line 154:             placeholder="Enter Email"
+                value: editUser.email,                                      // Line 155:             value={editUser.email}
+                onChange: this.handleInputEditEmail,                        // Line 156:             onChange={this.handleInputEditEmail}
+                label: 'Email',                                             // Line 157:             label="Email"
+                type: 'text' }),                                            // Line 158:             type ="text"/&gt;
+              _react2.default.createElement('br', null),                    // Line 138:         &lt;form onSubmit={this.formSubmit}&gt;
+              _react2.default.createElement(_reactBootstrap.Input, {        // Line 160:           &lt;Input
+                placeholder: 'User Name',                                   // Line 161:             placeholder="User Name"
+                value: editUser.username,                                   // Line 162:             value={editUser.username}
+                onChange: this.handleInputEditUserName,                     // Line 163:             onChange={this.handleInputEditUserName}
+                label: 'User Name',                                         // Line 164:             label="User Name"
+                type: 'text' }),                                            // Line 165:             type ="text"/&gt;
+              _react2.default.createElement(_reactBootstrap.Input, {        // Line 166:             &lt;Input
+                placeholder: 'Password',                                    // Line 167:               placeholder="Password"
+                value: editUser.password,                                   // Line 168:               value={editUser.password}
+                onChange: this.handleInputPassword,                         // Line 169:               onChange={this.handleInputPassword}
+                label: 'Password',                                          // Line 170:               label="Password"
+                type: 'text' }),                                            // Line 171:               type ="text"/&gt;
+              _react2.default.createElement(                                // Line 172:           &lt;Button bsStyle="primary" type="submit"&gt;
+                _reactBootstrap.Button,
+                { bsStyle: 'primary', type: 'submit' },             // Line 172:           &lt;Button bsStyle="primary" type="submit"&gt;
+                'Save Profile'
+              ),                                            // Line 138:         &lt;form onSubmit={this.formSubmit}&gt;
+              _react2.default.createElement(                // Line 175:             &lt;p className = "validationMsg"&gt;{this.state.error}&lt;/p&gt;
+                'p',
+                { className: 'validationMsg' },     // Line 175:             &lt;p className = "validationMsg"&gt;{this.state.error}&lt;/p&gt;
+                this.state.error                    // Line 175:             &lt;p className = "validationMsg"&gt;{this.state.error}&lt;/p&gt;
+              ),                                    // Line 138:         &lt;form onSubmit={this.formSubmit}&gt;
+              _react2.default.createElement(        // Line 176:             &lt;p className = "validationMsg"&gt;{this.state.profileUpdateMsg}&lt;/p&gt;
+                'p',
+                { className: 'validationMsg' },     // Line 176:             &lt;p className = "validationMsg"&gt;{this.state.profileUpdateMsg}&lt;/p&gt;
+                this.state.profileUpdateMsg         // Line 176:             &lt;p className = "validationMsg"&gt;{this.state.profileUpdateMsg}&lt;/p&gt;
+              )
+            )
+          )
+        )
+      );            // Line 128:     return(
+    }
+  }]);
+&nbsp;
+  return EditUserProfile;       // Line 13: class EditUserProfile extends React.Component {
+}(_react2.default.Component);       // Line 13: class EditUserProfile extends React.Component {
+&nbsp;
+exports.default = EditUserProfile;      // Line 185: export default EditUserProfile;
+// SourceMap was distributed to comments by gulp-jsx-coverage</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 03 2016 16:05:42 GMT+0600 (BDT)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

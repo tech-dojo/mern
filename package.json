@@ -5,8 +5,9 @@
   "scripts": {
     "test": "mocha './server/tests/componentTest/*.test.js' --compilers js:babel-core/register",
     "test:watch": "mocha './server/tests/componentTest/*.test.js' --compilers js:babel-core/register --watch --reporter min",
+    "coverage": "istanbul cover ./server/controllers/*.js _mocha",
     "start": "node server/server.js"
-  },
+    },
   "author": "TechDojo",
   "license": "MIT",
   "engines": {
@@ -21,6 +22,7 @@
     "gulp": "^3.8.11",
     "gulp-live-server": "0.0.14",
     "gulp-mocha": "^2.2.0",
+    "istanbul": "^0.4.2",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^0.14.7",
     "reactify": "^1.1.1",
@@ -60,11 +62,8 @@
     "react-slick": "^0.9.3",
     "react-tools": "^0.13.3",
     "reactcss": "^0.4.2",
+    "source-map": "^0.5.2",
+    "object.assign": "4.0.3",
     "vinyl-source-stream": "^1.1.0"
-  },
-  "babel": {
-    "presets": [
-      "es2015","react"
-    ]
   }
 }

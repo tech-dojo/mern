@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/components/users/SigninChild.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">app/components/users/</a> SigninChild.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">48.68% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>37/76</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">34.15% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>14/41</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">40% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">37.25% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>19/51</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+&nbsp;
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; <span class="missing-if-branch" title="else path not taken" >E</span>if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { <span class="missing-if-branch" title="else path not taken" >E</span>if (protoProps) defineProperties(Constructor.prototype, protoProps); <span class="missing-if-branch" title="if path not taken" >I</span>if (staticProps) <span class="cstat-no" title="statement not covered" >defineProperties(Constructor, staticProps); </span>return Constructor; }; }();
+&nbsp;
+var _react = require('react');
+&nbsp;
+var _react2 = _interopRequireDefault(_react);
+&nbsp;
+var _reactRouter = require('react-router');
+&nbsp;
+var _reactBootstrap = require('react-bootstrap');
+&nbsp;
+var _reactRouterBootstrap = require('react-router-bootstrap');
+&nbsp;
+var _Authentication = require('./../../services/Authentication');
+&nbsp;
+var _Authentication2 = _interopRequireDefault(_Authentication);
+&nbsp;
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? <span class="branch-0 cbranch-no" title="branch not covered" >obj </span>: { default: obj }; }
+&nbsp;
+<span class="fstat-no" title="function not covered" >function _classCallCheck(instance, Constructor) {</span> <span class="cstat-no" title="statement not covered" >if (!(instance instanceof Constructor)) { <span class="cstat-no" title="statement not covered" >throw new TypeError("Cannot call a class as a function"); </span>} </span>}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function _possibleConstructorReturn(self, call) {</span> <span class="cstat-no" title="statement not covered" >if (!self) { <span class="cstat-no" title="statement not covered" >throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); </span>} <span class="cstat-no" title="statement not covered" ></span>return call &amp;&amp; (typeof call === "object" || typeof call === "function") ? call : self; </span>}
+&nbsp;
+function _inherits(subClass, superClass) { <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof superClass !== "function" &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >superClass !== null)</span> { <span class="cstat-no" title="statement not covered" >throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); </span>} subClass.prototype = Object.create(superClass &amp;&amp; superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); <span class="missing-if-branch" title="else path not taken" >E</span>if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : <span class="branch-1 cbranch-no" title="branch not covered" >subClass.__proto__ = superClass;</span> }
+&nbsp;
+var SigninChild = function (_React$Component) {     // Line 14: class SigninChild extends React.Component {
+  _inherits(SigninChild, _React$Component);
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function SigninChild(props, context) {</span>        // Line 15:   constructor(props, context) {
+<span class="cstat-no" title="statement not covered" >    _classCallCheck(this, SigninChild); </span>        // Line 14: class SigninChild extends React.Component {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SigninChild).call(this, props, context)); </span>       // Line 16:     super(props, context);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    _this.validEmailStatus = false; </span>                                                                            // Line 17:     this.validEmailStatus = false;
+<span class="cstat-no" title="statement not covered" >    _this.validPasswordInput = false; </span>                                                                          // Line 18:     this.validPasswordInput = false;
+<span class="cstat-no" title="statement not covered" >    _this._handlePasswordChange = _this._handlePasswordChange.bind(_this); </span>                                     // Line 19:     this._handlePasswordChange = this._handlePasswordChange.bind(this);
+<span class="cstat-no" title="statement not covered" >    _this._handleEmailChange = _this._handleEmailChange.bind(_this); </span>                                           // Line 20:     this._handleEmailChange = this._handleEmailChange.bind(this);
+<span class="cstat-no" title="statement not covered" >    _this._formSubmit = _this._formSubmit.bind(_this); </span>                                                         // Line 21:     this._formSubmit = this._formSubmit.bind(this);
+<span class="cstat-no" title="statement not covered" >    _this.handleKeyDown = _this.handleKeyDown.bind(_this); </span>                                                     // Line 22:     this.handleKeyDown = this.handleKeyDown.bind(this);
+<span class="cstat-no" title="statement not covered" >    return _this;</span>
+  }
+&nbsp;
+  _createClass(SigninChild, [{                                                          // Line 14: class SigninChild extends React.Component {
+    key: 'handleKeyDown',
+    value: <span class="fstat-no" title="function not covered" >function handleKeyDown(e) {</span>                                          // Line 25:   handleKeyDown(e) {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (e.keyCode === 13) {                                           // Line 27:     if (e.keyCode === 13) {</span>
+<span class="cstat-no" title="statement not covered" >        e.preventDefault(); </span>                                            // Line 28:       e.preventDefault();
+<span class="cstat-no" title="statement not covered" >        this._formSubmit(e); </span>                                           // Line 29:       this._formSubmit(e);
+      }
+    }
+  }, {
+    key: 'validateEmail',
+    value: <span class="fstat-no" title="function not covered" >function validateEmail(email) {</span>      // Line 33:   validateEmail(email) {
+<span class="cstat-no" title="statement not covered" >      var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i; </span>       // Line 34:     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+<span class="cstat-no" title="statement not covered" >      return re.test(email); </span>                                                                               // Line 35:     return re.test(email);
+    }
+  }, {
+    key: '_handleEmailChange',
+    value: <span class="fstat-no" title="function not covered" >function _handleEmailChange(e) {</span>                                         // Line 38:   _handleEmailChange(e) {
+<span class="cstat-no" title="statement not covered" >      this.setState({ error: '' }); </span>                                                // Line 39:     this.setState({ error: '' });
+<span class="cstat-no" title="statement not covered" >      this.validEmailStatus = this.validateEmail(e.target.value); </span>                  // Line 40:     this.validEmailStatus = this.validateEmail(e.target.value);
+<span class="cstat-no" title="statement not covered" >      this.props._handleEmailChange(e.target.value); </span>                               // Line 41:     this.props._handleEmailChange(e.target.value);
+    }
+  }, {
+    key: '_handlePasswordChange',
+    value: <span class="fstat-no" title="function not covered" >function _handlePasswordChange(e) {</span>              // Line 44:   _handlePasswordChange(e) {
+<span class="cstat-no" title="statement not covered" >      this.setState({ error: '' }); </span>                        // Line 45:     this.setState({ error: '' });
+<span class="cstat-no" title="statement not covered" >      if (e.target.value.length &lt; 6) {                      // Line 46:     if (e.target.value.length &lt; 6) {</span>
+<span class="cstat-no" title="statement not covered" >        this.validPasswordInput = false; </span>                   // Line 47:       this.validPasswordInput = false;
+      } else {                                              // Line 49:     } else {
+<span class="cstat-no" title="statement not covered" >        this.validPasswordInput = true; </span>                    // Line 50:       this.validPasswordInput = true;
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.props._handlePasswordChange(e.target.value); </span>    // Line 53:     this.props._handlePasswordChange(e.target.value);
+    }
+  }, {
+    key: '_formSubmit',
+    value: <span class="fstat-no" title="function not covered" >function _formSubmit(e) {</span>        // Line 56:   _formSubmit(e) {
+<span class="cstat-no" title="statement not covered" >      e.preventDefault(); </span>                  // Line 57:     e.preventDefault();
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (!this.validPasswordInput) {       // Line 59:     if (!this.validPasswordInput) {</span>
+<span class="cstat-no" title="statement not covered" >        this.props._errorMessage('Please Make Sure Password is More than Six Letters'); </span>    // Line 60:       this.props._errorMessage('Please Make Sure Password is More than Six Letters');
+      } else <span class="cstat-no" title="statement not covered" >if (!this.validEmailStatus) {                                                  // Line 61:     } else if (!this.validEmailStatus) {</span>
+<span class="cstat-no" title="statement not covered" >        if (this.state.email) {                                                             // Line 62:       if (this.state.email) {</span>
+<span class="cstat-no" title="statement not covered" >          this.props._errorMessage('Invalid Email Address'); </span>                               // Line 63:         this.props._errorMessage('Invalid Email Address');
+        } else {                                                                            // Line 64:       } else {
+<span class="cstat-no" title="statement not covered" >          this.props._errorMessage('Please Input the Required Fields'); </span>                    // Line 65:         this.props._errorMessage('Please Input the Required Fields');
+        }
+      } else {                                                                      // Line 67:     } else {
+<span class="cstat-no" title="statement not covered" >        this.props._errorMessage('Signing in ...'); </span>                                // Line 68:       this.props._errorMessage('Signing in ...');
+<span class="cstat-no" title="statement not covered" >        this.props._formSubmit(this.props.email, this.props.password); </span>             // Line 69:       this.props._formSubmit(this.props.email, this.props.password);
+      }
+    }
+  }, {
+    key: 'render',
+    value: <span class="fstat-no" title="function not covered" >function render() {</span>                      // Line 73:   render() {
+<span class="cstat-no" title="statement not covered" >      return _react2.default.createElement(         // Line 74:     return (</span>
+        _reactBootstrap.Grid,
+        null,
+        _react2.default.createElement(      // Line 76:         &lt;Row&gt;
+          _reactBootstrap.Row,
+          null,
+          _react2.default.createElement(        // Line 78:           &lt;h2 style={{ textAlign: 'center' }}&gt;Sign In&lt;/h2&gt;
+            'h2',
+            { style: { textAlign: 'center' } },     // Line 78:           &lt;h2 style={{ textAlign: 'center' }}&gt;Sign In&lt;/h2&gt;
+            'Sign In'
+          ),                                // Line 76:         &lt;Row&gt;
+          _react2.default.createElement('hr', null),        // Line 76:         &lt;Row&gt;
+          _react2.default.createElement(_reactBootstrap.Col, { md: 3 }),        // Line 76:         &lt;Row&gt;
+          _react2.default.createElement(                                        // Line 80:           &lt;Col md={6}&gt;
+            _reactBootstrap.Col,
+            { md: 6 },                                                  // Line 80:           &lt;Col md={6}&gt;
+            _react2.default.createElement(                              // Line 81:             &lt;Well&gt;
+              _reactBootstrap.Well,
+              null,
+              _react2.default.createElement(            // Line 82:               &lt;form className="commonWidth"&gt;
+                'form',
+                { className: 'commonWidth' },       // Line 82:               &lt;form className="commonWidth"&gt;
+                _react2.default.createElement(_reactBootstrap.Input, { placeholder: 'Enter Email', onKeyDown: this.handleKeyDown, label: 'Email',       // Line 83:                 &lt;Input placeholder="Enter Email" onKeyDown={this.handleKeyDown} label="Email"
+                  onChange: this._handleEmailChange, value: this.props.email, type: 'text' }),                                                          // Line 84:                    onChange={this._handleEmailChange} value={this.props.email} type="text"/&gt;
+                _react2.default.createElement('br', null),                                                                                              // Line 82:               &lt;form className="commonWidth"&gt;
+                _react2.default.createElement(_reactBootstrap.Input, { placeholder: 'Enter Password', onKeyDown: this.handleKeyDown, label: 'Password',     // Line 86:                 &lt;Input placeholder="Enter Password" onKeyDown={this.handleKeyDown} label="Password"
+                  onChange: this._handlePasswordChange, value: this.props.password, type: 'password' }),                                                    // Line 87:                 onChange={this._handlePasswordChange} value={this.props.password} type="password"/&gt;
+                _react2.default.createElement('br', null),                                                                                                  // Line 82:               &lt;form className="commonWidth"&gt;
+                _react2.default.createElement(                                                                                                              // Line 89:                 &lt;div className="commonCenter"&gt;
+                  'div',
+                  { className: 'commonCenter' },                                                                                                    // Line 89:                 &lt;div className="commonCenter"&gt;
+                  _react2.default.createElement(                                                                                                    // Line 90:                   &lt;Button bsStyle="success" onClick={this._formSubmit}&gt;Sign in&lt;/Button&gt;
+                    _reactBootstrap.Button,
+                    { bsStyle: 'success', onClick: this._formSubmit },                                                                      // Line 90:                   &lt;Button bsStyle="success" onClick={this._formSubmit}&gt;Sign in&lt;/Button&gt;
+                    'Sign in'
+                  ),                                                                                                                // Line 89:                 &lt;div className="commonCenter"&gt;
+                  '  or ',
+                  _react2.default.createElement(                                                                            // Line 92:                   &lt;LinkContainer to="/signup"&gt;
+                    _reactRouterBootstrap.LinkContainer,
+                    { to: '/signup' },                                                                              // Line 92:                   &lt;LinkContainer to="/signup"&gt;
+                    _react2.default.createElement(                                                                  // Line 93:                     &lt;a&gt;Sign up&lt;/a&gt;
+                      'a',
+                      null,
+                      'Sign up'
+                    )
+                  ),                                                                // Line 89:                 &lt;div className="commonCenter"&gt;
+                  _react2.default.createElement(                                    // Line 96:                   &lt;p className="validationMsg"&gt;{this.props.error}&lt;/p&gt;
+                    'p',
+                    { className: 'validationMsg' },                         // Line 96:                   &lt;p className="validationMsg"&gt;{this.props.error}&lt;/p&gt;
+                    this.props.error                                        // Line 96:                   &lt;p className="validationMsg"&gt;{this.props.error}&lt;/p&gt;
+                  )
+                )
+              )
+            )
+          )
+        )
+      );                    // Line 74:     return (
+    }
+  }]);
+&nbsp;
+  return SigninChild;       // Line 14: class SigninChild extends React.Component {
+}(_react2.default.Component);       // Line 14: class SigninChild extends React.Component {
+&nbsp;
+exports.default = SigninChild;      // Line 107: export default SigninChild;
+// SourceMap was distributed to comments by gulp-jsx-coverage</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 03 2016 16:05:42 GMT+0600 (BDT)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
