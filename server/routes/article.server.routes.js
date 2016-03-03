@@ -7,16 +7,16 @@ module.exports = function(app){
 	.get(articles.list)
 	.post(users.requiresLogin, articles.create);
 
-  app.route('/articles/api/articles/:id')
+  app.route('/articles/api/articles/:articleId')
 	.get(articles.read)
   .delete(users.requiresLogin, articles.delete);
 
-	app.route('/articles/edit/api/articles/:id')
+	app.route('/articles/edit/api/articles/:articleId')
 	.get(articles.read)
 	.put(users.requiresLogin, articles.update);
 
 
-app.param('id', articles.articleByID);
+app.param('articleId', articles.articleByID);
 
 
 }
