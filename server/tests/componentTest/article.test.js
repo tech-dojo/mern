@@ -10,19 +10,30 @@ import ViewArticleChild from './../../../app/components/articles/ViewArticleChil
 
 describe('CreateArticle', () => {
 
+const Article = { title:'', content:'' };
+
   function _formSubmit()  {
+
+  }
+
+  function handleInputTitle()  {
+
+  }
+
+  function handleInputContent()  {
 
   }
 
   it('_formSubmit should be passed from CreateArticle to Form', () => {
     const renderer = TestUtils.createRenderer();
-    renderer.render(<Form formSubmit ={_formSubmit}/>);
+    renderer.render(<Form formSubmit ={_formSubmit}  Article= {Article}
+      handleInputTitle ={handleInputTitle} handleInputContent ={handleInputContent}  />);
     const actual = renderer.getRenderOutput();
     const expected = <form onSubmit={() => {}}>
-       <Input type="text" value={undefined} label="Title" required
+       <Input type="text" value='' label="Title" required
 
         onChange={() => {}} placeholder="Enter Article Title"/>
-      <Input type="textarea" value={undefined} label="Article Content"
+      <Input type="textarea" value='' label="Article Content"
 
          required onChange={() => {}} placeholder="Article Content: "/>
       <ButtonInput type="submit" value="Submit Button" bsStyle="primary"/>
@@ -37,13 +48,22 @@ describe('EditArticle', () => {
 
   const Article = { title:'Article Title', content:'Article Content' };
 
+  function handleInputTitle()  {
+
+  }
+
+  function handleInputContent()  {
+
+  }
+
   function _formSubmit()  {
 
   }
 
   it('_formSubmit and Article should be passed from EditArticle to Form', () => {
     const renderer = TestUtils.createRenderer();
-    renderer.render(<Form formSubmit ={_formSubmit} Article= {Article}/>);
+    renderer.render(<Form formSubmit ={_formSubmit} Article= {Article}
+      handleInputTitle ={handleInputTitle} handleInputContent ={handleInputContent}  />);
     const actual = renderer.getRenderOutput();
     const expected = <form onSubmit={() => {}}>
        <Input type="text" value="Article Title" label="Title" required

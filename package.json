@@ -20,8 +20,11 @@
     "expect": "^1.14.0",
     "expect-jsx": "^2.3.0",
     "gulp": "^3.8.11",
+    "gulp-jsx-coverage": "^0.3.8",
     "gulp-live-server": "0.0.14",
     "gulp-mocha": "^2.2.0",
+    "gulp-util": "^3.0.7",
+    "istanbul": "^0.4.2",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^0.14.7",
     "reactify": "^1.1.1",
@@ -61,11 +64,12 @@
     "react-slick": "^0.9.3",
     "react-tools": "^0.13.3",
     "reactcss": "^0.4.2",
+    "source-map": "^0.5.2",
+    "object.assign": "4.0.3",
     "vinyl-source-stream": "^1.1.0"
   },
-  "babel": {
-    "presets": [
-      "es2015","react"
-    ]
-  }
+  "babel":{
+        "presets": ["es2015", "react"],
+        "sourceMap": "both"
+}
 }

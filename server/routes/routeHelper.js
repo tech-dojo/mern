@@ -33,10 +33,6 @@ module.exports = function(app) {
         component: require('./../../app/components/users/Signin')
       },
       {
-        path: '/helloworld',
-        component: require('./../../app/components/core/Home')
-      },
-      {
         path: '/signout',
         component: require('./../../app/components/users/SignOut')
       }, {
