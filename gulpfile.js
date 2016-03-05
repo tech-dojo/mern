@@ -69,13 +69,13 @@ gulp.task('observe-all', function() {
   gulp.watch('./server/**/*.js', ['live-server']);
 });
 //['app/components/**/*.jsx', 'server/models/*.js', 'server/routes/article.server.routes.js'],
-gulp.task('cover', require('./index').createTask({
-  src: ['app/components/**/*.jsx', 'server/models/*.js', 'server/routes/article.server.routes.js'], // will pass to gulp.src as mocha tests
+gulp.task('cover', require('gulp-jsx-coverage').createTask({
+  src: ['server/tests/*.js', 'server/tests/componentTest/*.jsx'], // will pass to gulp.src as mocha tests
   isparta: false, // use istanbul as default
   istanbul: { // will pass to istanbul or isparta
     preserveComments: true, // required for istanbul 0.4.0+
     coverageVariable: '__MY_TEST_COVERAGE__',
-    exclude: /node_modules|test[0-9]/ // do not instrument these files
+    exclude: /node_modules|server\/tests/ // do not instrument these files
   },
 
   transpile: {
@@ -99,7 +99,12 @@ gulp.task('cover', require('./index').createTask({
 
   mocha: { // will pass to mocha
     reporter: 'spec'
-  }
+  },
+  // Recommend moving this to .babelrc
+babel: {                                         // will pass to babel-core
+    presets: ['es2015', 'react'],                // Use proper presets or plugins for your scripts
+    sourceMap: 'both'                            // get hints in covarage reports or error stack
+}
 }));
 
 gulp.task('serve', ['env-set', 'live-server', 'bundle', 'temp', 'observe-all'], function() {

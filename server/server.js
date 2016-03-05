@@ -1,5 +1,5 @@
 'use strict';
-require("babel/register");
+require("babel-core/register");
 var config = require('./config/config.js');
 var mongoose = require ('mongoose');
 var express = require ('express');
