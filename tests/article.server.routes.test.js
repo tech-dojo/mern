@@ -2,10 +2,10 @@
 
 var should = require('should'),
   request = require('supertest'),
-  app = require('./../server.js'),
+  app = require('./../server/server.js'),
   mongoose = require('mongoose'),
-  User = require('./../models/User.js'),
-  Article = require('./../models/Article.js'),
+  User = require('./../server/models/User.js'),
+  Article = require('./../server/models/Article.js'),
   agent = request.agent(app);
 /**
  * Globals

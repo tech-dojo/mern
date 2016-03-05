@@ -5,9 +5,9 @@ import {LinkContainer} from 'react-router-bootstrap';
 import TestUtils from 'react-addons-test-utils';
 import expectJSX from 'expect-jsx';
 expect.extend(expectJSX);
-import SigninChild from './../../../app/components/users/SigninChild.jsx';
-import SignupChild from './../../../app/components/users/SignupChild.jsx';
-import EditUserProfileChild from './../../../app/components/users/EditUserProfileChild.jsx';
+import SigninChild from './../../app/components/users/SigninChild.jsx';
+import SignupChild from './../../app/components/users/SignupChild.jsx';
+import EditUserProfileChild from './../../app/components/users/EditUserProfileChild.jsx';
 
 describe('SigninChild', () => {
 

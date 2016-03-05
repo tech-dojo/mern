@@ -5,8 +5,8 @@
  */
 var should = require('should'),
 	mongoose = require('mongoose'),
-  User = require('./../models/User.js'),
-	Article = require('./../models/Article.js');
+  User = require('./../server/models/User.js'),
+	Article = require('./../server/models/Article.js');
 mongoose.connect ('mongodb://localhost/reactdb-test');
 /**
  * Globals

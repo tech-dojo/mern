@@ -8,7 +8,7 @@ module.exports = function(app) {
 
   const routes = {
     path: '/',
-    component: require('./../../app/components/core/Template'),
+    component: require('./../../app/components/core/Template').default,
     indexRoute: {
       component: require('./../../app/components/core/Home')
     },

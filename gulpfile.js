@@ -30,22 +30,10 @@ gulp.task('live-server', function() {
 
 gulp.task('bundle', function() {
   return browserify({
-    entries: 'app/main.jsx',
-    debug: true,
-  });
-});
-
-gulp.task('bundle', function() {
-  return browserify({
       entries: 'app/main.jsx',
       debug: true,
     })
-    .transform(babelify)
-    .transform(reactify)
-    .transform(babelify.configure({
-      stage: 0,
-      sourceMaps: true,
-    }))
+    .transform("babelify", {presets: ["es2015", "react"]})
     .bundle()
     .pipe(source('app.js'))
     .pipe(gulp.dest('./.tmp'));
@@ -69,20 +57,20 @@ gulp.task('observe-all', function() {
   gulp.watch('./server/**/*.js', ['live-server']);
 });
 //['app/components/**/*.jsx', 'server/models/*.js', 'server/routes/article.server.routes.js'],
-gulp.task('cover', require('gulp-jsx-coverage').createTask({
-  src: ['server/tests/*.js', 'server/tests/componentTest/*.jsx'], // will pass to gulp.src as mocha tests
+gulp.task('cover', gulpJsx.createTask({
+  src: ['tests/**/*.jsx','tests/*.js'], // will pass to gulp.src as mocha tests
   isparta: false, // use istanbul as default
   istanbul: { // will pass to istanbul or isparta
     preserveComments: true, // required for istanbul 0.4.0+
     coverageVariable: '__MY_TEST_COVERAGE__',
-    exclude: /node_modules|server\/tests/ // do not instrument these files
+    exclude: /node_modules|tests/ // do not instrument these files
   },
 
   transpile: {
     babel: {
       include: /\.jsx?$/,
       exclude: /node_modules/,
-      omitExt: ['.jsx']
+      omitExt: false
     }
   },
 
@@ -113,19 +101,4 @@ gulp.task('serve', ['env-set', 'live-server', 'bundle', 'temp', 'observe-all'], 
     port: 9001,
   });
 
-});
-
-gulp.task('test', ['env:test'], function() {
-  return gulp.src('./server/tests/*.js')
-    .pipe(mocha({
-      reporter: 'nyan',
-    }))
-    .once('error', function(err) {
-      //	console.log('Hello Gulp File');
-      //	console.log(err);
-      process.exit(1);
-    })
-    .once('end', function() {
-      process.exit();
-    });
 });

@@ -12,6 +12,7 @@ class Home extends React.Component {
   render() {
 
     return (
+      <div>
       <Grid className="marginBottom">
         <Row>
           <Col md={12}>
@@ -66,6 +67,7 @@ class Home extends React.Component {
         </Col>
       </Row>
     </Grid>
+  </div>
   );
   }
   }

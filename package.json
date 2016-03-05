@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "test": "mocha './server/tests/componentTest/*.test.jsx' --compilers js:babel-core/register",
-    "test:watch": "mocha './server/tests/componentTest/*.test.jsx' --compilers js:babel-core/register --watch --reporter min",
+    "test": "mocha './tests/componentTest/*.test.jsx' --compilers js:babel-core/register",
+    "test:watch": "mocha './tests/componentTest/*.test.jsx' --compilers js:babel-core/register --watch --reporter min",
     "start": "node server/server.js"
   },
   "author": "TechDojo",
@@ -14,7 +14,7 @@
     "npm": "3.3.12"
   },
   "devDependencies": {
-    "babelify": "^6.1.1",
+    "babelify": "^7.2.0",
     "browser-sync": "^2.7.2",
     "browserify": "^10.2.1",
     "expect": "^1.14.0",
@@ -33,9 +33,9 @@
   },
   "dependencies": {
     "async": "^1.5.0",
-    "babel": "6.5.2",
-    "babel-core": "^6.1.2",
-    "babel-loader": "^6.0.1",
+    "babel": "^6.0.0",
+    "babel-core": "^6.2.1",
+    "babel-loader": "^6.1.0",
     "babel-preset-es2015": "^6.1.2",
     "babel-preset-react": "^6.1.2",
     "babel-preset-stage-2": "^6.5.0",

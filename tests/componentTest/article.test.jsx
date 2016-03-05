@@ -4,9 +4,9 @@ import {Grid, Row, Col, Input, Panel, ButtonInput} from 'react-bootstrap';
 import TestUtils from 'react-addons-test-utils';
 import expectJSX from 'expect-jsx';
 expect.extend(expectJSX);
-import Form from './../../../app/components/articles/Form.jsx';
-import ListArticlesChild from './../../../app/components/articles/ListArticlesChild.jsx';
-import ViewArticleChild from './../../../app/components/articles/ViewArticleChild.jsx';
+import Form from './../../app/components/articles/Form.jsx';
+import ListArticlesChild from './../../app/components/articles/ListArticlesChild.jsx';
+import ViewArticleChild from './../../app/components/articles/ViewArticleChild.jsx';
 
 describe('CreateArticle', () => {
 
