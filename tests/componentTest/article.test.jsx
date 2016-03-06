@@ -8,6 +8,9 @@ import Form from './../../app/components/articles/Form.jsx';
 import ListArticlesChild from './../../app/components/articles/ListArticlesChild.jsx';
 import ViewArticleChild from './../../app/components/articles/ViewArticleChild.jsx';
 
+
+  console.log('Running Front End Tests');
+
 describe('CreateArticle', () => {
 
 const Article = { title:'', content:'' };

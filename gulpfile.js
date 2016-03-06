@@ -57,9 +57,8 @@ gulp.task('observe-all', function() {
   gulp.watch('./server/**/*.js', ['live-server']);
 });
 //['app/components/**/*.jsx', 'server/models/*.js', 'server/routes/article.server.routes.js'],
-gulp.task('cover', gulpJsx.createTask({
-  src: ['tests/**/*.jsx','tests/*.js'], // will pass to gulp.src as mocha tests
-  isparta: false, // use istanbul as default
+gulp.task('front_test_cover', gulpJsx.createTask({
+  src: ['tests/**/*.jsx'], // will pass to gulp.src as mocha tests
   istanbul: { // will pass to istanbul or isparta
     preserveComments: true, // required for istanbul 0.4.0+
     coverageVariable: '__MY_TEST_COVERAGE__',
@@ -77,7 +76,7 @@ gulp.task('cover', gulpJsx.createTask({
   threshold: [ // fail the task when coverage lower than one of this array
     {
       type: 'lines', // one of 'lines', 'statements', 'functions', 'banches'
-      min: 90
+      min: 50
     }
   ],
   coverage: {
@@ -94,6 +93,46 @@ babel: {                                         // will pass to babel-core
     sourceMap: 'both'                            // get hints in covarage reports or error stack
 }
 }));
+
+gulp.task('back_test_cover',['front_test_cover'], gulpJsx.createTask({
+  src: ['tests/*.js'], // will pass to gulp.src as mocha tests
+  istanbul: { // will pass to istanbul or isparta
+    preserveComments: true, // required for istanbul 0.4.0+
+    coverageVariable: '__MY_TEST_COVERAGE__',
+    exclude: /node_modules|tests/ // do not instrument these files
+  },
+
+  transpile: {
+    babel: {
+      include: /\.jsx?$/,
+      exclude: /node_modules/,
+      omitExt: false
+    }
+  },
+
+  threshold: [ // fail the task when coverage lower than one of this array
+    {
+      type: 'lines', // one of 'lines', 'statements', 'functions', 'banches'
+      min: 60
+    }
+  ],
+  coverage: {
+    reporters: ['text-summary', 'json', 'lcov'], // list of istanbul reporters
+    directory: 'coverage' // will pass to istanbul reporters
+  },
+
+  mocha: { // will pass to mocha
+    reporter: 'spec'
+  },
+  // Recommend moving this to .babelrc
+babel: {                                         // will pass to babel-core
+    presets: ['es2015', 'react'],                // Use proper presets or plugins for your scripts
+    sourceMap: 'both'                            // get hints in covarage reports or error stack
+}
+}));
+
+gulp.task('test_cover', ['env:test', 'back_test_cover']);
+
 
 gulp.task('serve', ['env-set', 'live-server', 'bundle', 'temp', 'observe-all'], function() {
   browserSync.init(null, {

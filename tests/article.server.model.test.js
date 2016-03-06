@@ -16,6 +16,9 @@ var user, article;
 /**
  * Unit tests
  */
+
+console.log('Running Backend Tests');
+
 describe('Article Model Unit Tests:', function() {
 	beforeEach(function(done) {
 		user = new User({
