@@ -3,7 +3,8 @@ let { get, post, del, put } = require('./../stores/RestAPI_Helper.js');
 
 module.exports = {
 
-  signup(userInfo) {
+  signup(userInfo, cb) {
+    cb = arguments[arguments.length - 1];
     post('/auth/signup', userInfo)
       .then((data) => {
 
@@ -14,6 +15,7 @@ module.exports = {
 
       })
       .catch((err) => {
+          cb(err.responseJSON.message);
       });
   },
 

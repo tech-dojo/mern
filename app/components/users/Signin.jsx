@@ -10,11 +10,11 @@ import {
 } from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 import auth from './../../services/Authentication';
-import ArticleStore from './../../stores/ArticleStore.jsx';
+import UserStore from './../../stores/UserStore.jsx';
 import SigninChild from './SigninChild.jsx';
 
 function getError() {
-  return { error: ArticleStore.getError() };
+  return { error: UserStore.getError() };
 }
 
 class Signin extends React.Component {
@@ -35,11 +35,11 @@ class Signin extends React.Component {
   }
 
   componentWillMount() {
-    ArticleStore.onChange(this._onChange);
+    UserStore.onChange(this._onChange);
   }
 
   componentWillUnmount() {
-    ArticleStore.removeChangeListener(this._onChange);
+    UserStore.removeChangeListener(this._onChange);
   }
 
   _onChange() {
