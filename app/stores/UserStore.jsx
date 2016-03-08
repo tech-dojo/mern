@@ -22,6 +22,7 @@ function UserStore() {
   function editUser(user, id) {
     put(`/users/${id}`, user).then((data) => {
       user = data;
+      localStorage.username = data.username;
       profileUpdateMsg = 'Profile Updated Successfully';
       triggerListeners();
     })

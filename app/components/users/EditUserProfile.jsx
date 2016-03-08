@@ -8,6 +8,7 @@ import {
   Input
 } from 'react-bootstrap';
 import EditUserProfileChild from './EditUserProfileChild.jsx';
+import auth from './../../services/Authentication';
 
 function getUser() {
   return { EditUserInfo: UserStore.getUser() };
@@ -88,6 +89,7 @@ class EditUserProfile extends React.Component {
 
   _onChange() {
     this.setState(getUser());
+      auth.onChange(auth.loggedIn(), 'signin');
   }
 
   render() {

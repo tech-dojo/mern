@@ -82,6 +82,7 @@ class EditUserProfileChild extends React.Component {
     } else {
       this.props.formSubmit(this.props.EditUserInfo);
     }
+
   }
 
   render() {

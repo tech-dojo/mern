@@ -22,7 +22,7 @@ module.exports = {
       var token = (typeof window !== 'undefined') ? localStorage.token : undefined;
       if (token) {
         if (cb) cb(true);
-        this.onChange(true);
+        this.onChange(true, 'signin');
         return;
       }
 
@@ -32,11 +32,11 @@ module.exports = {
           localStorage.username = data.username;
           localStorage.token = Math.random().toString(36).substring(7);
           if (cb) cb(true);
-          this.onChange(true);
+          this.onChange(true, 'signin');
         })
         .catch((err) => {
           if (cb) cb(false);
-          this.onChange(false);
+          this.onChange(false, 'signin');
         });
     },
 

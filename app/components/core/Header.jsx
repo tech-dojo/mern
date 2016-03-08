@@ -14,10 +14,10 @@ class Header extends React.Component {
     this.state.username = '';
     this.state.userID = auth.getUserId();
     this.state.username = auth.getUserName();
-
     this.navClick = this.navClick.bind(this);
     this.collapse = this.collapse.bind(this);
     this.updateAuth = this.updateAuth.bind(this);
+    //this.setUserName = this.setUserName.bind(this);
   }
 
   navClick() {
@@ -28,11 +28,11 @@ class Header extends React.Component {
     this.setState({ expand: expanded });
   }
 
-  updateAuth(loggedIn) {
+  updateAuth(loggedIn, path) {
     this.setState({ loggedIn: loggedIn });
-    this.state.userID = auth.getUserId();
-    this.state.username = auth.getUserName();
-    if (loggedIn) {
+    this.setState({userID: auth.getUserId()});
+    this.setState({username: auth.getUserName()});
+    if (loggedIn && path == 'signin') {
       this.props.history.pushState(null, '/');
     }
   }
