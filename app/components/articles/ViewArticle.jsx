@@ -20,7 +20,9 @@ class ViewArticle extends React.Component {
     ArticleStore.fetchArticle(props.params.id);
     this.state = {};
     this.state.article = {};
-    this.state.loggedIn = auth.loggedIn();
+    this.state.article.user = {};
+    this.state.article.user._id = '';
+    this.state.userId = auth.getUserId();
     this._onChange = this._onChange.bind(this);
     this.deleteArticle = this.deleteArticle.bind(this);
   }
@@ -43,7 +45,7 @@ class ViewArticle extends React.Component {
 
   render() {
     return (
-    <ViewArticleChild loggedIn={this.state.loggedIn} articleId= {this.props.params.id}
+    <ViewArticleChild userId={this.state.userId} articleId= {this.props.params.id}
        article = {this.state.article} deleteArticle = {this.deleteArticle} />
     );
   }
