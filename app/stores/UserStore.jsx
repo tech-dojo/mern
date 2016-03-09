@@ -29,6 +29,7 @@ function UserStore() {
   }
 
   function getUser() {
+
     return user;
   }
   function getProfileUpdateMsg() {
@@ -39,6 +40,7 @@ function UserStore() {
   }
 
   function removeChangeListener(listener) {
+    profileUpdateMsg= '';
     var index = changeListeners.findIndex(i => i === listener);
     changeListeners.splice(index, 1);
   }

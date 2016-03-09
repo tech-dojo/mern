@@ -32,6 +32,8 @@ class Header extends React.Component {
     this.setState({ loggedIn: loggedIn });
     this.setState({userID: auth.getUserId()});
     this.setState({username: auth.getUserName()});
+    console.log(loggedIn);
+    console.log(path);
     if (loggedIn && path == 'signin') {
       this.props.history.pushState(null, '/');
     }
