@@ -106,7 +106,7 @@ describe('ListArticlesChild', () => {
 
 describe('ViewArticleChild', () => {
 
-  const Article = { title:'Article Title', content:'Article Content' };
+  const Article = { title:'Article Title', content:'Article Content', user:{_id:"as2445"} };
 
   it('should have Article in ViewArticleChild view', () => {
     const renderer = TestUtils.createRenderer();

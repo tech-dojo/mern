@@ -94,7 +94,7 @@ babel: {                                         // will pass to babel-core
 }
 }));
 
-gulp.task('backend_test_cover', gulpJsx.createTask({
+gulp.task('test_cover', ['frontend_test_cover'], gulpJsx.createTask({
   src: ['tests/*.js'], // will pass to gulp.src as mocha tests
   istanbul: { // will pass to istanbul or isparta
     preserveComments: true, // required for istanbul 0.4.0+
@@ -131,7 +131,7 @@ babel: {                                         // will pass to babel-core
 }
 }));
 
-gulp.task('test', ['env:test', 'backend_test_cover', 'frontend_test_cover']);
+gulp.task('test', ['env:test', 'test_cover']);
 
 
 gulp.task('serve', ['env-set', 'live-server', 'bundle', 'temp', 'observe-all'], function() {
