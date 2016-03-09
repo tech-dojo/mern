@@ -131,7 +131,7 @@ babel: {                                         // will pass to babel-core
 }
 }));
 
-gulp.task('test_cover', ['env:test', 'backend_test_cover', 'frontend_test_cover']);
+gulp.task('test', ['env:test', 'backend_test_cover', 'frontend_test_cover']);
 
 
 gulp.task('serve', ['env-set', 'live-server', 'bundle', 'temp', 'observe-all'], function() {
