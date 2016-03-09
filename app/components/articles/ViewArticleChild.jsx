@@ -31,7 +31,7 @@ class ViewArticleChild extends React.Component {
             <h3>{article.content}</h3>
           </Col>
           <Col md={4} lg={4} sm={4} xs={4}>
-            {this.props.loggedIn && <div className="pull-right">
+            {this.props.userId == article.user._id && <div className="pull-right">
               <LinkContainer className="editBtnCSS" to={`/articles/edit/${article._id}`}>
                 <Button bsStyle="primary">Edit</Button>
               </LinkContainer>
