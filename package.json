@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "test": "mocha './tests/componentTest/*.test.jsx' --compilers js:babel-core/register",
-    "test:watch": "mocha './tests/componentTest/*.test.jsx' --compilers js:babel-core/register --watch --reporter min",
-    "start": "node server/server.js"
+    "start": "NODE_ENV=production node server/server.js"
   },
   "author": "TechDojo",
   "license": "MIT",

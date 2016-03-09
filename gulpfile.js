@@ -56,8 +56,8 @@ gulp.task('observe-all', function() {
   gulp.watch('app/*.*', ['temp']);
   gulp.watch('./server/**/*.js', ['live-server']);
 });
-//['app/components/**/*.jsx', 'server/models/*.js', 'server/routes/article.server.routes.js'],
-gulp.task('front_test_cover', gulpJsx.createTask({
+
+gulp.task('frontend_test_cover', gulpJsx.createTask({
   src: ['tests/**/*.jsx'], // will pass to gulp.src as mocha tests
   istanbul: { // will pass to istanbul or isparta
     preserveComments: true, // required for istanbul 0.4.0+
@@ -94,7 +94,7 @@ babel: {                                         // will pass to babel-core
 }
 }));
 
-gulp.task('back_test_cover',['front_test_cover'], gulpJsx.createTask({
+gulp.task('backend_test_cover', gulpJsx.createTask({
   src: ['tests/*.js'], // will pass to gulp.src as mocha tests
   istanbul: { // will pass to istanbul or isparta
     preserveComments: true, // required for istanbul 0.4.0+
@@ -131,7 +131,7 @@ babel: {                                         // will pass to babel-core
 }
 }));
 
-gulp.task('test_cover', ['env:test', 'back_test_cover']);
+gulp.task('test_cover', ['env:test', 'backend_test_cover', 'frontend_test_cover']);
 
 
 gulp.task('serve', ['env-set', 'live-server', 'bundle', 'temp', 'observe-all'], function() {
