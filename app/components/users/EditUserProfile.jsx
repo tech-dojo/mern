@@ -8,12 +8,14 @@ import {
   Input
 } from 'react-bootstrap';
 import EditUserProfileChild from './EditUserProfileChild.jsx';
+import auth from './../../services/Authentication';
 
 function getUser() {
   return { EditUserInfo: UserStore.getUser() };
 }
 
 function profileUpdateMsg() {
+  console.log('shkgjsh');
   return { profileUpdateMsg: UserStore.getProfileUpdateMsg() };
 }
 
@@ -42,26 +44,31 @@ class EditUserProfile extends React.Component {
   handleInputEditFirstName(editUserInfo) {
     this.setState({ EditUserInfo: editUserInfo });
     this.setState({ error: '' });
+    this.setState({ profileUpdateMsg: '' });
   }
 
   handleInputEditLastName(editUserInfo) {
     this.setState({ EditUserInfo: editUserInfo });
     this.setState({ error: '' });
+    this.setState({ profileUpdateMsg: '' });
   }
 
   handleInputEditEmail(editUserInfo) {
     this.setState({ EditUserInfo: editUserInfo });
     this.setState({ error: '' });
+    this.setState({ profileUpdateMsg: '' });
   }
 
   handleInputEditUserName(editUserInfo) {
     this.setState({ EditUserInfo: editUserInfo });
     this.setState({ error: '' });
+    this.setState({ profileUpdateMsg: '' });
   }
 
   handleInputPassword(editUserInfo) {
     this.setState({ error: '' });
     this.setState({ EditUserInfo: editUserInfo });
+    this.setState({ profileUpdateMsg: '' });
   }
 
   _errorMessage(err) {
@@ -73,11 +80,14 @@ class EditUserProfile extends React.Component {
   }
 
   componentWillMount() {
+
     UserStore.onChange(this._onChange);
     UserStore.onChange(this.onProfileUpdate);
   }
 
   componentWillUnmount() {
+    this.state.profileUpdateMsg = '';
+    this.setState({ error: '' });
     UserStore.removeChangeListener(this._onChange);
     UserStore.removeChangeListener(this.onProfileUpdate);
   }
@@ -88,6 +98,7 @@ class EditUserProfile extends React.Component {
 
   _onChange() {
     this.setState(getUser());
+      auth.onChange(auth.loggedIn(), 'EditUserProfile');
   }
 
   render() {

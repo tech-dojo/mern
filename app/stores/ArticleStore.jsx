@@ -27,7 +27,7 @@ function ArticleStore() {
       triggerListeners();
     });
   };
-
+   
   function addArticle(article, history) {
     post("/api/articles", article).then((g) => {
       article._id = g._id;
