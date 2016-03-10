@@ -22,6 +22,19 @@
 
 7. Run tests with `gulp test` 
 
+### Add new CRUD module with [generator-yomern](https://www.npmjs.com/package/generator-yomern)
+
+Install once:
+```
+$ npm install -g yo
+$ npm install generator-yomern
+```
+
+To create module, run following command and follow instructions:
+```
+$ yo yomern
+```
+
 ### Documentation
 [View documentation](http://merndoc.tech-dojo.org)
 
