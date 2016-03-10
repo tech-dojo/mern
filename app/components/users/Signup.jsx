@@ -54,7 +54,7 @@ class Signup extends React.Component {
 
   formSubmit(user) {
     var newUser = user;
-    auth.signup(newUser , (err) => {
+    auth.signup(newUser , () => {
       this.setState({ error: 'Email Already Exists' });
     });
   }

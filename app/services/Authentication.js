@@ -3,19 +3,20 @@ let { get, post, del, put } = require('./../stores/RestAPI_Helper.js');
 
 module.exports = {
 
+
   signup(userInfo, cb) {
     cb = arguments[arguments.length - 1];
     post('/auth/signup', userInfo)
       .then((data) => {
 
-        this.login(data.email, userInfo.password, (loggedIn) => {
+        this.login(data.email, userInfo.password, this.history, (loggedIn) => {
           if (!loggedIn)
-          return this.setState({ error: 'Login Failed' });
+          cb();
         });
 
       })
       .catch((err) => {
-          cb(err.responseJSON.message);
+          cb();
       });
   },
 
