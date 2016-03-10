@@ -11,6 +11,8 @@ module.exports.list = function(req, res) {
   				message: errorHandler.getErrorMessage(err)
   			});
     } else {
+      console.log("api called");
+
       res.status(200).send(data);
     }
   });
