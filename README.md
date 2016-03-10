@@ -30,7 +30,7 @@ $ npm install -g yo
 $ npm install generator-yomern
 ```
 
-To create module, run following command and follow instructions:
+To create module, run following command in project folder and follow instructions:
 ```
 $ yo yomern
 ```
