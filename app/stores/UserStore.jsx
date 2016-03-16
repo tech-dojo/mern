@@ -1,5 +1,5 @@
 'use strict';
-let { get, post, del, put } = require('./RestAPI_Helper.js');
+import restApi from "./RestAPI_Helper.js";
 
 function UserStore() {
    let user = {},
@@ -13,14 +13,14 @@ function UserStore() {
   };
 
   function fetchUser(id) {
-    get(`/users/${id}`).then((data) => {
+    restApi.get(`/users/${id}`).then((data) => {
       user = data;
       triggerListeners();
     });
   }
 
   function editUser(user, id) {
-    put(`/users/${id}`, user).then((data) => {
+    restApi.put(`/users/${id}`, user).then((data) => {
       user = data;
       localStorage.username = data.username;
       profileUpdateMsg = 'Profile Updated Successfully';
