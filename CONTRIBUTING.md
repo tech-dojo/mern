@@ -7,7 +7,7 @@ maintaining MERN in a reasonable amount of time.
 
 ## Creating an Issue
 
-* Before you create a new Issue:
+Before you create a new Issue:
  * Check the [Issues](https://github.com/tech-dojo/mern/issues) on Github to ensure one doesn't already exist.
  * Clearly describe the issue, including the steps to reproduce the issue.
  * If it's a new feature, enhancement, or restructure, Explain your reasoning on why you think it should be added, as well as a particular use case.
@@ -19,7 +19,7 @@ maintaining MERN in a reasonable amount of time.
 	* Also check that your code is formatted properly with spaces.
 * Keep git commit messages clear and appropriate
 	* If possible, please "squash" your commits to as few commits as possible/reasonable such as one commit for implementation, one for tests, and one for documentation before finally squashing to one commit when getting the LGTM from a collaborator.
-  * Follow the commit message guidelines below.
+    * Follow the commit message guidelines below.
 * Make Sure you have added any tests necessary to test your code.
 	* Run __all__ the tests to ensure nothing else was accidently broken.
 	* Don't rely on the existing tests to see if you've broken code elsewhere; test the changes you made in a browser too!
