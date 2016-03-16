@@ -7,10 +7,10 @@ maintaining MERN in a reasonable amount of time.
 
 ## Creating an Issue
 
-### Before you create a new Issue:
-    * Check the [Issues](https://github.com/tech-dojo/mern/issues) on Github to ensure one doesn't already exist.
-    * Clearly describe the issue, including the steps to reproduce the issue.
-    * If it's a new feature, enhancement, or restructure, Explain your reasoning on why you think it should be added, as well as a particular use case.
+## Before you create a new Issue:
+* Check the [Issues](https://github.com/tech-dojo/mern/issues) on Github to ensure one doesn't already exist.
+* Clearly describe the issue, including the steps to reproduce the issue.
+* If it's a new feature, enhancement, or restructure, Explain your reasoning on why you think it should be added, as well as a particular use case.
 
 ## Making Changes
 
@@ -62,7 +62,7 @@ Fixes #82
     * The subject line should be clear and concise as to what is being accomplished in the commit.
 * General Rules:
     * No Line in the Commit message can be longer than 80 characters.
-* Refrence: [Angular Conventions](https://github.com/ajoslin/conventional-changelog/blob/master/conventions/angular.md)
+* Refrence: [Angular Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153)
 
 
 ## Submitting the Pull Request
