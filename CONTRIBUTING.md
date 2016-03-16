@@ -8,15 +8,15 @@ maintaining MERN in a reasonable amount of time.
 ## Creating an Issue
 
 Before you create a new Issue:
- * Check the [Issues](https://github.com/tech-dojo/mern/issues) on Github to ensure one doesn't already exist.
- * Clearly describe the issue, including the steps to reproduce the issue.
- * If it's a new feature, enhancement, or restructure, Explain your reasoning on why you think it should be added, as well as a particular use case.
+    * Check the [Issues](https://github.com/tech-dojo/mern/issues) on Github to ensure one doesn't already exist.
+    * Clearly describe the issue, including the steps to reproduce the issue.
+    * If it's a new feature, enhancement, or restructure, Explain your reasoning on why you think it should be added, as well as a particular use case.
 
 ## Making Changes
 
 * Create a topic branch from the master branch.
 * Check for unnecessary whitespace / changes with `git diff --check` before committing.
-	* Also check that your code is formatted properly with spaces.
+    * Also check that your code is formatted properly with spaces.
 * Keep git commit messages clear and appropriate
 	* If possible, please "squash" your commits to as few commits as possible/reasonable such as one commit for implementation, one for tests, and one for documentation before finally squashing to one commit when getting the LGTM from a collaborator.
     * Follow the commit message guidelines below.
@@ -52,16 +52,16 @@ Fixes #82
 ```
 
 * Types:
-  * feat - Features, Enhancements, and overall Improvements
-  * fix - Fixes, Bugs, HotFixs, etc...
-  * doc - Changes to the Documentation and doesn't actually touch any code.
+    * feat - Features, Enhancements, and overall Improvements
+    * fix - Fixes, Bugs, HotFixs, etc...
+    * doc - Changes to the Documentation and doesn't actually touch any code.
 * Scope:
-  * The scope should be where the change took place.
-  * Examples: users, core, config, articles
+    * The scope should be where the change took place.
+    * Examples: users, core, config, articles
 * Subject:
-  * The subject line should be clear and concise as to what is being accomplished in the commit.
+    * The subject line should be clear and concise as to what is being accomplished in the commit.
 * General Rules:
-  * No Line in the Commit message can be longer than 80 characters.
+    * No Line in the Commit message can be longer than 80 characters.
 * Refrence: [Angular Conventions](https://github.com/ajoslin/conventional-changelog/blob/master/conventions/angular.md)
 
 
