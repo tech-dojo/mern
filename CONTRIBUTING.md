@@ -74,7 +74,7 @@ Fixes #82
 * Small changes are usually accepted and merged in within a week (provided that 2 collaborators give the okay)
 * Larger changes usually spark further discussion and possible changes prior to being merged in.
 
-## Documentation (meanjs.org)
+## Documentation (http://merndoc.tech-dojo.org/)
 
 The code for the documentation and the website are located in the MERN repo in the README.md .
 
