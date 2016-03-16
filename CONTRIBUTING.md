@@ -78,8 +78,4 @@ Fixes #82
 
 The code for the documentation and the website are located in the MERN repo in the README.md .
 
-## Generating a new Release
 
-For those who will be generating releases:
-* Don't forget to update the changelog!
-  * `conventional-changelog -r 1 | cat - CHANGELOG.md | tee CHANGELOG.md`
