@@ -1,5 +1,5 @@
 "use strict";
-let {get, post, del, put} = require("./RestAPI_Helper.js");
+import restApi from "./RestAPI_Helper.js";
 import auth from './../services/Authentication';
 
 function ArticleStore() {
@@ -16,20 +16,20 @@ function ArticleStore() {
     })
   };
   function fetchArticleList() {
-    get("/api/articles").then((data) => {
+    restApi.get("/api/articles").then((data) => {
       articleList = data;
       triggerListeners();
     });
   }
   function fetchArticle(id) {
-    get(`api/articles/${id}`).then((data) => {
+    restApi.get(`api/articles/${id}`).then((data) => {
       article = data;
       triggerListeners();
     });
   };
-   
+
   function addArticle(article, history) {
-    post("/api/articles", article).then((g) => {
+    restApi.post("/api/articles", article).then((g) => {
       article._id = g._id;
       history.pushState(null, '/articles/' + g._id);
     }).catch((err) => {
@@ -42,7 +42,7 @@ function ArticleStore() {
 
   function editArticle(article, id, history) {
 
-    put(`api/articles/${id}`, article).then((data) => {
+    restApi.put(`api/articles/${id}`, article).then((data) => {
       article = data;
       triggerListeners();
       history.pushState(null, '/articles/' + data._id);
@@ -56,7 +56,7 @@ function ArticleStore() {
 
   function deleteArticle(id, history) {
 
-    del(`api/articles/${id}`).then((g) => {
+    restApi.del(`api/articles/${id}`).then((g) => {
       articleDeleted = 'true';
       triggerListeners();
       history.pushState(null, '/articles');
