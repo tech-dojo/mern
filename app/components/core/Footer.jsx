@@ -12,7 +12,7 @@ class Footer extends React.Component {
             <Grid>
                <Row>
                  <Col xs={12} md={6} sm={6} lg={6}>Licensed under MIT &copy; 2016 |
-                    <a href="http://tech-dojo.org" target="_blank">TechDojo</a></Col>
+                    <a href="http://tech-dojo.org" target="_blank"> TechDojo</a></Col>
                  <Col xs={12} md={6} sm={6} lg={6}>
                    <ul className="list-social pull-right">
                      <li>
