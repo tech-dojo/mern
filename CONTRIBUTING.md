@@ -21,7 +21,7 @@ maintaining MERN in a reasonable amount of time.
 	* If possible, please "squash" your commits to as few commits as possible/reasonable such as one commit for implementation, one for tests, and one for documentation before finally squashing to one commit when getting the LGTM from a collaborator.
     * Follow the commit message guidelines below.
 * Make Sure you have added any tests necessary to test your code.
-	* Run __all__ the tests to ensure nothing else was accidently broken.
+	* Run __all__ the tests to ensure nothing else was accidentally broken.
 	* Don't rely on the existing tests to see if you've broken code elsewhere; test the changes you made in a browser too!
 * Update the Documentation to go along with any changes in functionality / improvements in a separate pull request.
 
@@ -53,7 +53,7 @@ Fixes #82
 
 * Types:
     * feat - Features, Enhancements, and overall Improvements
-    * fix - Fixes, Bugs, HotFixs, etc...
+    * fix - Fixes, Bugs, HotFixes, etc...
     * doc - Changes to the Documentation and doesn't actually touch any code.
 * Scope:
     * The scope should be where the change took place.
@@ -76,6 +76,4 @@ Fixes #82
 
 ## Documentation (http://merndoc.tech-dojo.org/)
 
-The code for the documentation and the website are located in the MERN repo in the README.md .
-
-
+The code for the documentation and the website are located in the MERN repo in the README.md 
