@@ -94,6 +94,43 @@ babel: {                                         // will pass to babel-core
 }
 }));
 
+// gulp.task('backend_test_cover', gulpJsx.createTask({
+//   src: ['tests/*.js'], // will pass to gulp.src as mocha tests
+//   istanbul: { // will pass to istanbul or isparta
+//     preserveComments: true, // required for istanbul 0.4.0+
+//     coverageVariable: '__MY_TEST_COVERAGE__',
+//     exclude: /node_modules|tests/ // do not instrument these files
+//   },
+//
+//   transpile: {
+//     babel: {
+//       include: /\.jsx?$/,
+//       exclude: /node_modules/,
+//       omitExt: false
+//     }
+//   },
+//
+//   threshold: [ // fail the task when coverage lower than one of this array
+//     {
+//       type: 'lines', // one of 'lines', 'statements', 'functions', 'banches'
+//       min: 50
+//     }
+//   ],
+//   coverage: {
+//     reporters: ['text-summary', 'json', 'lcov'], // list of istanbul reporters
+//     directory: 'coverage' // will pass to istanbul reporters
+//   },
+//
+//   mocha: { // will pass to mocha
+//     reporter: 'spec'
+//   },
+//   // Recommend moving this to .babelrc
+// babel: {                                         // will pass to babel-core
+//     presets: ['es2015', 'react'],                // Use proper presets or plugins for your scripts
+//     sourceMap: 'both'                            // get hints in covarage reports or error stack
+// }
+// }));
+
 gulp.task('test_cover', ['frontend_test_cover'], gulpJsx.createTask({
   src: ['tests/*.js'], // will pass to gulp.src as mocha tests
   istanbul: { // will pass to istanbul or isparta
@@ -131,13 +168,24 @@ babel: {                                         // will pass to babel-core
 }
 }));
 
-gulp.task('test', ['env:test', 'test_cover']);
-
+// gulp.task('test', ['env:test', 'test_cover']);
 
 gulp.task('serve', ['env-set', 'live-server', 'bundle', 'temp', 'observe-all'], function() {
   browserSync.init(null, {
     proxy: 'http://localhost:3000',
     port: 9001,
   });
+});
 
+gulp.task('test', ['env:test','frontend_test_cover'], function() {
+  return gulp.src('./tests/*.js')
+    .pipe(mocha({
+      reporter: 'nyan',
+    }))
+    .once('error', function(err) {
+      process.exit(1);
+    })
+    .once('end', function() {
+      process.exit();
+    });
 });
