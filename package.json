@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
+    "commit": "git-cz",
     "start": "NODE_ENV=production node server/server.js"
   },
   "author": "TechDojo",
@@ -15,6 +16,8 @@
     "babelify": "^7.2.0",
     "browser-sync": "^2.7.2",
     "browserify": "^10.2.1",
+    "commitizen": "^2.7.3",
+    "cz-conventional-changelog": "^1.1.5",
     "expect": "^1.14.0",
     "expect-jsx": "^2.3.0",
     "gulp": "^3.8.11",
@@ -74,5 +77,8 @@
       "react"
     ],
     "sourceMap": "both"
+  },
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog"
   }
 }
