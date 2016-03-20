@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=production node server/server.js",
-    "test": "gulp test_cover"
+    "test": "gulp frontend_test_cover"
   },
   "author": "TechDojo",
   "license": "MIT",
@@ -72,7 +72,7 @@
   },
   "config":{
     "ghooks":{
-      "pre-push": "npm run test"
+      "pre-commit": "npm run test"
     }
   },
   "babel": {

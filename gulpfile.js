@@ -113,7 +113,7 @@ gulp.task('test_cover', ['frontend_test_cover'], gulpJsx.createTask({
   threshold: [ // fail the task when coverage lower than one of this array
     {
       type: 'lines', // one of 'lines', 'statements', 'functions', 'banches'
-      min: 90
+      min: 60
     }
   ],
   coverage: {
