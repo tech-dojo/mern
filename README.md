@@ -1,4 +1,4 @@
-# [MERN (a React framework)](http://mern.tech-dojo.org)
+# [MERN (a React framework)](http://mern.tech-dojo.org)  ![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)
 
 ![logo](app/images/mern.gif?raw=true)
 
