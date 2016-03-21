@@ -1,10 +1,12 @@
-# [MERN (a React framework)](http://mern.tech-dojo.org)      ![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)
+# [MERN (a React framework)](http://mern.tech-dojo.org)      
 
 ![logo](app/images/mern.gif?raw=true)
 
 *React Framework for Fullstack JavaScript Web Applications*
 
 #### version 0.0.1
+
+![License MIT](https://go-shields.herokuapp.com/license-MIT-blue.png)
 
 ### Usage Instructions
 
