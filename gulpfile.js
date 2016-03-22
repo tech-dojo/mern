@@ -3,10 +3,12 @@ var LiveServer = require('gulp-live-server');
 var browserSync = require('browser-sync');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
 var reactify = require('reactify');
 var babelify = require('babelify');
 var mocha = require('gulp-mocha');
 var gulpJsx = require('gulp-jsx-coverage');
+var uglify = require('gulp-uglify');
 
 gulp.task('env-set', function() {
   var env = process.argv[3];
@@ -36,6 +38,8 @@ gulp.task('bundle', function() {
     .transform("babelify", {presets: ["es2015", "react"]})
     .bundle()
     .pipe(source('app.js'))
+    .pipe(buffer())
+    .pipe(uglify())
     .pipe(gulp.dest('./.tmp'));
 });
 
