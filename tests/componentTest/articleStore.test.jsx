@@ -36,7 +36,7 @@ jsdom.env("", function(err, window) {
 
     beforeEach(function() {
       sinon.spy(ArticleStore, "fetchArticleList");
-      sinon.spy(restApi, "get");
+      sinon.spy(restApi, "put");
       sinon.stub($, "ajax").returns(fakeDataArray);
     })
 
