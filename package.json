@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "commit": "git-cz",
-    "start": "NODE_ENV=production node server/server.js"
+    "start": "NODE_ENV=production node server/server.js",
+    "test": "gulp test"
   },
   "author": "TechDojo",
   "license": "MIT",
@@ -19,6 +20,7 @@
     "cz-conventional-changelog": "^1.1.5",
     "expect": "^1.14.0",
     "expect-jsx": "^2.3.0",
+    "ghooks": "^1.0.3",
     "gulp": "^3.8.11",
     "gulp-jsx-coverage": "^0.3.8",
     "gulp-live-server": "0.0.14",
@@ -72,6 +74,11 @@
     "reactcss": "^0.4.2",
     "source-map": "^0.5.2",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "config":{
+    "ghooks":{
+      "pre-commit": "npm run test"
+    }
   },
   "babel": {
     "presets": [

@@ -9,6 +9,15 @@ var babelify = require('babelify');
 var mocha = require('gulp-mocha');
 var gulpJsx = require('gulp-jsx-coverage');
 var uglify = require('gulp-uglify');
+var isWatching = false;
+
+gulp.on('stop', function() {
+   if (!isWatching) {
+       process.nextTick(function() {
+           process.exit(0);
+       });
+   }
+});
 
 gulp.task('env-set', function() {
   var env = process.argv[3];
@@ -51,9 +60,8 @@ gulp.task('temp', function() {
     .pipe(gulp.dest('./.tmp/images'));
 });
 
-gulp.task('bundle-n-reload', ['bundle'], browserSync.reload);
-
 gulp.task('observe-all', function() {
+  isWatching = true;
   gulp.watch('app/**/**/*.*', ['bundle-n-reload']);
 
   gulp.watch('app/**/*.*', ['bundle-n-reload']);
@@ -137,11 +145,9 @@ babel: {                                         // will pass to babel-core
 
 gulp.task('test', ['env:test', 'test_cover']);
 
-
 gulp.task('serve', ['env-set', 'live-server', 'bundle', 'temp', 'observe-all'], function() {
   browserSync.init(null, {
     proxy: 'http://localhost:3000',
     port: 9001,
   });
-
 });
