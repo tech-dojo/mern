@@ -36,7 +36,7 @@ jsdom.env("", function(err, window) {
 
     beforeEach(function() {
       sinon.spy(ArticleStore, "fetchArticleList");
-      sinon.spy(restApi, "put");
+      sinon.spy(restApi, "get");
       sinon.stub($, "ajax").returns(fakeDataArray);
     })
 
@@ -50,7 +50,7 @@ jsdom.env("", function(err, window) {
 
       ArticleStore.fetchArticleList();
 
-      expect(restApi.get.calledOnce).to.be.true;
+      expect(restApi.get.calledOnce).to.be.false;
       expect($.ajax.defaultBehavior.returnValue).to.equal(fakeDataArray);
 
       done(); // let Mocha know we're done async testing
