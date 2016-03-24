@@ -16,7 +16,7 @@ maintaining MERN in a reasonable amount of time.
 * Fork the repo
 * Clone your fork
 * Create a topic branch from the master branch.
-* Make changes and try to make the tests pass. If you cant or need help then commit your what you have with --no-verify and make a pull request.
+* Make changes and try to make the tests pass. If you cant or need help then commit what you have with --no-verify and make a pull request.
 * If you get things working, add your changed files with `git add` and run `npm run commit` to get an interactive prompt for creating a commit message that follows [our standards](https://github.com/stevemao/conventional-changelog-angular/blob/master/convention.md).
   You'll notice that there are git hooks in place which will run testing, linting, etc. (unless you commit with `--no-verify`).
 * Check for unnecessary whitespace / changes with `git diff --check` before committing.
