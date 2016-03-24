@@ -13,8 +13,12 @@ maintaining MERN in a reasonable amount of time.
 * If it's a new feature, enhancement, or restructure, Explain your reasoning on why you think it should be added, as well as a particular use case.
 
 ## Making Changes
-
+* Fork the repo
+* Clone your fork
 * Create a topic branch from the master branch.
+* Make changes and try to make the tests pass. If you cant or need help then commit your what you have with --no-verify and make a pull request.
+* If you get things working, add your changed files with `git add` and run `npm run commit` to get an interactive prompt for creating a commit message that follows [our standards](https://github.com/stevemao/conventional-changelog-angular/blob/master/convention.md).
+  You'll notice that there are git hooks in place which will run testing, linting, etc. (unless you commit with `--no-verify`).
 * Check for unnecessary whitespace / changes with `git diff --check` before committing.
     * Also check that your code is formatted properly with spaces.
 * Keep git commit messages clear and appropriate
@@ -22,7 +26,11 @@ maintaining MERN in a reasonable amount of time.
     * Follow the commit message guidelines below.
 * Make Sure you have added any tests necessary to test your code.
 	* Run __all__ the tests to ensure nothing else was accidentally broken.
-	* Don't rely on the existing tests to see if you've broken code elsewhere; test the changes you made in a browser too!
+	* Don't rely on the existing tests to see if you've broken code elsewhere; test the changes you made in a browser too!   
+* Push your changes to your fork
+* Create a pull request.
+* Iterate on the solution.
+* Get merged!
 * Update the Documentation to go along with any changes in functionality / improvements in a separate pull request.
 
 ## Commit Message Guidelines
