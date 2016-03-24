@@ -21,9 +21,6 @@ maintaining MERN in a reasonable amount of time.
   You'll notice that there are git hooks in place which will run testing, linting, etc. (unless you commit with `--no-verify`).
 * Check for unnecessary whitespace / changes with `git diff --check` before committing.
     * Also check that your code is formatted properly with spaces.
-* Keep git commit messages clear and appropriate
-	* If possible, please "squash" your commits to as few commits as possible/reasonable such as one commit for implementation, one for tests, and one for documentation before finally squashing to one commit when getting the LGTM from a collaborator.
-    * Follow the commit message guidelines below.
 * Make Sure you have added any tests necessary to test your code.
 	* Run __all__ the tests to ensure nothing else was accidentally broken.
 	* Don't rely on the existing tests to see if you've broken code elsewhere; test the changes you made in a browser too!   
