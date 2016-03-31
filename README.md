@@ -16,21 +16,15 @@
 
 3. Run `mongodb` in the background
 
-4. Install global dependencies with `npm install -g gulp react-tools browserify`
+4. Install global dependencies with `npm install -g gulp react-tools browserify yo`
 
 5. Install dependencies with `npm install`
 
 6. Run app with `gulp serve`
 
-7. Run tests with `gulp test` 
+7. Run tests with `gulp test`
 
 ### Add new CRUD module with [generator-yomern](https://www.npmjs.com/package/generator-yomern)
-
-Install once:
-```
-$ npm install -g yo
-$ npm install generator-yomern
-```
 
 To create module, run following command in project folder and follow instructions:
 ```

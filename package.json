@@ -33,7 +33,8 @@
     "react-addons-test-utils": "^0.14.7",
     "should": "^7.1.1",
     "sinon": "^1.17.3",
-    "supertest": "^1.1.0"
+    "supertest": "^1.1.0",
+    "generator-yomern": "^0.0.5"
   },
   "dependencies": {
     "babelify": "^7.2.0",
