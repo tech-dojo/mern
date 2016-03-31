@@ -2,7 +2,6 @@ import React from 'react';
 import {renderToString} from 'react-dom/server';
 import {match, RoutingContext} from 'react-router';
 import createLocation from 'history/lib/createLocation';
-var Article = require('./../models/Article.js');
 
 module.exports = function(app) {
 
