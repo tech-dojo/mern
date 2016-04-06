@@ -17,7 +17,7 @@ class Header extends React.Component {
     this.navClick = this.navClick.bind(this);
     this.collapse = this.collapse.bind(this);
     this.updateAuth = this.updateAuth.bind(this);
-    //this.setUserName = this.setUserName.bind(this);
+    this.router = context.router;
   }
 
   navClick() {
@@ -35,7 +35,8 @@ class Header extends React.Component {
     console.log(loggedIn);
     console.log(path);
     if (loggedIn && path == 'signin') {
-      this.props.history.pushState(null, '/');
+
+      this.router.push('/');
     }
   }
 
@@ -119,5 +120,9 @@ class Header extends React.Component {
     );
   }
 }
+
+Header.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 
 export default Header;

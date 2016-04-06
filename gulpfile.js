@@ -52,6 +52,8 @@ gulp.task('bundle', function() {
     .pipe(gulp.dest('./.tmp'));
 });
 
+gulp.task('bundle-n-reload',['bundle'],browserSync.reload);
+
 gulp.task('temp', function() {
   gulp.src(['app/index.html', 'app/*.css'])
     .pipe(gulp.dest('./.tmp'));

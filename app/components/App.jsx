@@ -1,7 +1,5 @@
 import React from 'react';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
-import createMemoryHistory from 'history/lib/createMemoryHistory';
-import {Router, Route, IndexRoute} from 'react-router';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import Template from './core/Template.jsx';
 import Home from './core/Home.jsx';
 import CreateArticle from './articles/CreateArticle.jsx';
@@ -14,13 +12,6 @@ import Signin from './users/Signin.jsx';
 import SignOut from './users/SignOut.jsx';
 import EditUserProfile from './users/EditUserProfile.jsx';
 
-var history;
-if (typeof (window) !== 'undefined') {
-  history = createBrowserHistory();
-} else {
-
-}
-
 function requireAuth(nextState, replaceState) {
   if (!auth.loggedIn())
     replaceState({ nextPathname: nextState.location.pathname }, '/signin');
@@ -29,10 +20,9 @@ function requireAuth(nextState, replaceState) {
 export default(props) => {
   return (
 
-    <Router history={history}>
+  <Router history={browserHistory} >
       <Route path="/" component={Template}>
         <IndexRoute component={Home}/>
-
         <Route path="/articles/create" component={CreateArticle} onEnter={requireAuth}/>
         <Route path="/articles" component={ListArticles}/>
         <Route path="/articles/:id" component={ViewArticle}/>
