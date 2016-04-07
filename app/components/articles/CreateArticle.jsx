@@ -4,9 +4,9 @@ import {Grid, Row, Col} from 'react-bootstrap';
 import Form from './Form.jsx';
 
 class CreateArticle extends React.Component {
-  constructor(props) {
-    super(props);
-    this.history = props.history;
+  constructor(props,context) {
+    super(props, context);
+    this.router = context.router;
     this.state = {};
     this.state.Article = {};
     this.handleInputTitle = this.handleInputTitle.bind(this);
@@ -23,7 +23,7 @@ class CreateArticle extends React.Component {
   }
 
   _formSubmit(value) {
-    ArticleStore.addArticle(value, this.history);
+    ArticleStore.addArticle(value, this.router);
   }
 
   render() {
@@ -45,5 +45,9 @@ class CreateArticle extends React.Component {
     );
   }
 }
+
+CreateArticle.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 
 export default CreateArticle;

@@ -10,8 +10,8 @@ function getArticleList() {
 }
 
 class ArticleList extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.props = props;
     ArticleStore.fetchArticleList();
     this.state = {};

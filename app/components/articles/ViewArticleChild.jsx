@@ -8,8 +8,8 @@ import {
 import {LinkContainer} from 'react-router-bootstrap';
 
 class ViewArticleChild extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.props = props;
     this.deleteArticle = this.deleteArticle.bind(this);
   }
@@ -32,7 +32,7 @@ class ViewArticleChild extends React.Component {
           </Col>
           <Col md={4} lg={4} sm={4} xs={4}>
             {this.props.userId == article.user._id && <div className="pull-right">
-              <LinkContainer className="editBtnCSS" to={`/articles/edit/${article._id}`}>
+              <LinkContainer className="editBtnCSS" to={{pathname: `/articles/edit/${article._id}`}}>
                 <Button bsStyle="primary">Edit</Button>
               </LinkContainer>
               <Button onClick={this.deleteArticle} bsStyle="danger">Delete</Button>

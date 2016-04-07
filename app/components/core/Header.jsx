@@ -35,7 +35,6 @@ class Header extends React.Component {
     console.log(loggedIn);
     console.log(path);
     if (loggedIn && path == 'signin') {
-
       this.router.push('/');
     }
   }

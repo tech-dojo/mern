@@ -4,8 +4,8 @@ import {Jumbotron, Grid, Row, Col, Button, Well} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 
 class Home extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {};
   }
 
@@ -33,10 +33,10 @@ class Home extends React.Component {
               <h4>version 0.0.1</h4>
               <br/>
               <p>
-                <LinkContainer className="callToAction" to="http://merndoc.tech-dojo.org/doc.html"
+                <LinkContainer className="callToAction" to={{pathname : "http://merndoc.tech-dojo.org/doc.html"}}
                    target="_blank"><Button bsSize="large" bsStyle="primary">Documentation</Button>
                    </LinkContainer>
-                <LinkContainer className="callToAction" to="https://github.com/tech-dojo/mern"
+                <LinkContainer className="callToAction" to={{pathname :"https://github.com/tech-dojo/mern"}}
                    target="_blank"><Button bsSize="large" bsStyle="success">View on GitHub</Button>
                    </LinkContainer></p>
               <br/>

@@ -4,7 +4,6 @@ import {Grid, Row, Col, Button, Input, ButtonInput} from 'react-bootstrap';
 class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.history = props.history;
     this.handleInputTitle = this.handleInputTitle.bind(this);
     this.handleInputContent = this.handleInputContent.bind(this);
     this._formSubmit = this._formSubmit.bind(this);

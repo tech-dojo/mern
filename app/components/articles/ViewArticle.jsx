@@ -25,6 +25,7 @@ class ViewArticle extends React.Component {
     this.state.userId = auth.getUserId();
     this._onChange = this._onChange.bind(this);
     this.deleteArticle = this.deleteArticle.bind(this);
+    this.router = context.router;
   }
 
   componentWillMount() {
@@ -40,7 +41,7 @@ class ViewArticle extends React.Component {
   }
 
   deleteArticle(articleId) {
-    ArticleStore.deleteArticle(articleId, this.props.history);
+    ArticleStore.deleteArticle(articleId, this.router);
   }
 
   render() {
@@ -50,5 +51,9 @@ class ViewArticle extends React.Component {
     );
   }
 }
+
+ViewArticle.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 
 export default ViewArticle;

@@ -9,7 +9,7 @@ module.exports = {
     post('/auth/signup', userInfo)
       .then((data) => {
 
-        this.login(data.email, userInfo.password, this.history, (loggedIn) => {
+        this.login(data.email, userInfo.password, (loggedIn) => {
           if (!loggedIn)
           cb();
         });

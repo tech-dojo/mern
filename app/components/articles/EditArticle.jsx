@@ -8,27 +8,40 @@ function getArticle() {
 }
 
 class EditArticle extends React.Component {
-    constructor(props) {
-    super(props);
+    constructor(props,context) {
+    super(props,context);
     this.state = {};
-    this.history = props.history;
+    this.router = context.router;
     ArticleStore.fetchArticle(props.params.id);
     this.state = getArticle();
     this.handleInputTitle = this.handleInputTitle.bind(this);
     this.handleInputContent = this.handleInputContent.bind(this);
     this._formSubmit = this._formSubmit.bind(this);
+    this._onChange = this._onChange.bind(this);
   }
 
+  componentWillMount() {
+     ArticleStore.onChange(this._onChange);
+
+   }
+   componentWillUnmount() {
+     ArticleStore.removeChangeListener( this._onChange );
+
+   }
+   _onChange() {
+     this.setState( getArticle());
+   }
+
   handleInputTitle(article) {
-    this.setState({ Article: article });
+    this.setState({ EditArticle: article });
   }
 
   handleInputContent(article) {
-    this.setState({ Article: article });
+    this.setState({ EditArticle: article });
   }
 
   _formSubmit(value) {
-    ArticleStore.editArticle(value, value._id, this.history);
+    ArticleStore.editArticle(value, value._id, this.router);
   }
 
   render() {
@@ -49,5 +62,9 @@ class EditArticle extends React.Component {
     );
   }
 }
+
+EditArticle.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 
 export default EditArticle;

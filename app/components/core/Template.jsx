@@ -3,14 +3,14 @@ import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 
 class Template extends React.Component {
-    constructor(props, context) {
-      super(props, context);
+    constructor(props) {
+      super(props);
     }
 
 	render() {
   return (
             <div className="page-bottom mainBody">
-          <Header history = {this.props.history}/>
+          <Header/>
           { this.props.children }
           <Footer />
         </div>

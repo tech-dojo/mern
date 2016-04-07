@@ -28,42 +28,41 @@ function ArticleStore() {
     });
   };
 
-  function addArticle(article, history) {
+  function addArticle(article, router) {
     restApi.post("/api/articles", article).then((g) => {
       article._id = g._id;
-      history.pushState(null, '/articles/' + g._id);
+      router.push('/articles/' + g._id);
     }).catch((err) => {
       if (err.status == 401) {
         error = err.message;
-        authCheck(history);
+        authCheck(router);
       }
     })
   }
 
-  function editArticle(article, id, history) {
-
+  function editArticle(article, id, router) {
     restApi.put(`api/articles/${id}`, article).then((data) => {
       article = data;
       triggerListeners();
-      history.pushState(null, '/articles/' + data._id);
+      router.push('/articles/' + data._id);
     }).catch((err) => {
       if (err.status == 401) {
         error = err.message;
-        authCheck(history);
+        authCheck(router);
       }
     })
   }
 
-  function deleteArticle(id, history) {
+  function deleteArticle(id, router) {
 
     restApi.del(`api/articles/${id}`).then((g) => {
       articleDeleted = 'true';
       triggerListeners();
-      history.pushState(null, '/articles');
+      router.push('/articles');
     }).catch((err) => {
       if (err.status == 401) {
         error = err.message;
-        authCheck(history);
+        authCheck(router);
       }
     })
   }
@@ -89,9 +88,9 @@ function ArticleStore() {
     var index = changeListeners.findIndex(i => i === listener);
     changeListeners.splice(index, 1);
   }
-  function authCheck(history) {
+  function authCheck(router) {
     auth.logout();
-    history.pushState(null, '/signin', {session: false});
+  router.push('/signin');
   }
 
   function getError() {

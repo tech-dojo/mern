@@ -24,7 +24,7 @@ class Signin extends React.Component {
     this.state.error = '';
     this.state.email = '';
     this.state.password = '';
-    this.history = props.history;
+    this.router = context.router;
     this.showSessionMsg = props.location.query ?
     props.location.query.session : true;
     this._handlePasswordChange = this._handlePasswordChange.bind(this);
@@ -63,7 +63,7 @@ class Signin extends React.Component {
 
   _formSubmit(emailChild, passwordChild) {
       this.setState({ error: 'Signing in ...' });
-      auth.login(emailChild, passwordChild, this.history, (loggedIn) => {
+      auth.login(emailChild, passwordChild, this.router, (loggedIn) => {
         if (!loggedIn)
           return this.setState({ error: 'Login Failed' });
       });
@@ -82,5 +82,9 @@ class Signin extends React.Component {
     );
   }
 }
+
+Signin.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 
 export default Signin;

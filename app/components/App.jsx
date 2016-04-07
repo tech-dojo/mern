@@ -12,9 +12,9 @@ import Signin from './users/Signin.jsx';
 import SignOut from './users/SignOut.jsx';
 import EditUserProfile from './users/EditUserProfile.jsx';
 
-function requireAuth(nextState, replaceState) {
+function requireAuth(nextState, replace) {
   if (!auth.loggedIn())
-    replaceState({ nextPathname: nextState.location.pathname }, '/signin');
+    replace({ nextPathname: nextState.location.pathname }, '/signin');
 }
 
 export default(props) => {

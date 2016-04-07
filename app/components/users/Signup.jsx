@@ -12,7 +12,6 @@ class Signup extends React.Component {
     this.state = {};
     this.state.userInfo = {};
     this.state.error = '';
-    this.history = props.history;
     this.handleInputFirstName = this.handleInputFirstName.bind(this);
     this.handleInputLastName = this.handleInputLastName.bind(this);
     this.handleInputEmail = this.handleInputEmail.bind(this);

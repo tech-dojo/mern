@@ -1,6 +1,6 @@
 import React from 'react';
 import {renderToString} from 'react-dom/server';
-import {match, RoutingContext} from 'react-router';
+import {match, RouterContext} from 'react-router';
 import createLocation from 'history/lib/createLocation';
 
 module.exports = function(app) {
@@ -56,7 +56,7 @@ module.exports = function(app) {
         res.redirect(302, redirectLocation.pathname + redirectLocation.search)
       } else if (renderProps) {
         // renderWithData(req,res, renderProps);
-        var generated = renderToString(< RoutingContext {
+        var generated = renderToString(< RouterContext {
           ...renderProps
         } />);
         res.render('./../app/index.ejs', {reactOutput: generated});

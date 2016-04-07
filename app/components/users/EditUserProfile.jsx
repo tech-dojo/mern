@@ -29,7 +29,6 @@ class EditUserProfile extends React.Component {
     this.state.EditUserInfo.password = '';
     this.state.profileUpdateMsg = '';
     this.state = getUser();
-    this.history = props.history;
     this.handleInputEditFirstName = this.handleInputEditFirstName.bind(this);
     this.handleInputEditLastName = this.handleInputEditLastName.bind(this);
     this.handleInputEditEmail = this.handleInputEditEmail.bind(this);
