@@ -30,6 +30,8 @@ To create module, run following command in project folder and follow instruction
 ```
 $ yo yomern
 ```
+To connect the module to the app:
+Add the front-end routes for the module in app.jsx, add the backend-routes in routeHelper.js, require the backend-route file in the express.js file and require the model in server.js file
 
 ### Documentation
 [View documentation](http://merndoc.tech-dojo.org)
