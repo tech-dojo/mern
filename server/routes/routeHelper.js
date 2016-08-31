@@ -25,6 +25,18 @@ module.exports = function(app) {
         path: '/articles/edit/:id',
         component: require('./../../app/components/articles/EditArticle')
       }, {
+        path: '/kewlTexts/create',
+        component: require('./../../app/components/kewlTexts/CreateKewlText')
+      }, {
+        path: '/kewlTexts',
+        component: require('./../../app/components/kewlTexts/ListKewlTexts')
+      }, {
+        path: '/kewlTexts/:id',
+        component: require('./../../app/components/kewlTexts/ViewKewlText')
+      }, {
+        path: '/kewlTexts/edit/:id',
+        component: require('./../../app/components/kewlTexts/EditKewlText')
+      }, {
         path: '/signup',
         component: require('./../../app/components/users/Signup')
       }, {

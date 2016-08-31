@@ -11,6 +11,7 @@ var db = mongoose.connect(uri,function(){
 
 require('./models/Article.js');
 require('./models/User.js');
+require('./models/KewlText.js');
 var app = require('./express.js')(db);
 
 // Bootstrap passport config

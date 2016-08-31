@@ -37,11 +37,11 @@ app.use(cors())
 	}));
 
 app.use(passport.initialize());
-	app.use(passport.session());
-
+app.use(passport.session());
+app.use('/fonts', express.static(__dirname+'/../app/assets/fonts' ));
 require('./routes/users.server.routes.js')(app);
 require('./routes/article.server.routes.js')(app);
-
+require('./routes/kewlText.server.routes.js')(app);
 //require('./routes/order.server.routes.js')(app);
 app.use(function(req, res, next) {
     if(req.url.match(/.+\/static/)){

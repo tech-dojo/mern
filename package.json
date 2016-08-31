@@ -74,7 +74,8 @@
     "react-tools": "^0.13.3",
     "reactcss": "^0.4.2",
     "source-map": "^0.5.2",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "figlet" : "*"
   },
   "config":{
     "ghooks":{
