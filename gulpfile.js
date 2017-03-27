@@ -41,11 +41,17 @@ gulp.task('live-server', function() {
 
 gulp.task('bundle', function() {
   return browserify({
-      entries: 'app/main.jsx',
-      debug: true,
-    })
+    entries: 'app/main.jsx',
+    debug: true,
+  })
     .transform("babelify", {presets: ["es2015", "react"]})
     .bundle()
+    .on('error', function(err) {
+      console.error(err.message);
+      console.error(err.codeFrame);
+      // end this stream
+      this.emit('end');
+    })
     .pipe(source('app.js'))
     .pipe(buffer())
     // .pipe(uglify())
